@@ -881,7 +881,7 @@ export default function Home() {
     <div className="footer-bottom">
       <div className="footer-bottom-inner">
         <p>© 2026 PT. Selaras Mitra Utama. Semua Hak Dilindungi.</p>
-        <p>Website demo by <strong>Kalz Studio</strong></p>
+        {/* <p>Website demo by <strong>Kalz Studio</strong></p> */}
       </div>
     </div>
   </footer>
