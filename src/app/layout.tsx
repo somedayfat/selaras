@@ -28,9 +28,7 @@ export default function RootLayout({
       lang="id"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col items-center justify-center bg-gray-100">
-        <h1 className="text-2xl font-bold text-gray-700">Website is Under Maintenance</h1>
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
