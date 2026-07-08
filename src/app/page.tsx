@@ -113,7 +113,7 @@ export default function Home() {
 
   
   <div className="announcement-banner">
-    Pengiriman ke seluruh Indonesia &nbsp;·&nbsp; <span>SNI Certified Products</span> &nbsp;·&nbsp; Respons cepat hari kerja &nbsp;·&nbsp; <span>KBLI 46900 · 46699</span>
+    Pengiriman ke seluruh Indonesia &nbsp;·&nbsp; <span>SNI Certified Products</span> &nbsp;·&nbsp; Respons cepat hari kerja
   </div>
 
   
@@ -228,10 +228,10 @@ export default function Home() {
         <div className="stat-number" data-target="5" data-suffix="+">0</div>
         <div className="stat-label">Tahun Pengalaman</div>
       </div>
-      <div className="stat-item fade-up delay-3">
+      {/* <div className="stat-item fade-up delay-3">
         <div className="stat-number" data-target="2">0</div>
         <div className="stat-label">KBLI Terdaftar</div>
-      </div>
+      </div> */}
     </div>
   </div>
 
@@ -629,7 +629,7 @@ export default function Home() {
           <p>Kami hadir memberikan solusi satu pintu (<em>one-stop solution</em>) untuk berbagai sektor industri strategis — manufaktur, konstruksi, EPC, energi, hingga logistik.</p>
           <div className="about-keys">
             <div className="about-key"><span className="about-key-dot"></span> Graha MIR Lt. 6, Rawamangun, Jakarta Timur</div>
-            <div className="about-key"><span className="about-key-dot"></span> KBLI: 46900 · 46699</div>
+            {/* <div className="about-key"><span className="about-key-dot"></span> KBLI: 46900 · 46699</div> */}
             <div className="about-key"><span className="about-key-dot"></span> Pengiriman Seluruh Indonesia</div>
             <div className="about-key"><span className="about-key-dot"></span> Respons Cepat & Profesional</div>
           </div>
@@ -880,7 +880,7 @@ export default function Home() {
     </div>
     <div className="footer-bottom">
       <div className="footer-bottom-inner">
-        <p>© 2026 PT. Selaras Mitra Utama. Semua Hak Dilindungi. KBLI: 46900 · 46699</p>
+        <p>© 2026 PT. Selaras Mitra Utama. Semua Hak Dilindungi.</p>
         <p>Website demo by <strong>Kalz Studio</strong></p>
       </div>
     </div>
