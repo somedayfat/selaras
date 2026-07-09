@@ -1,0 +1,4703 @@
+export type Product = {
+  id: string;
+  name: string;
+  slug: string;
+  brand: string;
+  category: string;
+  image: string;
+  description: string;
+  specs: string[];
+  isPopular?: boolean;
+  isNew?: boolean;
+  rating?: number;
+};
+
+export const PRODUCTS: Product[] = [
+  {
+    "id": "f1",
+    "name": "Gosave Safety Shoes Beta (Slip-On)",
+    "slug": "gosave-safety-shoes-beta-slip-on",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "img/p3_img1.jpeg",
+    "description": "Sepatu safety model slip-on (tanpa tali) premium dari Gosave. Dirancang untuk kepraktisan, kenyamanan maksimal, dan dilengkapi dengan pelindung ujung jari baja (steel toe cap) standar keselamatan industri.",
+    "specs": [
+      "Bahan: Kulit Sintetis Premium & Mesh Lining",
+      "Pelindung Jari: Steel Toe Cap (Daya tahan beban hingga 200 Joule)",
+      "Sol: Polyurethane (PU) Dual Density anti-slip",
+      "Model: Slip-On praktis & ergonomis",
+      "Sertifikasi: SNI resmi"
+    ],
+    "isPopular": true,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f2",
+    "name": "Safety Shoes Alpha Gosave (Lace-Up)",
+    "slug": "safety-shoes-alpha-gosave-lace-up",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "img/p3_img0.jpeg",
+    "description": "Sepatu keselamatan kerja bertali (lace-up) Gosave Alpha. Terbuat dari kulit asli berkualitas tinggi dengan ketahanan gesek dan tusukan, serta sol khusus anti minyak (oil-resistant).",
+    "specs": [
+      "Bahan: Kulit Kerbau Asli (Genuine Leather)",
+      "Pelindung Jari: Steel Toe Cap (Daya tahan beban hingga 200 Joule)",
+      "Sol: PU Single Density, Tahan Minyak & Cairan Asam Ringan",
+      "Model: Lace-Up (Bertali) kokoh",
+      "Ukuran Tersedia: EU 38 - 44",
+      "Sertifikasi: SNI"
+    ],
+    "isPopular": true,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f3",
+    "name": "Sepatu Safety Simon TS 3017 R Slip-On",
+    "slug": "sepatu-safety-simon-ts-3017-r-slip-on",
+    "brand": "SIMON",
+    "category": "a",
+    "image": "img/p3_img2.jpeg",
+    "description": "Sepatu safety premium impor asli Jepang merk Simon seri TS 3017 R. Desain slip-on modern yang menggabungkan kenyamanan ekstrem ala Jepang dengan perlindungan tinggi standar industri global.",
+    "specs": [
+      "Brand: Simon (Jepang)",
+      "Tipe: TS 3017 R (Slip-On)",
+      "Bahan: Full Grain Leather Premium",
+      "Pelindung Jari: Composite Toe Cap ringan namun sangat kokoh",
+      "Sol: Dual Density PU/Rubber (Tahan gesekan & panas)",
+      "Sertifikasi: JIS (Japanese Industrial Standards)"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "f4",
+    "name": "Sepatu Safety Simon TS3011R Lace-Up",
+    "slug": "sepatu-safety-simon-ts3011r-lace-up",
+    "brand": "SIMON",
+    "category": "a",
+    "image": "img/p3_img3.png",
+    "description": "Sepatu safety Simon seri TS3011R bertali. Standar pabrik Jepang terkemuka dengan ketahanan luar biasa terhadap gesekan, benturan, serta sol anti statis untuk lingkungan kelistrikan.",
+    "specs": [
+      "Brand: Simon (Jepang)",
+      "Tipe: TS3011R (Lace-Up)",
+      "Bahan: Kulit Asli Premium",
+      "Sol: Anti-Static Sole & Shock Absorber Tumit",
+      "Pelindung Jari: Composite Toe Cap",
+      "Sertifikasi: JIS & SNI certified"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f5",
+    "name": "Kacamata Safety Fashion Basic Smoke Gosave",
+    "slug": "kacamata-safety-fashion-basic-smoke-gosave",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "img/p4_img0.jpeg",
+    "description": "Kacamata pelindung mata (safety goggles) dengan lensa gelap/smoke anti UV dan desain modis. Melindungi mata dari debu, serpihan material, dan sinar matahari langsung selama bekerja di lapangan.",
+    "specs": [
+      "Lensa: Polycarbonate Anti Gores & Anti-UV",
+      "Warna Lensa: Smoke (Gelap/Abu-abu)",
+      "Gagang: Ergonomis lentur & nyaman dipakai lama",
+      "Sertifikasi: ANSI Z87.1"
+    ],
+    "isPopular": true,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f6",
+    "name": "Masker Respirator Double NP306 Harmit",
+    "slug": "masker-respirator-double-np306-harmit",
+    "brand": "HARMIT",
+    "category": "a",
+    "image": "img/p4_img4.jpeg",
+    "description": "Masker respirator tipe double filter NP306 dari Harmit. Memberikan filtrasi ganda yang efektif terhadap gas kimia ringan, uap organik, cat semprot, dan debu pekat.",
+    "specs": [
+      "Tipe: NP306 (Double Filter)",
+      "Bahan Masker: Karet silikon lembut (tahan bocor & nyaman)",
+      "Filter: Dilengkapi 2 catridge filter karbon aktif",
+      "Peruntukan: Pengecatan semprot, pengelasan, dan laboratorium kimia"
+    ],
+    "isPopular": true,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f7",
+    "name": "Rompi 4 Line Basic Polyester Reflective Gosave",
+    "slug": "rompi-4-line-basic-polyester-reflective-gosave",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "img/p5_img0.jpeg",
+    "description": "Rompi keselamatan kerja dengan 4 pita reflektor (glow-in-the-dark) berbahan polyester berkualitas tinggi dari Gosave. Memberikan visibilitas tinggi untuk keselamatan kerja di jalan raya atau proyek konstruksi malam hari.",
+    "specs": [
+      "Bahan: Polyester Mesh bernapas (tidak panas)",
+      "Reflektor: 4 Pita Reflektif Hijau/Kuning neon (visibilitas tinggi)",
+      "Warna Rompi: Orange / Hijau Stabilo",
+      "Ukuran: All Size standar proyek"
+    ],
+    "isPopular": true,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f8",
+    "name": "Helm Safety Proyek MSA Lokal Fastrack",
+    "slug": "helm-safety-proyek-msa-lokal-fastrack",
+    "brand": "MSA",
+    "category": "a",
+    "image": "img/p6_img0.jpeg",
+    "description": "Helm pelindung kepala proyek standar MSA Lokal dengan suspensi Fastrack (putar) yang memudahkan pengaturan ukuran. Melindungi kepala dari benturan benda jatuh di area kerja konstruksi.",
+    "specs": [
+      "Suspensi: Fastrack (putar untuk mengunci ukuran)",
+      "Bahan Shell: HDPE Kepadatan Tinggi (kokoh & anti pecah)",
+      "Warna Tersedia: Putih, Kuning, Merah, Biru, Hijau, Orange",
+      "Sertifikasi: SNI"
+    ],
+    "isPopular": true,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f9",
+    "name": "Cutting Tools & Abrasives — Multi Brand",
+    "slug": "cutting-tools-abrasives-multi-brand",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "img/p8_img1.png",
+    "description": "Rangkaian alat pemotong industri dan abrasif berkualitas tinggi (mata gerinda, pisau cutting, amplas rol, mata bor besi) dari berbagai brand distributor terpercaya.",
+    "specs": [
+      "Jenis: Batu Gerinda Potong, Batu Gerinda Asah, Flap Disc, Mata Bor HSS",
+      "Ukuran: 4 inch, 7 inch, 14 inch",
+      "Kecepatan Max: Up to 13,000 RPM",
+      "Peruntukan: Pemotongan baja, stainless steel, dan logam industri"
+    ],
+    "isPopular": true,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f10",
+    "name": "Rexco Multi Purpose Lubricant Pelumas Serbaguna",
+    "slug": "rexco-multi-purpose-lubricant-pelumas-serbaguna",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "img/rexco.jpg",
+    "description": "Cairan pelumas serbaguna Rexco (seperti Rexco 50 / Rexco 25) untuk melindungi logam dari karat, melonggarkan baut macet, menghilangkan kelembaban, dan melumasi bagian bergerak.",
+    "specs": [
+      "Fungsi: Anti karat, penetran baut macet, pembersih gemuk/aspal",
+      "Kemasan: Aerosol Can 350ml / 500ml",
+      "Aman untuk kelistrikan ringan (non-konduktif)",
+      "Dilengkapi dengan nozzle sedotan presisi"
+    ],
+    "isPopular": true,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-2",
+    "name": "Safety Helmet Premium",
+    "slug": "safety-helmet-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Safety Helmet berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-3",
+    "name": "Safety Vest Premium",
+    "slug": "safety-vest-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Safety Vest berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-4",
+    "name": "Safety Glasses Premium",
+    "slug": "safety-glasses-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Safety Glasses berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-5",
+    "name": "Safety Goggles Premium",
+    "slug": "safety-goggles-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Safety Goggles berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-6",
+    "name": "Face Shield Premium",
+    "slug": "face-shield-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Face Shield berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-7",
+    "name": "Safety Gloves Premium",
+    "slug": "safety-gloves-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Safety Gloves berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-8",
+    "name": "Ear Plug Premium",
+    "slug": "ear-plug-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Ear Plug berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "a-9",
+    "name": "Ear Muff Premium",
+    "slug": "ear-muff-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Ear Muff berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-11",
+    "name": "Disposable Mask Premium",
+    "slug": "disposable-mask-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Disposable Mask berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-12",
+    "name": "Full Body Harness Premium",
+    "slug": "full-body-harness-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Full Body Harness berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-13",
+    "name": "Lanyard Premium",
+    "slug": "lanyard-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Lanyard berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-14",
+    "name": "Coverall Premium",
+    "slug": "coverall-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Coverall berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-15",
+    "name": "Wearpack Premium",
+    "slug": "wearpack-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Wearpack berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "a-16",
+    "name": "Raincoat Premium",
+    "slug": "raincoat-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Raincoat berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-17",
+    "name": "Safety Belt Premium",
+    "slug": "safety-belt-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Safety Belt berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-18",
+    "name": "Welding Apron Premium",
+    "slug": "welding-apron-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Welding Apron berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-19",
+    "name": "Chemical Suit Premium",
+    "slug": "chemical-suit-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Chemical Suit berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "a-20",
+    "name": "Life Jacket Premium",
+    "slug": "life-jacket-a",
+    "brand": "GOSAVE",
+    "category": "a",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Life Jacket berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Personal Protective Equipment (PPE)",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "b-1",
+    "name": "APAR Premium",
+    "slug": "apar-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan APAR berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "b-2",
+    "name": "Fire Hose Premium",
+    "slug": "fire-hose-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Fire Hose berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "b-3",
+    "name": "Hydrant Box Premium",
+    "slug": "hydrant-box-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Hydrant Box berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "b-4",
+    "name": "Hydrant Valve Premium",
+    "slug": "hydrant-valve-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Hydrant Valve berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "b-5",
+    "name": "Hose Reel Premium",
+    "slug": "hose-reel-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Hose Reel berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "b-6",
+    "name": "Fire Alarm System Premium",
+    "slug": "fire-alarm-system-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Fire Alarm System berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "b-7",
+    "name": "Smoke Detector Premium",
+    "slug": "smoke-detector-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Smoke Detector berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "b-8",
+    "name": "Heat Detector Premium",
+    "slug": "heat-detector-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Heat Detector berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "b-9",
+    "name": "Manual Call Point Premium",
+    "slug": "manual-call-point-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Manual Call Point berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "b-10",
+    "name": "Emergency Lamp Premium",
+    "slug": "emergency-lamp-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Emergency Lamp berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "b-11",
+    "name": "Exit Sign Premium",
+    "slug": "exit-sign-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Exit Sign berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "b-12",
+    "name": "Fire Blanket Premium",
+    "slug": "fire-blanket-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Fire Blanket berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "b-13",
+    "name": "SCBA Premium",
+    "slug": "scba-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan SCBA berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "b-14",
+    "name": "Fire Pump Premium",
+    "slug": "fire-pump-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Fire Pump berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "b-15",
+    "name": "Foam System Premium",
+    "slug": "foam-system-b",
+    "brand": "Multi Brand",
+    "category": "b",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Foam System berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Fire Safety Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "c-1",
+    "name": "Hand Tools Premium",
+    "slug": "hand-tools-c",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Hand Tools berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Industrial Tools & Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "c-2",
+    "name": "Power Tools Premium",
+    "slug": "power-tools-c",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Power Tools berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Industrial Tools & Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "c-3",
+    "name": "Air Tools Premium",
+    "slug": "air-tools-c",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Air Tools berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Industrial Tools & Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "c-4",
+    "name": "Measuring Tools Premium",
+    "slug": "measuring-tools-c",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Measuring Tools berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Industrial Tools & Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "c-5",
+    "name": "Torque Wrench Premium",
+    "slug": "torque-wrench-c",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Torque Wrench berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Industrial Tools & Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "c-6",
+    "name": "Welding Machine Premium",
+    "slug": "welding-machine-c",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Welding Machine berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Industrial Tools & Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "c-7",
+    "name": "Cutting Machine Premium",
+    "slug": "cutting-machine-c",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Cutting Machine berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Industrial Tools & Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "c-8",
+    "name": "Compressor Premium",
+    "slug": "compressor-c",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Compressor berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Industrial Tools & Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "c-9",
+    "name": "Generator Set Premium",
+    "slug": "generator-set-c",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Generator Set berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Industrial Tools & Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "c-10",
+    "name": "Pressure Washer Premium",
+    "slug": "pressure-washer-c",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Pressure Washer berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Industrial Tools & Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "c-11",
+    "name": "Industrial Vacuum Cleaner Premium",
+    "slug": "industrial-vacuum-cleaner-c",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Industrial Vacuum Cleaner berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Industrial Tools & Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "c-12",
+    "name": "Work Bench Premium",
+    "slug": "work-bench-c",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Work Bench berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Industrial Tools & Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "c-13",
+    "name": "Tool Cabinet Premium",
+    "slug": "tool-cabinet-c",
+    "brand": "Multi Brand",
+    "category": "c",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Tool Cabinet berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Industrial Tools & Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-1",
+    "name": "Bearing Premium",
+    "slug": "bearing-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Bearing berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "d-2",
+    "name": "Gear Premium",
+    "slug": "gear-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Gear berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-3",
+    "name": "Gearbox Premium",
+    "slug": "gearbox-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Gearbox berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-4",
+    "name": "Chain Premium",
+    "slug": "chain-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Chain berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-5",
+    "name": "Sprocket Premium",
+    "slug": "sprocket-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Sprocket berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-6",
+    "name": "Pulley Premium",
+    "slug": "pulley-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Pulley berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-7",
+    "name": "Belt Premium",
+    "slug": "belt-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Belt berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-8",
+    "name": "Coupling Premium",
+    "slug": "coupling-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Coupling berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "d-9",
+    "name": "Shaft Premium",
+    "slug": "shaft-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Shaft berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-10",
+    "name": "Seal Premium",
+    "slug": "seal-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Seal berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-11",
+    "name": "O-Ring Premium",
+    "slug": "o-ring-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan O-Ring berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-12",
+    "name": "Gasket Premium",
+    "slug": "gasket-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Gasket berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-13",
+    "name": "Spring Premium",
+    "slug": "spring-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Spring berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-14",
+    "name": "Fastener Premium",
+    "slug": "fastener-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Fastener berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-15",
+    "name": "Bolt & Nut Premium",
+    "slug": "bolt-nut-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Bolt & Nut berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "d-16",
+    "name": "Washer Premium",
+    "slug": "washer-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Washer berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-17",
+    "name": "Anchor Bolt Premium",
+    "slug": "anchor-bolt-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Anchor Bolt berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-18",
+    "name": "Clamp Premium",
+    "slug": "clamp-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Clamp berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-19",
+    "name": "Valve Premium",
+    "slug": "valve-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Valve berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "d-20",
+    "name": "Industrial Lubricant Premium",
+    "slug": "industrial-lubricant-d",
+    "brand": "REXCO",
+    "category": "d",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Industrial Lubricant berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Mechanical & Industrial Spare Parts",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-1",
+    "name": "Cable Premium",
+    "slug": "cable-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Cable berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "e-2",
+    "name": "Cable Tray Premium",
+    "slug": "cable-tray-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Cable Tray berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-3",
+    "name": "Cable Ladder Premium",
+    "slug": "cable-ladder-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Cable Ladder berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-4",
+    "name": "Conduit Premium",
+    "slug": "conduit-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Conduit berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-5",
+    "name": "Junction Box Premium",
+    "slug": "junction-box-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Junction Box berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-6",
+    "name": "MCB Premium",
+    "slug": "mcb-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan MCB berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-7",
+    "name": "MCCB Premium",
+    "slug": "mccb-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan MCCB berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-8",
+    "name": "ACB Premium",
+    "slug": "acb-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan ACB berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "e-9",
+    "name": "Contactor Premium",
+    "slug": "contactor-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Contactor berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-10",
+    "name": "Relay Premium",
+    "slug": "relay-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Relay berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-11",
+    "name": "Push Button Premium",
+    "slug": "push-button-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Push Button berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-12",
+    "name": "Panel Box Premium",
+    "slug": "panel-box-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Panel Box berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-13",
+    "name": "Transformer Premium",
+    "slug": "transformer-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Transformer berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-14",
+    "name": "Inverter Premium",
+    "slug": "inverter-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Inverter berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-15",
+    "name": "VFD Premium",
+    "slug": "vfd-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan VFD berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "e-16",
+    "name": "Industrial Plug Premium",
+    "slug": "industrial-plug-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Industrial Plug berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-17",
+    "name": "Socket Outlet Premium",
+    "slug": "socket-outlet-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Socket Outlet berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "e-18",
+    "name": "LED Lighting Premium",
+    "slug": "led-lighting-e",
+    "brand": "Multi Brand",
+    "category": "e",
+    "image": "",
+    "description": "Penyediaan dan pengadaan LED Lighting berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Electrical Supplies",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f-1",
+    "name": "PLC Premium",
+    "slug": "plc-f",
+    "brand": "Multi Brand",
+    "category": "f",
+    "image": "",
+    "description": "Penyediaan dan pengadaan PLC berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Instrumentation & Automation",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "f-2",
+    "name": "HMI Premium",
+    "slug": "hmi-f",
+    "brand": "Multi Brand",
+    "category": "f",
+    "image": "",
+    "description": "Penyediaan dan pengadaan HMI berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Instrumentation & Automation",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f-3",
+    "name": "Sensor Premium",
+    "slug": "sensor-f",
+    "brand": "Multi Brand",
+    "category": "f",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Sensor berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Instrumentation & Automation",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f-4",
+    "name": "Proximity Sensor Premium",
+    "slug": "proximity-sensor-f",
+    "brand": "Multi Brand",
+    "category": "f",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Proximity Sensor berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Instrumentation & Automation",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f-5",
+    "name": "Photoelectric Sensor Premium",
+    "slug": "photoelectric-sensor-f",
+    "brand": "Multi Brand",
+    "category": "f",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Photoelectric Sensor berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Instrumentation & Automation",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f-6",
+    "name": "Encoder Premium",
+    "slug": "encoder-f",
+    "brand": "Multi Brand",
+    "category": "f",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Encoder berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Instrumentation & Automation",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f-7",
+    "name": "Pressure Gauge Premium",
+    "slug": "pressure-gauge-f",
+    "brand": "Multi Brand",
+    "category": "f",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Pressure Gauge berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Instrumentation & Automation",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f-8",
+    "name": "Temperature Controller Premium",
+    "slug": "temperature-controller-f",
+    "brand": "Multi Brand",
+    "category": "f",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Temperature Controller berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Instrumentation & Automation",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "f-9",
+    "name": "Flow Meter Premium",
+    "slug": "flow-meter-f",
+    "brand": "Multi Brand",
+    "category": "f",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Flow Meter berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Instrumentation & Automation",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f-10",
+    "name": "Level Sensor Premium",
+    "slug": "level-sensor-f",
+    "brand": "Multi Brand",
+    "category": "f",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Level Sensor berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Instrumentation & Automation",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f-11",
+    "name": "Digital Meter Premium",
+    "slug": "digital-meter-f",
+    "brand": "Multi Brand",
+    "category": "f",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Digital Meter berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Instrumentation & Automation",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "f-12",
+    "name": "Industrial Controller Premium",
+    "slug": "industrial-controller-f",
+    "brand": "Multi Brand",
+    "category": "f",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Industrial Controller berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Instrumentation & Automation",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "g-1",
+    "name": "Air Cylinder Premium",
+    "slug": "air-cylinder-g",
+    "brand": "Multi Brand",
+    "category": "g",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Air Cylinder berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pneumatic & Hydraulic",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "g-2",
+    "name": "Solenoid Valve Premium",
+    "slug": "solenoid-valve-g",
+    "brand": "Multi Brand",
+    "category": "g",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Solenoid Valve berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pneumatic & Hydraulic",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "g-3",
+    "name": "FRL Unit Premium",
+    "slug": "frl-unit-g",
+    "brand": "Multi Brand",
+    "category": "g",
+    "image": "",
+    "description": "Penyediaan dan pengadaan FRL Unit berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pneumatic & Hydraulic",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "g-4",
+    "name": "Pneumatic Fitting Premium",
+    "slug": "pneumatic-fitting-g",
+    "brand": "Multi Brand",
+    "category": "g",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Pneumatic Fitting berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pneumatic & Hydraulic",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "g-5",
+    "name": "Pneumatic Hose Premium",
+    "slug": "pneumatic-hose-g",
+    "brand": "Multi Brand",
+    "category": "g",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Pneumatic Hose berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pneumatic & Hydraulic",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "g-6",
+    "name": "Hydraulic Pump Premium",
+    "slug": "hydraulic-pump-g",
+    "brand": "Multi Brand",
+    "category": "g",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Hydraulic Pump berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pneumatic & Hydraulic",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "g-7",
+    "name": "Hydraulic Cylinder Premium",
+    "slug": "hydraulic-cylinder-g",
+    "brand": "Multi Brand",
+    "category": "g",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Hydraulic Cylinder berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pneumatic & Hydraulic",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "g-8",
+    "name": "Hydraulic Hose Premium",
+    "slug": "hydraulic-hose-g",
+    "brand": "Multi Brand",
+    "category": "g",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Hydraulic Hose berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pneumatic & Hydraulic",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "g-9",
+    "name": "Hydraulic Valve Premium",
+    "slug": "hydraulic-valve-g",
+    "brand": "Multi Brand",
+    "category": "g",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Hydraulic Valve berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pneumatic & Hydraulic",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "h-1",
+    "name": "Cement Premium",
+    "slug": "cement-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Cement berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "h-2",
+    "name": "Steel Premium",
+    "slug": "steel-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Steel berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "h-3",
+    "name": "Rebar Premium",
+    "slug": "rebar-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Rebar berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "h-4",
+    "name": "Hollow Premium",
+    "slug": "hollow-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Hollow berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "h-5",
+    "name": "Galvanized Steel Premium",
+    "slug": "galvanized-steel-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Galvanized Steel berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "h-6",
+    "name": "Gypsum Premium",
+    "slug": "gypsum-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Gypsum berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "h-7",
+    "name": "Ceiling Premium",
+    "slug": "ceiling-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Ceiling berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "h-8",
+    "name": "Ceramic Premium",
+    "slug": "ceramic-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Ceramic berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "h-9",
+    "name": "Granite Premium",
+    "slug": "granite-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Granite berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "h-10",
+    "name": "Vinyl Flooring Premium",
+    "slug": "vinyl-flooring-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Vinyl Flooring berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "h-11",
+    "name": "Roofing Premium",
+    "slug": "roofing-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Roofing berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "h-12",
+    "name": "Waterproofing Premium",
+    "slug": "waterproofing-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Waterproofing berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "h-13",
+    "name": "Paint Premium",
+    "slug": "paint-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Paint berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "h-14",
+    "name": "Insulation Material Premium",
+    "slug": "insulation-material-h",
+    "brand": "Multi Brand",
+    "category": "h",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Insulation Material berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Building Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "i-1",
+    "name": "PVC Pipe Premium",
+    "slug": "pvc-pipe-i",
+    "brand": "Multi Brand",
+    "category": "i",
+    "image": "",
+    "description": "Penyediaan dan pengadaan PVC Pipe berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Plumbing & Sanitary",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "i-2",
+    "name": "HDPE Pipe Premium",
+    "slug": "hdpe-pipe-i",
+    "brand": "Multi Brand",
+    "category": "i",
+    "image": "",
+    "description": "Penyediaan dan pengadaan HDPE Pipe berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Plumbing & Sanitary",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "i-3",
+    "name": "PPR Pipe Premium",
+    "slug": "ppr-pipe-i",
+    "brand": "Multi Brand",
+    "category": "i",
+    "image": "",
+    "description": "Penyediaan dan pengadaan PPR Pipe berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Plumbing & Sanitary",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "i-4",
+    "name": "Fittings Premium",
+    "slug": "fittings-i",
+    "brand": "Multi Brand",
+    "category": "i",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Fittings berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Plumbing & Sanitary",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "i-5",
+    "name": "Water Pump Premium",
+    "slug": "water-pump-i",
+    "brand": "Multi Brand",
+    "category": "i",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Water Pump berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Plumbing & Sanitary",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "i-6",
+    "name": "Water Tank Premium",
+    "slug": "water-tank-i",
+    "brand": "Multi Brand",
+    "category": "i",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Water Tank berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Plumbing & Sanitary",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "i-7",
+    "name": "Valve Premium",
+    "slug": "valve-i",
+    "brand": "Multi Brand",
+    "category": "i",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Valve berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Plumbing & Sanitary",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "i-8",
+    "name": "Faucet Premium",
+    "slug": "faucet-i",
+    "brand": "Multi Brand",
+    "category": "i",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Faucet berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Plumbing & Sanitary",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "i-9",
+    "name": "Sanitary Equipment Premium",
+    "slug": "sanitary-equipment-i",
+    "brand": "Multi Brand",
+    "category": "i",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Sanitary Equipment berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Plumbing & Sanitary",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "j-1",
+    "name": "Air Conditioner Premium",
+    "slug": "air-conditioner-j",
+    "brand": "Multi Brand",
+    "category": "j",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Air Conditioner berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: HVAC Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "j-2",
+    "name": "AHU Premium",
+    "slug": "ahu-j",
+    "brand": "Multi Brand",
+    "category": "j",
+    "image": "",
+    "description": "Penyediaan dan pengadaan AHU berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: HVAC Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "j-3",
+    "name": "FCU Premium",
+    "slug": "fcu-j",
+    "brand": "Multi Brand",
+    "category": "j",
+    "image": "",
+    "description": "Penyediaan dan pengadaan FCU berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: HVAC Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "j-4",
+    "name": "Exhaust Fan Premium",
+    "slug": "exhaust-fan-j",
+    "brand": "Multi Brand",
+    "category": "j",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Exhaust Fan berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: HVAC Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "j-5",
+    "name": "Blower Premium",
+    "slug": "blower-j",
+    "brand": "Multi Brand",
+    "category": "j",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Blower berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: HVAC Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "j-6",
+    "name": "Ducting Premium",
+    "slug": "ducting-j",
+    "brand": "Multi Brand",
+    "category": "j",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Ducting berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: HVAC Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "j-7",
+    "name": "Flexible Duct Premium",
+    "slug": "flexible-duct-j",
+    "brand": "Multi Brand",
+    "category": "j",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Flexible Duct berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: HVAC Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "j-8",
+    "name": "Air Filter Premium",
+    "slug": "air-filter-j",
+    "brand": "Multi Brand",
+    "category": "j",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Air Filter berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: HVAC Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "j-9",
+    "name": "Damper Premium",
+    "slug": "damper-j",
+    "brand": "Multi Brand",
+    "category": "j",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Damper berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: HVAC Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "j-10",
+    "name": "Ventilation Accessories Premium",
+    "slug": "ventilation-accessories-j",
+    "brand": "Multi Brand",
+    "category": "j",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Ventilation Accessories berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: HVAC Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "k-1",
+    "name": "Laptop Premium",
+    "slug": "laptop-k",
+    "brand": "Multi Brand",
+    "category": "k",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Laptop berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "k-2",
+    "name": "Desktop PC Premium",
+    "slug": "desktop-pc-k",
+    "brand": "Multi Brand",
+    "category": "k",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Desktop PC berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "k-3",
+    "name": "Workstation Premium",
+    "slug": "workstation-k",
+    "brand": "Multi Brand",
+    "category": "k",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Workstation berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "k-4",
+    "name": "Server Premium",
+    "slug": "server-k",
+    "brand": "Multi Brand",
+    "category": "k",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Server berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "k-5",
+    "name": "Printer Premium",
+    "slug": "printer-k",
+    "brand": "Multi Brand",
+    "category": "k",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Printer berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "k-6",
+    "name": "Scanner Premium",
+    "slug": "scanner-k",
+    "brand": "Multi Brand",
+    "category": "k",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Scanner berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "k-7",
+    "name": "Projector Premium",
+    "slug": "projector-k",
+    "brand": "Multi Brand",
+    "category": "k",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Projector berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "k-8",
+    "name": "Interactive Display Premium",
+    "slug": "interactive-display-k",
+    "brand": "Multi Brand",
+    "category": "k",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Interactive Display berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "k-9",
+    "name": "Monitor Premium",
+    "slug": "monitor-k",
+    "brand": "Multi Brand",
+    "category": "k",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Monitor berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "k-10",
+    "name": "UPS Premium",
+    "slug": "ups-k",
+    "brand": "Multi Brand",
+    "category": "k",
+    "image": "",
+    "description": "Penyediaan dan pengadaan UPS berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "k-11",
+    "name": "Photocopier Premium",
+    "slug": "photocopier-k",
+    "brand": "Multi Brand",
+    "category": "k",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Photocopier berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "k-12",
+    "name": "Attendance Machine Premium",
+    "slug": "attendance-machine-k",
+    "brand": "Multi Brand",
+    "category": "k",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Attendance Machine berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "l-1",
+    "name": "Server Rack Premium",
+    "slug": "server-rack-l",
+    "brand": "Multi Brand",
+    "category": "l",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Server Rack berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: IT & Networking",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "l-2",
+    "name": "Network Cabinet Premium",
+    "slug": "network-cabinet-l",
+    "brand": "Multi Brand",
+    "category": "l",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Network Cabinet berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: IT & Networking",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "l-3",
+    "name": "Router Premium",
+    "slug": "router-l",
+    "brand": "Multi Brand",
+    "category": "l",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Router berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: IT & Networking",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "l-4",
+    "name": "Switch Premium",
+    "slug": "switch-l",
+    "brand": "Multi Brand",
+    "category": "l",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Switch berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: IT & Networking",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "l-5",
+    "name": "Firewall Premium",
+    "slug": "firewall-l",
+    "brand": "Multi Brand",
+    "category": "l",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Firewall berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: IT & Networking",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "l-6",
+    "name": "Wireless Access Point Premium",
+    "slug": "wireless-access-point-l",
+    "brand": "Multi Brand",
+    "category": "l",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Wireless Access Point berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: IT & Networking",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "l-7",
+    "name": "Patch Panel Premium",
+    "slug": "patch-panel-l",
+    "brand": "Multi Brand",
+    "category": "l",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Patch Panel berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: IT & Networking",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "l-8",
+    "name": "LAN Cable Premium",
+    "slug": "lan-cable-l",
+    "brand": "Multi Brand",
+    "category": "l",
+    "image": "",
+    "description": "Penyediaan dan pengadaan LAN Cable berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: IT & Networking",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "l-9",
+    "name": "Fiber Optic Premium",
+    "slug": "fiber-optic-l",
+    "brand": "Multi Brand",
+    "category": "l",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Fiber Optic berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: IT & Networking",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "l-10",
+    "name": "Network Accessories Premium",
+    "slug": "network-accessories-l",
+    "brand": "Multi Brand",
+    "category": "l",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Network Accessories berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: IT & Networking",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "m-1",
+    "name": "CCTV Premium",
+    "slug": "cctv-m",
+    "brand": "Multi Brand",
+    "category": "m",
+    "image": "",
+    "description": "Penyediaan dan pengadaan CCTV berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Security System",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "m-2",
+    "name": "IP Camera Premium",
+    "slug": "ip-camera-m",
+    "brand": "Multi Brand",
+    "category": "m",
+    "image": "",
+    "description": "Penyediaan dan pengadaan IP Camera berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Security System",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "m-3",
+    "name": "DVR Premium",
+    "slug": "dvr-m",
+    "brand": "Multi Brand",
+    "category": "m",
+    "image": "",
+    "description": "Penyediaan dan pengadaan DVR berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Security System",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "m-4",
+    "name": "NVR Premium",
+    "slug": "nvr-m",
+    "brand": "Multi Brand",
+    "category": "m",
+    "image": "",
+    "description": "Penyediaan dan pengadaan NVR berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Security System",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "m-5",
+    "name": "Access Control Premium",
+    "slug": "access-control-m",
+    "brand": "Multi Brand",
+    "category": "m",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Access Control berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Security System",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "m-6",
+    "name": "Door Lock Premium",
+    "slug": "door-lock-m",
+    "brand": "Multi Brand",
+    "category": "m",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Door Lock berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Security System",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "m-7",
+    "name": "Fingerprint System Premium",
+    "slug": "fingerprint-system-m",
+    "brand": "Multi Brand",
+    "category": "m",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Fingerprint System berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Security System",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "m-8",
+    "name": "Face Recognition Premium",
+    "slug": "face-recognition-m",
+    "brand": "Multi Brand",
+    "category": "m",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Face Recognition berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Security System",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "m-9",
+    "name": "Boom Gate Premium",
+    "slug": "boom-gate-m",
+    "brand": "Multi Brand",
+    "category": "m",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Boom Gate berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Security System",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "m-10",
+    "name": "Metal Detector Premium",
+    "slug": "metal-detector-m",
+    "brand": "Multi Brand",
+    "category": "m",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Metal Detector berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Security System",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "n-1",
+    "name": "Office Desk Premium",
+    "slug": "office-desk-n",
+    "brand": "Multi Brand",
+    "category": "n",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Office Desk berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Furniture",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "n-2",
+    "name": "Office Chair Premium",
+    "slug": "office-chair-n",
+    "brand": "Multi Brand",
+    "category": "n",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Office Chair berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Furniture",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "n-3",
+    "name": "Executive Furniture Premium",
+    "slug": "executive-furniture-n",
+    "brand": "Multi Brand",
+    "category": "n",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Executive Furniture berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Furniture",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "n-4",
+    "name": "Meeting Table Premium",
+    "slug": "meeting-table-n",
+    "brand": "Multi Brand",
+    "category": "n",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Meeting Table berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Furniture",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "n-5",
+    "name": "Filing Cabinet Premium",
+    "slug": "filing-cabinet-n",
+    "brand": "Multi Brand",
+    "category": "n",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Filing Cabinet berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Furniture",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "n-6",
+    "name": "Locker Premium",
+    "slug": "locker-n",
+    "brand": "Multi Brand",
+    "category": "n",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Locker berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Furniture",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "n-7",
+    "name": "Mobile Compactor Premium",
+    "slug": "mobile-compactor-n",
+    "brand": "Multi Brand",
+    "category": "n",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Mobile Compactor berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Furniture",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "n-8",
+    "name": "Shelving System Premium",
+    "slug": "shelving-system-n",
+    "brand": "Multi Brand",
+    "category": "n",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Shelving System berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Office Furniture",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "o-1",
+    "name": "Pallet Rack Premium",
+    "slug": "pallet-rack-o",
+    "brand": "Multi Brand",
+    "category": "o",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Pallet Rack berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Warehouse Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "o-2",
+    "name": "Medium Rack Premium",
+    "slug": "medium-rack-o",
+    "brand": "Multi Brand",
+    "category": "o",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Medium Rack berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Warehouse Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "o-3",
+    "name": "Heavy Duty Rack Premium",
+    "slug": "heavy-duty-rack-o",
+    "brand": "Multi Brand",
+    "category": "o",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Heavy Duty Rack berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Warehouse Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "o-4",
+    "name": "Hand Pallet Premium",
+    "slug": "hand-pallet-o",
+    "brand": "Multi Brand",
+    "category": "o",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Hand Pallet berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Warehouse Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "o-5",
+    "name": "Forklift Premium",
+    "slug": "forklift-o",
+    "brand": "Multi Brand",
+    "category": "o",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Forklift berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Warehouse Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "o-6",
+    "name": "Drum Trolley Premium",
+    "slug": "drum-trolley-o",
+    "brand": "Multi Brand",
+    "category": "o",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Drum Trolley berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Warehouse Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "o-7",
+    "name": "Plastic Pallet Premium",
+    "slug": "plastic-pallet-o",
+    "brand": "Multi Brand",
+    "category": "o",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Plastic Pallet berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Warehouse Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "o-8",
+    "name": "Storage Bin Premium",
+    "slug": "storage-bin-o",
+    "brand": "Multi Brand",
+    "category": "o",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Storage Bin berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Warehouse Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "o-9",
+    "name": "Wire Mesh Deck Premium",
+    "slug": "wire-mesh-deck-o",
+    "brand": "Multi Brand",
+    "category": "o",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Wire Mesh Deck berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Warehouse Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "p-1",
+    "name": "Stretch Film Premium",
+    "slug": "stretch-film-p",
+    "brand": "Multi Brand",
+    "category": "p",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Stretch Film berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Packaging Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "p-2",
+    "name": "Bubble Wrap Premium",
+    "slug": "bubble-wrap-p",
+    "brand": "Multi Brand",
+    "category": "p",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Bubble Wrap berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Packaging Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "p-3",
+    "name": "OPP Tape Premium",
+    "slug": "opp-tape-p",
+    "brand": "Multi Brand",
+    "category": "p",
+    "image": "",
+    "description": "Penyediaan dan pengadaan OPP Tape berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Packaging Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "p-4",
+    "name": "Strapping Band Premium",
+    "slug": "strapping-band-p",
+    "brand": "Multi Brand",
+    "category": "p",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Strapping Band berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Packaging Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "p-5",
+    "name": "Carton Box Premium",
+    "slug": "carton-box-p",
+    "brand": "Multi Brand",
+    "category": "p",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Carton Box berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Packaging Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "p-6",
+    "name": "Plastic Bag Premium",
+    "slug": "plastic-bag-p",
+    "brand": "Multi Brand",
+    "category": "p",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Plastic Bag berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Packaging Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "p-7",
+    "name": "Label Sticker Premium",
+    "slug": "label-sticker-p",
+    "brand": "Multi Brand",
+    "category": "p",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Label Sticker berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Packaging Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "p-8",
+    "name": "Packing Foam Premium",
+    "slug": "packing-foam-p",
+    "brand": "Multi Brand",
+    "category": "p",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Packing Foam berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Packaging Materials",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "q-1",
+    "name": "Cleaning Chemical Premium",
+    "slug": "cleaning-chemical-q",
+    "brand": "Multi Brand",
+    "category": "q",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Cleaning Chemical berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Cleaning & Housekeeping",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "q-2",
+    "name": "Floor Cleaner Premium",
+    "slug": "floor-cleaner-q",
+    "brand": "Multi Brand",
+    "category": "q",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Floor Cleaner berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Cleaning & Housekeeping",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "q-3",
+    "name": "Glass Cleaner Premium",
+    "slug": "glass-cleaner-q",
+    "brand": "Multi Brand",
+    "category": "q",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Glass Cleaner berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Cleaning & Housekeeping",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "q-4",
+    "name": "Degreaser Premium",
+    "slug": "degreaser-q",
+    "brand": "Multi Brand",
+    "category": "q",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Degreaser berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Cleaning & Housekeeping",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "q-5",
+    "name": "Tissue Premium",
+    "slug": "tissue-q",
+    "brand": "Multi Brand",
+    "category": "q",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Tissue berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Cleaning & Housekeeping",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "q-6",
+    "name": "Soap Dispenser Premium",
+    "slug": "soap-dispenser-q",
+    "brand": "Multi Brand",
+    "category": "q",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Soap Dispenser berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Cleaning & Housekeeping",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "q-7",
+    "name": "Garbage Bin Premium",
+    "slug": "garbage-bin-q",
+    "brand": "Multi Brand",
+    "category": "q",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Garbage Bin berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Cleaning & Housekeeping",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "q-8",
+    "name": "Vacuum Cleaner Premium",
+    "slug": "vacuum-cleaner-q",
+    "brand": "Multi Brand",
+    "category": "q",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Vacuum Cleaner berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Cleaning & Housekeeping",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "q-9",
+    "name": "Floor Scrubber Premium",
+    "slug": "floor-scrubber-q",
+    "brand": "Multi Brand",
+    "category": "q",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Floor Scrubber berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Cleaning & Housekeeping",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "r-1",
+    "name": "First Aid Kit Premium",
+    "slug": "first-aid-kit-r",
+    "brand": "Multi Brand",
+    "category": "r",
+    "image": "",
+    "description": "Penyediaan dan pengadaan First Aid Kit berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Medical & First Aid",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "r-2",
+    "name": "Stretcher Premium",
+    "slug": "stretcher-r",
+    "brand": "Multi Brand",
+    "category": "r",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Stretcher berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Medical & First Aid",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "r-3",
+    "name": "Wheelchair Premium",
+    "slug": "wheelchair-r",
+    "brand": "Multi Brand",
+    "category": "r",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Wheelchair berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Medical & First Aid",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "r-4",
+    "name": "Oxygen Cylinder Premium",
+    "slug": "oxygen-cylinder-r",
+    "brand": "Multi Brand",
+    "category": "r",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Oxygen Cylinder berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Medical & First Aid",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "r-5",
+    "name": "Thermometer Premium",
+    "slug": "thermometer-r",
+    "brand": "Multi Brand",
+    "category": "r",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Thermometer berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Medical & First Aid",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "r-6",
+    "name": "Blood Pressure Monitor Premium",
+    "slug": "blood-pressure-monitor-r",
+    "brand": "Multi Brand",
+    "category": "r",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Blood Pressure Monitor berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Medical & First Aid",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "r-7",
+    "name": "Pulse Oximeter Premium",
+    "slug": "pulse-oximeter-r",
+    "brand": "Multi Brand",
+    "category": "r",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Pulse Oximeter berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Medical & First Aid",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "r-8",
+    "name": "AED Premium",
+    "slug": "aed-r",
+    "brand": "Multi Brand",
+    "category": "r",
+    "image": "",
+    "description": "Penyediaan dan pengadaan AED berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Medical & First Aid",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "r-9",
+    "name": "Medical Consumables Premium",
+    "slug": "medical-consumables-r",
+    "brand": "Multi Brand",
+    "category": "r",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Medical Consumables berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Medical & First Aid",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "s-1",
+    "name": "Digital Scale Premium",
+    "slug": "digital-scale-s",
+    "brand": "Multi Brand",
+    "category": "s",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Digital Scale berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Laboratory Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "s-2",
+    "name": "pH Meter Premium",
+    "slug": "ph-meter-s",
+    "brand": "Multi Brand",
+    "category": "s",
+    "image": "",
+    "description": "Penyediaan dan pengadaan pH Meter berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Laboratory Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "s-3",
+    "name": "Conductivity Meter Premium",
+    "slug": "conductivity-meter-s",
+    "brand": "Multi Brand",
+    "category": "s",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Conductivity Meter berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Laboratory Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "s-4",
+    "name": "Microscope Premium",
+    "slug": "microscope-s",
+    "brand": "Multi Brand",
+    "category": "s",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Microscope berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Laboratory Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "s-5",
+    "name": "Glassware Premium",
+    "slug": "glassware-s",
+    "brand": "Multi Brand",
+    "category": "s",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Glassware berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Laboratory Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "s-6",
+    "name": "Laboratory Chemicals Premium",
+    "slug": "laboratory-chemicals-s",
+    "brand": "Multi Brand",
+    "category": "s",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Laboratory Chemicals berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Laboratory Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "s-7",
+    "name": "Laboratory Furniture Premium",
+    "slug": "laboratory-furniture-s",
+    "brand": "Multi Brand",
+    "category": "s",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Laboratory Furniture berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Laboratory Equipment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "t-1",
+    "name": "Office Uniform Premium",
+    "slug": "office-uniform-t",
+    "brand": "Multi Brand",
+    "category": "t",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Office Uniform berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Uniform & Garment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "t-2",
+    "name": "Industrial Uniform Premium",
+    "slug": "industrial-uniform-t",
+    "brand": "Multi Brand",
+    "category": "t",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Industrial Uniform berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Uniform & Garment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "t-3",
+    "name": "Wearpack Premium",
+    "slug": "wearpack-t",
+    "brand": "Multi Brand",
+    "category": "t",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Wearpack berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Uniform & Garment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "t-4",
+    "name": "Polo Shirt Premium",
+    "slug": "polo-shirt-t",
+    "brand": "Multi Brand",
+    "category": "t",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Polo Shirt berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Uniform & Garment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "t-5",
+    "name": "T-Shirt Premium",
+    "slug": "t-shirt-t",
+    "brand": "Multi Brand",
+    "category": "t",
+    "image": "",
+    "description": "Penyediaan dan pengadaan T-Shirt berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Uniform & Garment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "t-6",
+    "name": "Jacket Premium",
+    "slug": "jacket-t",
+    "brand": "Multi Brand",
+    "category": "t",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Jacket berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Uniform & Garment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "t-7",
+    "name": "Cap Premium",
+    "slug": "cap-t",
+    "brand": "Multi Brand",
+    "category": "t",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Cap berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Uniform & Garment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "t-9",
+    "name": "Safety Boots Premium",
+    "slug": "safety-boots-t",
+    "brand": "Multi Brand",
+    "category": "t",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Safety Boots berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Uniform & Garment",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "u-1",
+    "name": "Drinking Water Premium",
+    "slug": "drinking-water-u",
+    "brand": "Multi Brand",
+    "category": "u",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Drinking Water berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pantry & Hospitality",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "u-2",
+    "name": "Coffee & Tea Premium",
+    "slug": "coffee-tea-u",
+    "brand": "Multi Brand",
+    "category": "u",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Coffee & Tea berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pantry & Hospitality",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "u-3",
+    "name": "Snacks Premium",
+    "slug": "snacks-u",
+    "brand": "Multi Brand",
+    "category": "u",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Snacks berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pantry & Hospitality",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "u-4",
+    "name": "Refrigerator Premium",
+    "slug": "refrigerator-u",
+    "brand": "Multi Brand",
+    "category": "u",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Refrigerator berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pantry & Hospitality",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "u-5",
+    "name": "Microwave Premium",
+    "slug": "microwave-u",
+    "brand": "Multi Brand",
+    "category": "u",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Microwave berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pantry & Hospitality",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "u-6",
+    "name": "Water Dispenser Premium",
+    "slug": "water-dispenser-u",
+    "brand": "Multi Brand",
+    "category": "u",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Water Dispenser berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pantry & Hospitality",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "u-7",
+    "name": "Kitchen Equipment Premium",
+    "slug": "kitchen-equipment-u",
+    "brand": "Multi Brand",
+    "category": "u",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Kitchen Equipment berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Pantry & Hospitality",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "v-1",
+    "name": "Solar Panel Premium",
+    "slug": "solar-panel-v",
+    "brand": "Multi Brand",
+    "category": "v",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Solar Panel berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Renewable Energy & Utilities",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "v-2",
+    "name": "Solar Street Light Premium",
+    "slug": "solar-street-light-v",
+    "brand": "Multi Brand",
+    "category": "v",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Solar Street Light berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Renewable Energy & Utilities",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "v-3",
+    "name": "Battery System Premium",
+    "slug": "battery-system-v",
+    "brand": "Multi Brand",
+    "category": "v",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Battery System berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Renewable Energy & Utilities",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "v-4",
+    "name": "UPS Premium",
+    "slug": "ups-v",
+    "brand": "Multi Brand",
+    "category": "v",
+    "image": "",
+    "description": "Penyediaan dan pengadaan UPS berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Renewable Energy & Utilities",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "v-5",
+    "name": "Generator Set Premium",
+    "slug": "generator-set-v",
+    "brand": "Multi Brand",
+    "category": "v",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Generator Set berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Renewable Energy & Utilities",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "v-6",
+    "name": "Power Backup System Premium",
+    "slug": "power-backup-system-v",
+    "brand": "Multi Brand",
+    "category": "v",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Power Backup System berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Renewable Energy & Utilities",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "w-1",
+    "name": "Souvenir Premium",
+    "slug": "souvenir-w",
+    "brand": "Multi Brand",
+    "category": "w",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Souvenir berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Promotional & Corporate Merchandise",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": true,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "w-2",
+    "name": "Gift Set Premium",
+    "slug": "gift-set-w",
+    "brand": "Multi Brand",
+    "category": "w",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Gift Set berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Promotional & Corporate Merchandise",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "w-3",
+    "name": "Trophy Premium",
+    "slug": "trophy-w",
+    "brand": "Multi Brand",
+    "category": "w",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Trophy berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Promotional & Corporate Merchandise",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "w-4",
+    "name": "Plaque Premium",
+    "slug": "plaque-w",
+    "brand": "Multi Brand",
+    "category": "w",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Plaque berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Promotional & Corporate Merchandise",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "w-5",
+    "name": "Calendar Premium",
+    "slug": "calendar-w",
+    "brand": "Multi Brand",
+    "category": "w",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Calendar berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Promotional & Corporate Merchandise",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "w-6",
+    "name": "Agenda Premium",
+    "slug": "agenda-w",
+    "brand": "Multi Brand",
+    "category": "w",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Agenda berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Promotional & Corporate Merchandise",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "w-7",
+    "name": "Tumbler Premium",
+    "slug": "tumbler-w",
+    "brand": "Multi Brand",
+    "category": "w",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Tumbler berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Promotional & Corporate Merchandise",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  },
+  {
+    "id": "w-8",
+    "name": "Mug Premium",
+    "slug": "mug-w",
+    "brand": "Multi Brand",
+    "category": "w",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Mug berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Promotional & Corporate Merchandise",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": true,
+    "rating": 5
+  },
+  {
+    "id": "w-9",
+    "name": "Corporate Uniform Premium",
+    "slug": "corporate-uniform-w",
+    "brand": "Multi Brand",
+    "category": "w",
+    "image": "",
+    "description": "Penyediaan dan pengadaan Corporate Uniform berkualitas tinggi dan andal untuk mendukung operasional kerja di berbagai sektor industri strategis seluruh Indonesia.",
+    "specs": [
+      "Kategori: Promotional & Corporate Merchandise",
+      "Tipe: Standar Spesifikasi Industri",
+      "Jaminan Kualitas: Diuji sebelum pengiriman",
+      "Ketersediaan: Ready stock / custom order"
+    ],
+    "isPopular": false,
+    "isNew": false,
+    "rating": 5
+  }
+];
