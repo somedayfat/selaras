@@ -1,8 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useSettings } from "@/components/SettingsContext";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const { settings } = useSettings();
+
+  if (pathname?.startsWith("/admin") || pathname?.startsWith("/login")) {
+    return null;
+  }
+
   return (
     <>
       <footer className="footer">
@@ -13,7 +22,7 @@ export default function Footer() {
                 SM
               </div>
               <div>
-                <strong style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: "800", fontSize: "15px", textTransform: "uppercase", color: "white", letterSpacing: "-0.3px" }}>Selaras Mitra Utama</strong>
+                <strong style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: "800", fontSize: "15px", textTransform: "uppercase", color: "white", letterSpacing: "-0.3px" }}>{settings.shopName}</strong>
                 <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.35)", letterSpacing: "1.5px", textTransform: "uppercase" }}>Trusted Industrial Partner</div>
               </div>
             </div>
@@ -41,16 +50,23 @@ export default function Footer() {
               <Link href="/#services">Layanan</Link>
               <Link href="/products">Katalog Produk</Link>
               <Link href="/#contact">Hubungi Kami</Link>
-              <a href="https://wa.me/6281991579265" target="_blank" rel="noopener noreferrer">Request Penawaran</a>
+              <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer">Request Penawaran</a>
             </div>
           </div>
           <div className="footer-col">
             <h5>Kontak Kami</h5>
             <div className="footer-links">
-              <a href="https://wa.me/6281991579265" target="_blank" rel="noopener noreferrer">+62 819-9157-9265</a>
-              <a href="https://wa.me/626224948932" target="_blank" rel="noopener noreferrer">+62 622-4948-9325</a>
-              <a href="mailto:info@smuindustrial.com">info@smuindustrial.com</a>
-              <a href="#">Graha MIR Lt.6, Jakarta Timur</a>
+              {settings.phoneNumbers.map((phone, idx) => {
+                const cleanedPhone = phone.replace(/[^0-9]/g, "");
+                const formattedPhone = cleanedPhone.startsWith("0") ? "62" + cleanedPhone.slice(1) : cleanedPhone;
+                return (
+                  <a key={idx} href={`https://wa.me/${formattedPhone}`} target="_blank" rel="noopener noreferrer">
+                    {phone} {cleanedPhone === settings.primaryWhatsapp && "(Utama)"}
+                  </a>
+                );
+              })}
+              <a href={`mailto:${settings.email}`}>{settings.email}</a>
+              <a href={settings.googleMapsUrl !== "#" ? settings.googleMapsUrl : undefined}>{settings.address}</a>
             </div>
           </div>
         </div>
@@ -64,13 +80,13 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <div className="footer-bottom-inner">
-            <p>© 2026 PT. Selaras Mitra Utama. Semua Hak Dilindungi.</p>
+            <p>© {new Date().getFullYear()} {settings.companyName}. Semua Hak Dilindungi.</p>
           </div>
         </div>
       </footer>
 
       {/* Floating WA Button */}
-      <a href="https://wa.me/6281991579265" target="_blank" rel="noopener noreferrer" className="floating-wa" aria-label="Chat via WhatsApp" style={{ fontSize: "22px" }}>💬</a>
+      <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer" className="floating-wa" aria-label="Chat via WhatsApp" style={{ fontSize: "22px" }}>💬</a>
     </>
   );
 }

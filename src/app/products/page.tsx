@@ -98,101 +98,118 @@ function ProductsContent() {
       <div className="flex flex-col lg:flex-row gap-8">
         
         {/* Left Sidebar Filter */}
-        <aside className="w-full lg:w-72 shrink-0 bg-white border border-slate-100 rounded-2xl p-5 lg:p-6 h-fit space-y-5 lg:space-y-6 shadow-sm">
-          {/* Header & Reset */}
-          <div className="flex items-center justify-between">
+        <aside 
+          className="shrink-0 bg-white rounded-[24px] h-fit shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200/80 overflow-hidden flex flex-col"
+          style={{ width: '300px', minWidth: '300px' }}
+        >
+          {/* Header Area */}
+          <div 
+            className="border-b border-slate-100 bg-slate-50/60 flex items-center justify-between"
+            style={{ padding: '18px 20px' }}
+          >
             <button
               onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
-              className="flex items-center gap-2 font-bold text-sm text-slate-900 hover:text-sky-700 lg:cursor-default"
+              className="flex items-center gap-2.5 font-extrabold text-sm text-slate-800 lg:cursor-default"
             >
-              <Filter className="w-4 h-4 text-sky-700" /> 
-              <span>Filter Produk</span>
-              <span className="lg:hidden text-[10px] text-slate-400 font-normal ml-1">
-                ({isMobileFilterOpen ? "Sembunyikan" : "Ketuk untuk Buka"})
+              <div className="bg-sky-100 p-1.5 rounded-lg">
+                <Filter className="w-4 h-4 text-sky-700" /> 
+              </div>
+              <span>Filter Katalog</span>
+              <span className="lg:hidden text-[10px] text-slate-400 font-normal ml-1 bg-white px-2 py-0.5 rounded-full border border-slate-200">
+                {isMobileFilterOpen ? "Tutup" : "Buka"}
               </span>
             </button>
             <button 
               onClick={resetFilters} 
-              className="text-[11px] font-bold text-amber-600 hover:underline flex items-center gap-1 cursor-pointer"
+              className="text-[11px] font-bold text-slate-500 hover:text-amber-600 transition-colors flex items-center gap-1 cursor-pointer bg-white px-2.5 py-1 rounded-md border border-slate-200 hover:border-amber-200 shadow-sm"
             >
               <RefreshCw className="w-3 h-3" /> Reset
             </button>
           </div>
 
-          {/* Filter content */}
-          <div className={`transition-all duration-300 ease-in-out overflow-hidden ${isMobileFilterOpen ? "max-h-[1200px] opacity-100 pt-4 border-t border-slate-100" : "max-h-0 opacity-0 lg:max-h-[1200px] lg:opacity-100"} lg:block space-y-6`}>
-            {/* Search Input in Sidebar */}
-            <div className="space-y-2">
-              <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider">Cari</label>
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Kata kunci..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-3 pr-10 py-2.5 text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-sky-600 text-slate-950"
-                />
-                <Search className="w-4 h-4 text-slate-400 absolute right-3 top-3.5" />
+          {/* Filter Body Content */}
+          <div className={`transition-all duration-300 ease-in-out ${isMobileFilterOpen ? "max-h-[1500px] opacity-100" : "max-h-0 opacity-0 lg:max-h-[1500px] lg:opacity-100"} lg:block`}>
+            <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+              
+              {/* Search Section */}
+              <div className="space-y-2">
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block ml-1">Pencarian</label>
+                <div className="relative group">
+                  <input
+                    type="text"
+                    placeholder="Cari nama produk..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-4 pr-11 py-3 text-xs font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#02376C]/20 focus:border-[#02376C] transition-all"
+                  />
+                  <div className="absolute right-2.5 top-2.5 p-1 bg-white rounded-lg shadow-sm border border-slate-100 group-hover:border-sky-200 transition-colors">
+                    <Search className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#02376C]" />
+                  </div>
+                </div>
               </div>
-            </div>
 
-            {/* Category Filter */}
-            <div className="space-y-2">
-              <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider">Kategori</label>
-              <div className="flex flex-col gap-1 max-h-[300px] overflow-y-auto pr-1 scrollbar-none">
-                <button
-                  onClick={() => {
-                    setSelectedCategory("all");
-                    setIsMobileFilterOpen(false);
-                    router.push('/products');
-                  }}
-                  className={`text-left px-3 py-2 text-xs font-bold rounded-lg transition-colors cursor-pointer ${
-                    selectedCategory === "all" 
-                      ? "bg-[#02376C] text-white" 
-                      : "text-slate-700 hover:bg-slate-50"
-                  }`}
-                >
-                  Semua Kategori
-                </button>
-                {CATEGORIES.map(cat => (
+              {/* Category Section */}
+              <div className="space-y-2">
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block ml-1">Kategori Produk</label>
+                <div className="flex flex-col max-h-[300px] overflow-y-auto pr-1 scrollbar-none" style={{ gap: '4px' }}>
                   <button
-                    key={cat.id}
                     onClick={() => {
-                      setSelectedCategory(cat.id);
+                      setSelectedCategory("all");
                       setIsMobileFilterOpen(false);
-                      router.push(`/products?category=${cat.id}`);
+                      router.push('/products');
                     }}
-                    className={`text-left px-3 py-2 text-xs font-bold rounded-lg transition-colors cursor-pointer ${
-                      selectedCategory === cat.id 
-                        ? "bg-[#02376C] text-white" 
-                        : "text-slate-700 hover:bg-slate-50"
+                    className={`text-left px-3 py-2 text-xs font-bold rounded-lg transition-all duration-150 cursor-pointer flex items-center justify-between group ${
+                      selectedCategory === "all" 
+                        ? "bg-[#02376C] text-white shadow-sm" 
+                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                     }`}
                   >
-                    {cat.name}
+                    <span>Semua Kategori</span>
+                    {selectedCategory === "all" && <div className="w-1.5 h-1.5 rounded-full bg-amber-400" />}
                   </button>
-                ))}
+                  
+                  {CATEGORIES.map(cat => (
+                    <button
+                      key={cat.id}
+                      onClick={() => {
+                        setSelectedCategory(cat.id);
+                        setIsMobileFilterOpen(false);
+                        router.push(`/products?category=${cat.id}`);
+                      }}
+                      className={`text-left px-3 py-2 text-xs font-bold rounded-lg transition-all duration-150 cursor-pointer flex items-center justify-between group ${
+                        selectedCategory === cat.id 
+                          ? "bg-[#02376C] text-white shadow-sm" 
+                          : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                      }`}
+                    >
+                      <span className="line-clamp-1">{cat.name}</span>
+                      {selectedCategory === cat.id && <div className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Brand Filter */}
-            <div className="space-y-2">
-              <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider">Brand / Produsen</label>
-              <div className="flex flex-col gap-1 max-h-[220px] overflow-y-auto pr-1 scrollbar-none">
-                {brands.map(brand => (
-                  <label 
-                    key={brand}
-                    className="flex items-center gap-2.5 px-3 py-1.5 rounded-lg hover:bg-slate-50 cursor-pointer text-xs font-bold text-slate-700 transition-colors"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={selectedBrands.includes(brand)}
-                      onChange={() => toggleBrand(brand)}
-                      className="rounded text-sky-700 focus:ring-sky-700 w-3.5 h-3.5 cursor-pointer"
-                    />
-                    <span>{brand}</span>
-                  </label>
-                ))}
+              {/* Brand Section */}
+              <div className="space-y-2 pt-4 border-t border-slate-100">
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block ml-1">Filter Brand</label>
+                <div className="flex flex-col max-h-[200px] overflow-y-auto pr-1 scrollbar-none" style={{ gap: '2px' }}>
+                  {brands.map(brand => (
+                    <label 
+                      key={brand}
+                      className="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg hover:bg-slate-50 cursor-pointer transition-colors group"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedBrands.includes(brand)}
+                        onChange={() => toggleBrand(brand)}
+                        className="rounded text-[#02376C] focus:ring-[#02376C] w-3.5 h-3.5 cursor-pointer border-slate-300"
+                      />
+                      <span className="text-[11px] font-bold text-slate-700 group-hover:text-slate-900">{brand}</span>
+                    </label>
+                  ))}
+                </div>
               </div>
+              
             </div>
           </div>
         </aside>

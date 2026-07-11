@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { CATEGORIES } from '@/data/categories';
 import { PRODUCTS } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
+import { useSettings } from '@/components/SettingsContext';
 
 const SERVICES = [
   "General Trading",
@@ -45,6 +46,7 @@ const SECTORS = [
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
+  const { settings } = useSettings();
 
   useEffect(() => {
     // Scroll animations
@@ -108,7 +110,7 @@ export default function Home() {
     if (needType) msg += `Jenis Kebutuhan: ${needType}\n`;
     if (message) msg += `\nDetail:\n${message}`;
 
-    window.open(`https://wa.me/6281991579265?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/${settings.primaryWhatsapp}?text=${encodeURIComponent(msg)}`, '_blank');
   }
 
   return (
@@ -121,7 +123,7 @@ export default function Home() {
             <h1>Solusi Pengadaan Industri yang <span className="accent">Terpercaya.</span></h1>
             <p>Mitra strategis untuk kebutuhan K3, PPE, alat teknik industri, dan solusi sumber daya manusia di sektor manufaktur, konstruksi, EPC, energi & logistik seluruh Indonesia.</p>
             <div className="hero-ctas">
-              <a href="https://wa.me/6281991579265" target="_blank" rel="noopener noreferrer" className="btn-hero-primary" id="hero-wa-btn">
+              <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer" className="btn-hero-primary" id="hero-wa-btn">
                 Chat via WhatsApp
               </a>
               <Link href="/products" className="btn-hero-secondary" id="hero-catalog-btn">

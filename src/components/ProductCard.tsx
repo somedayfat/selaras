@@ -8,9 +8,37 @@ type ProductCardProps = {
   product: Product;
 };
 
+// Shorten category names for mobile/grid display
+function getShortCategory(name: string) {
+  const map: Record<string, string> = {
+    "Personal Protective Equipment (PPE)": "PPE & K3",
+    "Fire Safety Equipment": "Fire Safety",
+    "Industrial Tools & Equipment": "Tools & Eq.",
+    "Mechanical & Industrial Spare Parts": "Spare Parts",
+    "Electrical Supplies": "Electrical",
+    "Instrumentation & Automation": "Automation",
+    "Pneumatic & Hydraulic": "Pneumatic",
+    "Building Materials": "Building",
+    "Plumbing & Sanitary": "Plumbing",
+    "HVAC Equipment": "HVAC",
+    "Office Equipment": "Office Eq.",
+    "IT & Networking": "IT & Net",
+    "Security System": "Security",
+    "Office Furniture": "Furniture",
+    "Warehouse Equipment": "Warehouse",
+    "Packaging Materials": "Packaging",
+    "Cleaning & Housekeeping": "Cleaning",
+    "Medical & First Aid": "Medical/P3K",
+    "Laboratory Equipment": "Lab Eq.",
+    "Uniform & Garment": "Uniform"
+  };
+  return map[name] ?? name;
+}
+
 export default function ProductCard({ product }: ProductCardProps) {
   const categoryObj = CATEGORIES.find(c => c.id === product.category);
   const categoryName = categoryObj ? categoryObj.name : "Industrial Supply";
+  const shortCategory = getShortCategory(categoryName);
 
   const waMessage = `Halo PT Selaras Mitra Utama,\n\nSaya tertarik dengan produk:\n*${product.name}*\n\nBoleh info ketersediaan dan harga terbaik?`;
   const waLink = `https://wa.me/6281991579265?text=${encodeURIComponent(waMessage)}`;
@@ -23,8 +51,10 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="product-card show">
       <Link href={`/products/${product.slug}`} className="product-card-img">
-        <span className="product-card-badge">{categoryName}</span>
-        {isSni && <span className="product-card-sni">SNI</span>}
+        <span className="product-card-badge" style={{ fontSize: '8px', padding: '3px 8px' }}>
+          {shortCategory}
+        </span>
+        {isSni && <span className="product-card-sni" style={{ fontSize: '8px', padding: '3px 7px' }}>SNI</span>}
         {product.image ? (
           <img
             src={`/${product.image}`}
@@ -42,16 +72,17 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
       </Link>
-      <div className="product-card-info">
-        <div className="product-card-meta">
-          <span>{product.brand}</span>
-          <span>{categoryName}</span>
+      <div className="product-card-info" style={{ padding: '14px 16px' }}>
+        <div className="product-card-meta" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '9px', marginBottom: '8px' }}>
+          <span style={{ fontWeight: 800, color: '#1e293b' }}>{product.brand}</span>
+          <span style={{ color: '#64748b', fontWeight: 600 }}>•</span>
+          <span style={{ color: '#64748b', fontWeight: 600 }}>{shortCategory}</span>
         </div>
-        <h3 className="product-card-title">
+        <h3 className="product-card-title" style={{ fontSize: '12px', lineHeight: '1.4', height: '34px', margin: '0 0 10px 0', overflow: 'hidden' }}>
           <Link href={`/products/${product.slug}`}>{product.name}</Link>
         </h3>
-        <div className="product-card-bottom">
-          <div className="product-card-stars">
+        <div className="product-card-bottom" style={{ paddingTop: '8px' }}>
+          <div className="product-card-stars" style={{ marginBottom: '8px' }}>
             <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -63,9 +94,10 @@ export default function ProductCard({ product }: ProductCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-wa-card"
+            style={{ borderRadius: '10px', padding: '8px 10px', fontSize: '11px' }}
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            Tanya via WA
+            <span>Tanya via WA</span>
           </a>
         </div>
       </div>

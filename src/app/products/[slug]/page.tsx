@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Star, ShieldCheck, CheckCircle2, ArrowLeft, MessageSquare } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 import { CATEGORIES } from "@/data/categories";
+import settings from "@/data/settings.json";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -30,7 +31,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
   // Pre-filled WhatsApp message
   const waMessage = `Halo PT Selaras Mitra Utama, saya ingin bertanya tentang ketersediaan stok & penawaran harga untuk produk:\n\n*${product.name}* (${product.brand})`;
-  const waLink = `https://wa.me/6281991579265?text=${encodeURIComponent(waMessage)}`;
+  const waLink = `https://wa.me/${settings.primaryWhatsapp}?text=${encodeURIComponent(waMessage)}`;
 
   return (
     <div className="container" style={{ padding: '40px 24px 80px' }}>
