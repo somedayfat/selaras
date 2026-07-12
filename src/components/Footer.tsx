@@ -28,7 +28,7 @@ export default function Footer() {
             </div>
             <p>Mitra strategis untuk kebutuhan K3, PPE, alat teknik industri, dan solusi SDM profesional di seluruh Indonesia.</p>
             <div className="footer-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" /></svg>
               Spesialis Industrial Supply & K3
             </div>
           </div>
@@ -60,8 +60,8 @@ export default function Footer() {
                 const cleanedPhone = phone.replace(/[^0-9]/g, "");
                 const formattedPhone = cleanedPhone.startsWith("0") ? "62" + cleanedPhone.slice(1) : cleanedPhone;
                 return (
-                  <a key={idx} href={`https://wa.me/${formattedPhone}`} target="_blank" rel="noopener noreferrer">
-                    {phone} {cleanedPhone === settings.primaryWhatsapp && "(Utama)"}
+              <a key={idx} href={`https://wa.me/${formattedPhone}`} target="_blank" rel="noopener noreferrer">
+                    {phone} {formattedPhone === settings.primaryWhatsapp && "(Utama)"}
                   </a>
                 );
               })}

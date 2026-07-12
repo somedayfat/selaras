@@ -4,9 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { CATEGORIES } from "@/data/categories";
+import { useSettings } from "@/components/SettingsContext";
 
 export default function Header() {
   const router = useRouter();
+  const { settings } = useSettings();
   const [searchQuery, setSearchQuery] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -22,11 +24,11 @@ export default function Header() {
   return (
     <>
       {/* Sidebar Overlay & Mobile Sidebar */}
-      <div 
-        className={`sidebar-overlay ${isSidebarOpen ? 'open' : ''}`} 
+      <div
+        className={`sidebar-overlay ${isSidebarOpen ? 'open' : ''}`}
         onClick={() => setIsSidebarOpen(false)}
       />
-      
+
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`} id="sidebar">
         <div className="sidebar-header">
           <div className="sidebar-header-logo">
@@ -43,18 +45,18 @@ export default function Header() {
         </div>
         <div className="sidebar-body">
           <p className="sidebar-section-title">Kategori Produk</p>
-          <Link 
-            href="/products" 
-            className="sidebar-link" 
+          <Link
+            href="/products"
+            className="sidebar-link"
             onClick={() => setIsSidebarOpen(false)}
           >
             <span className="sidebar-link-dot" /> Semua Produk
           </Link>
           {CATEGORIES.map(c => (
-            <Link 
-              key={c.id} 
-              href={`/categories/${c.slug}`} 
-              className="sidebar-link" 
+            <Link
+              key={c.id}
+              href={`/categories/${c.slug}`}
+              className="sidebar-link"
               onClick={() => setIsSidebarOpen(false)}
             >
               <span className="sidebar-link-dot" /> {c.name}
@@ -74,7 +76,7 @@ export default function Header() {
             <span className="sidebar-link-dot" /> Hubungi Kami
           </Link>
         </div>
-        <div className="sidebar-footer">PT. Selaras Mitra Utama · +62 819-9157-9265</div>
+        <div className="sidebar-footer">{settings.companyName} · +62 819-9157-9265</div>
       </div>
 
       {/* Announcement Banner */}
@@ -114,20 +116,20 @@ export default function Header() {
 
           {/* Actions */}
           <div className="nav-actions">
-            <a 
-              href="https://wa.me/6281991579265" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="btn-wa-header" 
+            <a
+              href={`https://wa.me/${settings.primaryWhatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-wa-header"
               id="header-wa-btn"
             >
               <div className="wa-dot" />
               <span>Hubungi WA</span>
             </a>
-            <button 
-              className="hamburger-btn" 
-              id="hamburger-btn" 
-              onClick={() => setIsSidebarOpen(true)} 
+            <button
+              className="hamburger-btn"
+              id="hamburger-btn"
+              onClick={() => setIsSidebarOpen(true)}
               aria-label="Menu"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

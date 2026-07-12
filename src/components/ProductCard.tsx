@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { CATEGORIES } from "@/data/categories";
 import { Product } from "@/data/products";
+import { useSettings } from "@/components/SettingsContext";
 
 type ProductCardProps = {
   product: Product;
@@ -36,17 +37,18 @@ function getShortCategory(name: string) {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const { settings } = useSettings();
   const categoryObj = CATEGORIES.find(c => c.id === product.category);
   const categoryName = categoryObj ? categoryObj.name : "Industrial Supply";
   const shortCategory = getShortCategory(categoryName);
 
   const waMessage = `Halo PT Selaras Mitra Utama,\n\nSaya tertarik dengan produk:\n*${product.name}*\n\nBoleh info ketersediaan dan harga terbaik?`;
-  const waLink = `https://wa.me/6281991579265?text=${encodeURIComponent(waMessage)}`;
+  const waLink = `https://wa.me/${settings.primaryWhatsapp}?text=${encodeURIComponent(waMessage)}`;
 
   // Show SNI badge for safety footwear, helmets or certified goods
-  const isSni = product.name.toLowerCase().includes("safety shoes") || 
-                product.name.toLowerCase().includes("helm") || 
-                product.name.toLowerCase().includes("sepatu safety");
+  const isSni = product.name.toLowerCase().includes("safety shoes") ||
+    product.name.toLowerCase().includes("helm") ||
+    product.name.toLowerCase().includes("sepatu safety");
 
   return (
     <div className="product-card show">
@@ -59,14 +61,14 @@ export default function ProductCard({ product }: ProductCardProps) {
           <img
             src={`/${product.image}`}
             alt={product.name}
-            className="transition-transform duration-300 hover:scale-102"
+            className="transition-opacity duration-300 hover:opacity-95"
           />
         ) : (
           <div style={{ width: '100%', height: '160px', backgroundColor: '#f0f4f8', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '8px', color: '#94a3b8' }}>
             <svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" strokeWidth="1.2" fill="none">
-              <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
             </svg>
             <span style={{ fontSize: '10px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Upload Foto</span>
           </div>
@@ -83,11 +85,11 @@ export default function ProductCard({ product }: ProductCardProps) {
         </h3>
         <div className="product-card-bottom" style={{ paddingTop: '8px' }}>
           <div className="product-card-stars" style={{ marginBottom: '8px' }}>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
           </div>
           <a
             href={waLink}

@@ -6,6 +6,19 @@ import { CATEGORIES } from '@/data/categories';
 import { PRODUCTS } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import { useSettings } from '@/components/SettingsContext';
+import { 
+  ShieldCheck, 
+  Globe, 
+  Zap, 
+  Clock, 
+  Award,
+  Phone,
+  Smartphone,
+  MessageSquare,
+  Mail,
+  MapPin,
+  Building
+} from 'lucide-react';
 
 const SERVICES = [
   "General Trading",
@@ -42,6 +55,62 @@ const SECTORS = [
   "Instansi Pemerintah",
   "BUMN",
   "Swasta"
+];
+
+const ADVANTAGES = [
+  {
+    icon: ShieldCheck,
+    iconClass: "icon-navy",
+    title: "Mitra Bisnis yang Terpercaya",
+    desc: "Dibangun di atas fondasi kepercayaan dan integritas dalam setiap transaksi pengadaan bersama klien industri."
+  },
+  {
+    icon: Globe,
+    iconClass: "icon-gold",
+    title: "Jaringan Pemasok yang Luas",
+    desc: "Didukung jaringan supplier dan distributor terpercaya untuk memastikan ketersediaan produk sesuai kebutuhan."
+  },
+  {
+    icon: Zap,
+    iconClass: "icon-slate",
+    title: "Solusi Pengadaan yang Efisien",
+    desc: "Proses pengadaan yang cepat, tepat, dan kompetitif — dari permintaan penawaran hingga pengiriman produk."
+  },
+  {
+    icon: Clock,
+    iconClass: "icon-navy",
+    title: "Layanan Profesional & Responsif",
+    desc: "Tim kami siap merespons kebutuhan pengadaan dan memberikan konsultasi produk dengan cepat di setiap hari kerja."
+  },
+  {
+    icon: Award,
+    iconClass: "icon-gold",
+    title: "Komitmen Kualitas & Waktu",
+    desc: "Setiap pesanan diproses dengan standar kualitas tinggi dan komitmen pengiriman tepat waktu sesuai perjanjian."
+  },
+];
+
+const MISI = [
+  {
+    num: "01",
+    title: "Solusi & Layanan Prima",
+    desc: "Mengutamakan kepuasan pelanggan melalui penyediaan produk dan layanan berkualitas yang tepat waktu, andal, dan kompetitif."
+  },
+  {
+    num: "02",
+    title: "Solusi Sumber Daya Manusia",
+    desc: "Mengembangkan dan menyediakan solusi sumber daya manusia serta talenta yang kompeten, berintegritas, dan siap mendukung pertumbuhan bisnis pelanggan."
+  },
+  {
+    num: "03",
+    title: "Kemitraan Strategis",
+    desc: "Membangun kemitraan strategis dengan pelanggan, pemasok, dan mitra bisnis berdasarkan integritas, profesionalisme, serta kepercayaan."
+  },
+  {
+    num: "04",
+    title: "Kapasitas Internal & Keberlanjutan",
+    desc: "Meningkatkan kapabilitas organisasi melalui inovasi, pengembangan sumber daya manusia, dan penerapan tata kelola yang mendukung pertumbuhan yang berkelanjutan."
+  },
 ];
 
 export default function Home() {
@@ -115,26 +184,27 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section */}
+      {/* ============================================================
+          1. HERO SECTION
+      ============================================================ */}
       <section className="hero" id="hero">
         <div className="hero-inner">
           <div className={`fade-up ${isMounted ? 'visible' : ''}`}>
-            <div className="hero-badge">General Trading & Industrial Supplier</div>
-            <h1>Solusi Pengadaan Industri yang <span className="accent">Terpercaya.</span></h1>
-            <p>Mitra strategis untuk kebutuhan K3, PPE, alat teknik industri, dan solusi sumber daya manusia di sektor manufaktur, konstruksi, EPC, energi & logistik seluruh Indonesia.</p>
-            <div className="hero-ctas">
-              <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer" className="btn-hero-primary" id="hero-wa-btn">
-                Chat via WhatsApp
-              </a>
-              <Link href="/products" className="btn-hero-secondary" id="hero-catalog-btn">
-                Lihat Katalog Produk
-              </Link>
-            </div>
+            <div className="hero-badge">General Trading &amp; Industrial Supplier</div>
+            <h1>Solusi Pengadaan Material Industri &amp; Proyek Secara <span className="accent">Cepat, Tepat &amp; Kompetitif.</span></h1>
+            <p>Mendukung kebutuhan pabrik, kontraktor, dan proyek dengan jaringan supplier terpercaya.</p>
             <div className="hero-trust">
-              <div className="hero-trust-item">✔ SNI Certified</div>
-              <div className="hero-trust-item">✔ Kirim Nasional</div>
-              <div className="hero-trust-item">✔ Respons Cepat</div>
-              <div className="hero-trust-item">✔ 500+ Klien</div>
+              <div className="hero-trust-item">✔ Didukung jaringan supplier terpercaya</div>
+              <div className="hero-trust-item">✔ Siap support kebutuhan industri &amp; proyek</div>
+              <div className="hero-trust-item">✔ Pengadaan cepat, tepat, dan kompetitif</div>
+            </div>
+            <div className="hero-ctas">
+              <a href="#contact" className="btn-hero-primary" id="hero-request-btn">
+                Request Penawaran
+              </a>
+              <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer" className="btn-hero-secondary" id="hero-wa-btn">
+                Chat WhatsApp
+              </a>
             </div>
           </div>
 
@@ -144,19 +214,21 @@ export default function Home() {
               <div className="hero-card-dot"></div>
             </div>
             <img src="img/hero.jpg" alt="Suasana Kantor Selaras Mitra Utama" style={{ width: "100%", height: "160px", objectFit: "cover", borderRadius: "14px", marginBottom: "16px" }} />
-            <p style={{ fontSize: "12px", lineHeight: "1.6", color: "rgba(255,255,255,0.6)", marginBottom: "16px" }}>Head Office: Gedung Graha MIR Lt. 6, Jakarta Timur. Mitra B2B terpercaya untuk Industrial Supply & HR Solutions.</p>
+            <p style={{ fontSize: "12px", lineHeight: "1.6", color: "rgba(255,255,255,0.6)", marginBottom: "16px" }}>Head Office: Gedung Graha MIR Lt. 6, Jakarta Timur. Mitra B2B terpercaya untuk Industrial Supply &amp; HR Solutions.</p>
             <div className="hero-card-chips">
               <span className="hero-chip">Safety K3</span>
-              <span className="hero-chip">Tools & Equipment</span>
+              <span className="hero-chip">Tools &amp; Equipment</span>
               <span className="hero-chip">Chemical</span>
               <span className="hero-chip">HR Solutions</span>
             </div>
-            <div className="hero-card-footer">★ SNI Certified Products</div>
+            <div className="hero-card-footer">Pengadaan Cepat &amp; Kompetitif</div>
           </div>
         </div>
       </section>
 
-      {/* Stats Strip */}
+      {/* ============================================================
+          2. STATS STRIP
+      ============================================================ */}
       <div className="stats-strip">
         <div className="container">
           <div className="stat-item fade-up">
@@ -174,7 +246,111 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Categories Grid */}
+      {/* ============================================================
+          3. TENTANG KAMI + VISI/MISI
+      ============================================================ */}
+      <section className="about-section" id="about">
+        <div className="container">
+          {/* About Grid */}
+          <div className="about-grid">
+            <div className="about-img-wrap fade-up">
+              <img src="img/p0_img1.png" alt="Gedung Graha MIR Jakarta — Kantor PT Selaras Mitra Utama" />
+              <div className="about-badge">
+                Melayani Seluruh Indonesia
+              </div>
+            </div>
+            <div className="about-content fade-up delay-1">
+              <span className="section-tag">Tentang Kami</span>
+              <h2 className="section-title">Mitra Bisnis Terintegrasi untuk Industri Indonesia</h2>
+              <p>PT Selaras Mitra Utama adalah perusahaan penyedia solusi terintegrasi pengadaan kebutuhan industri dan pengelolaan sumber daya manusia yang hadir sebagai mitra strategis bagi dunia usaha. Berkomitmen mendukung budaya kerja yang aman, profesional, dan produktif.</p>
+              <p>Kami hadir memberikan solusi satu pintu (<em>one-stop solution</em>) untuk berbagai sektor industri strategis — manufaktur, konstruksi, EPC, energi, hingga logistik.</p>
+              <div className="about-keys">
+                <div className="about-key"><span className="about-key-dot"></span> Pengiriman Seluruh Indonesia</div>
+                <div className="about-key"><span className="about-key-dot"></span> Respons Cepat &amp; Profesional</div>
+                <div className="about-key"><span className="about-key-dot"></span> Jaringan Supplier Terpercaya</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Visi & Misi Side-by-Side Split Grid */}
+          <div className="vm-section-grid fade-up" style={{ marginTop: '56px' }}>
+            {/* Visi Card */}
+            <div className="vm-card-visi">
+              <div className="vm-title color-gold">Visi</div>
+              <p className="visi-text">
+                Menjadi mitra bisnis nasional yang terpercaya dalam menyediakan solusi terintegrasi di bidang Industrial Supply, Procurement, Konstruksi, dan Manajemen Talenta secara profesional, inovatif, dan berkelanjutan.
+              </p>
+            </div>
+
+            {/* Misi Card */}
+            <div className="vm-card-misi">
+              <div className="vm-title color-navy">Misi</div>
+              <div className="misi-list">
+                {MISI.map((m) => (
+                  <div key={m.num} className="misi-list-item">
+                    <h5 className="misi-item-title">
+                      <span className="misi-item-num">{m.num}.</span> {m.title}
+                    </h5>
+                    <p className="misi-item-desc">{m.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          4. LAYANAN (Pindah menjadi section mandiri)
+      ============================================================ */}
+      <section className="about-section" id="services" style={{ background: 'var(--white)', borderTop: 'none', borderBottom: '1px solid var(--gray-200)' }}>
+        <div className="container">
+          <div className="section-header fade-up" style={{ textAlign: 'left', marginBottom: '32px' }}>
+            <span className="section-tag">Layanan Kami</span>
+            <h2 className="section-title">Daftar Layanan Pendukung</h2>
+            <p style={{ fontSize: "14px", color: "var(--gray-500)", marginTop: "8px" }}>Solusi terpadu untuk pengadaan, pengerjaan proyek, instalasi, hingga perawatan berkala.</p>
+          </div>
+          <div className="service-pillar fade-up delay-1" style={{ background: 'var(--gray-50)', border: '1px solid var(--gray-200)', borderRadius: '20px', padding: '36px' }}>
+            <p style={{ fontWeight: 700, color: 'var(--navy)', marginBottom: '24px', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Layanan Terintegrasi (B2B)</p>
+            <div className="service-pill-list" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+              {SERVICES.map((s, i) => (
+                <span key={i} className="service-pill" style={{ background: 'var(--white)', border: '1px solid var(--gray-250)' }}>✓ {s}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          5. KEUNGGULAN KAMI — 5 poin
+      ============================================================ */}
+      <section className="advantages-section" style={{ background: 'var(--gray-50)' }}>
+        <div className="container">
+          <div className="section-header fade-up">
+            <span className="section-tag">Keunggulan Kami</span>
+            <h2 className="section-title">Mengapa Memilih PT. Selaras Mitra Utama?</h2>
+            <p className="section-sub">Layanan pengadaan industri yang handal, cepat, dan terpercaya untuk berbagai sektor di seluruh Indonesia.</p>
+          </div>
+          <div className="advantages-grid advantages-5">
+            {ADVANTAGES.map((adv, i) => {
+              const IconComponent = adv.icon;
+              return (
+                <div key={i} className={`advantage-card fade-up delay-${i % 4}`}>
+                  <div className={`advantage-icon ${adv.iconClass}`}>
+                    <IconComponent size={26} strokeWidth={1.8} />
+                  </div>
+                  <h3>{adv.title}</h3>
+                  <p>{adv.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          6. KATEGORI PRODUK
+      ============================================================ */}
       <section className="categories-section">
         <div className="container">
           <div className="section-header fade-up">
@@ -198,14 +374,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products List */}
+      {/* ============================================================
+          7. FEATURED PRODUCTS
+      ============================================================ */}
       <section className="products-section" id="products">
         <div className="container">
           <div className="products-header fade-up">
             <div>
               <span className="section-tag">Katalog Produk</span>
-              <h2 className="section-title">Produk Industri & K3 Unggulan</h2>
-              <p style={{ fontSize: "14px", color: "var(--gray-500)", marginTop: "6px" }}>Order & negosiasi harga langsung via WhatsApp — tanpa cart, tanpa checkout.</p>
+              <h2 className="section-title">Produk Industri &amp; K3 Unggulan</h2>
+              <p style={{ fontSize: "14px", color: "var(--gray-500)", marginTop: "6px" }}>Order &amp; negosiasi harga langsung via WhatsApp — tanpa cart, tanpa checkout.</p>
             </div>
             <div className="products-header-right">
               <Link href="/products" id="view-all-btn">
@@ -231,92 +409,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Advantages Section */}
-      <section className="advantages-section">
-        <div className="container">
-          <div className="section-header fade-up">
-            <span className="section-tag">Keunggulan Kami</span>
-            <h2 className="section-title">Mengapa Memilih PT. Selaras Mitra Utama?</h2>
-            <p className="section-sub">Layanan pengadaan industri yang handal, cepat, dan terpercaya untuk berbagai sektor di seluruh Indonesia.</p>
-          </div>
-          <div className="advantages-grid">
-            <div className="advantage-card fade-up">
-              <div className="advantage-icon icon-navy" style={{ fontSize: "26px" }}>⊕</div>
-              <h3>Produk SNI Certified</h3>
-              <p>Semua produk K3 dan safety yang kami sediakan telah tersertifikasi SNI resmi untuk memastikan kepatuhan standar keselamatan industri nasional.</p>
-            </div>
-            <div className="advantage-card fade-up delay-1">
-              <div className="advantage-icon icon-gold" style={{ fontSize: "26px" }}>⊞</div>
-              <h3>Pengiriman Seluruh Indonesia</h3>
-              <p>Lokasi kantor kami di Jakarta Timur memungkinkan pengiriman yang efisien ke seluruh wilayah Indonesia melalui jaringan logistik yang kuat.</p>
-            </div>
-            <div className="advantage-card fade-up delay-2">
-              <div className="advantage-icon icon-slate" style={{ fontSize: "26px" }}>⊡</div>
-              <h3>Konsultasi & Respons Cepat</h3>
-              <p>Tim kami siap merespons kebutuhan pengadaan, memberikan konsultasi produk, dan mengirimkan penawaran terbaik dalam waktu singkat di hari kerja.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="about-section" id="about">
-        <div className="container">
-          <div className="about-grid">
-            <div className="about-img-wrap fade-up">
-              <img src="img/p0_img1.png" alt="Gedung Graha MIR Jakarta — Kantor PT Selaras Mitra Utama" />
-              <div className="about-badge">
-                ★ Melayani Seluruh Indonesia
-              </div>
-            </div>
-            <div className="about-content fade-up delay-1">
-              <span className="section-tag">Tentang Kami</span>
-              <h2 className="section-title">Mitra Bisnis Terintegrasi untuk Industri Indonesia</h2>
-              <p>PT Selaras Mitra Utama adalah perusahaan penyedia solusi terintegrasi pengadaan kebutuhan industri dan pengelolaan sumber daya manusia yang hadir sebagai mitra strategis bagi dunia usaha. Berkomitmen mendukung budaya kerja yang aman, profesional, dan produktif.</p>
-              <p>Kami hadir memberikan solusi satu pintu (<em>one-stop solution</em>) untuk berbagai sektor industri strategis — manufaktur, konstruksi, EPC, energi, hingga logistik.</p>
-              <div className="about-keys">
-                <div className="about-key"><span className="about-key-dot"></span> Graha MIR Lt. 6, Rawamangun, Jakarta Timur</div>
-                <div className="about-key"><span className="about-key-dot"></span> Pengiriman Seluruh Indonesia</div>
-                <div className="about-key"><span className="about-key-dot"></span> Respons Cepat & Profesional</div>
-              </div>
-              <div className="vm-grid">
-                <div className="vm-card gold-border">
-                  <h4>Visi</h4>
-                  <p>Menjadi perusahaan nasional terkemuka dalam penyediaan solusi terintegrasi pengadaan industri dan SDM yang profesional, inovatif, dan berkelanjutan.</p>
-                </div>
-                <div className="vm-card">
-                  <h4>Misi</h4>
-                  <ul>
-                    <li>Produk berkualitas dengan standar keselamatan tinggi</li>
-                    <li>Kemitraan strategis jangka panjang</li>
-                    <li>Solusi HR adaptif dan efisien</li>
-                    <li>Pengembangan kapabilitas berkelanjutan</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Services Section */}
-          <div id="services" style={{ marginTop: "80px" }}>
-            <div className="section-header fade-up" style={{ textAlign: 'left' }}>
-              <span className="section-tag">Layanan Kami</span>
-              <h2 className="section-title">Daftar Layanan Pendukung</h2>
-            </div>
-            <div className="service-pillar fade-up delay-1" style={{ background: 'white', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '28px' }}>
-              <p style={{ fontWeight: 700, color: 'var(--navy)', marginBottom: '16px', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '1px' }}>Layanan Terintegrasi</p>
-              <div className="service-pill-list" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                {SERVICES.map((s, i) => (
-                  <span key={i} className="service-pill">✓ {s}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sectors Section */}
-      <section className="sectors-section">
+      {/* ============================================================
+          8. AREA LAYANAN / SECTORS
+      ============================================================ */}
+      <section className="sectors-section" style={{ background: 'var(--white)', borderTop: '1px solid var(--gray-200)' }}>
         <div className="container">
           <div className="section-header fade-up">
             <span className="section-tag">Sektor yang Kami Layani</span>
@@ -332,42 +428,89 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Inquiry Form Section */}
+      {/* ============================================================
+          9. CTA BESAR / CONTACT
+      ============================================================ */}
       <section className="contact-section" id="contact">
         <div className="container">
           <div className="section-header fade-up">
             <span className="section-tag">Hubungi Kami</span>
-            <h2 className="section-title">Kirim Inquiry Pengadaan</h2>
+            <h2 className="section-title">Kirim kebutuhan Anda sekarang dan dapatkan penawaran terbaik</h2>
             <p className="section-sub">Isi form berikut dan kami akan menghubungi Anda via WhatsApp dengan cepat.</p>
           </div>
+
+          {/* Trust strip wording CTA */}
+          <div className="cta-trust-strip fade-up">
+            <span>✔ Didukung jaringan supplier</span>
+            <span>✔ Partner pengadaan industry</span>
+            <span>✔ Mendukung berbagai kebutuhan Industri, proyek</span>
+          </div>
+
           <div className="contact-grid fade-up delay-1">
             <div className="contact-info">
+              {/* Office */}
               <div className="contact-info-card">
-                <div className="contact-info-icon" style={{ fontSize: '16px', fontWeight: '700' }}>■</div>
+                <div className="contact-info-icon"><Phone size={18} strokeWidth={1.8} /></div>
+                <div>
+                  <div className="contact-info-label">Office</div>
+                  <div className="contact-info-value">
+                    <a href="tel:+622129368919">+62 21 2936 8919</a>
+                  </div>
+                </div>
+              </div>
+              {/* Sales Hotline */}
+              <div className="contact-info-card">
+                <div className="contact-info-icon"><Smartphone size={18} strokeWidth={1.8} /></div>
+                <div>
+                  <div className="contact-info-label">Sales Hotline</div>
+                  <div className="contact-info-value">
+                    <a href="https://wa.me/628121346665" target="_blank" rel="noopener noreferrer">+62 812-134-6665</a><br />
+                    <a href="https://wa.me/6282249489325" target="_blank" rel="noopener noreferrer">+62 822-4948-9325</a>
+                  </div>
+                </div>
+              </div>
+              {/* WA Business */}
+              <div className="contact-info-card">
+                <div className="contact-info-icon"><MessageSquare size={18} strokeWidth={1.8} /></div>
+                <div>
+                  <div className="contact-info-label">WhatsApp Business</div>
+                  <div className="contact-info-value">
+                    <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer">+62 819-9157-9265 (Utama)</a>
+                  </div>
+                </div>
+              </div>
+              {/* Email */}
+              <div className="contact-info-card">
+                <div className="contact-info-icon"><Mail size={18} strokeWidth={1.8} /></div>
+                <div>
+                  <div className="contact-info-label">Email</div>
+                  <div className="contact-info-value">
+                    <a href={`mailto:${settings.email}`}>{settings.email}</a>
+                  </div>
+                </div>
+              </div>
+              {/* Business Hours */}
+              <div className="contact-info-card">
+                <div className="contact-info-icon"><Clock size={18} strokeWidth={1.8} /></div>
+                <div>
+                  <div className="contact-info-label">Business Hours</div>
+                  <div className="contact-info-value">Monday – Friday<br />08.00 – 17.00 WIB</div>
+                </div>
+              </div>
+              {/* Head Office */}
+              <div className="contact-info-card">
+                <div className="contact-info-icon"><Building size={18} strokeWidth={1.8} /></div>
                 <div>
                   <div className="contact-info-label">Head Office – Jakarta</div>
                   <div className="contact-info-value">Gedung Graha MIRI Lt. 6 Zona A1<br />Jl. Pemuda No. 9, Rawamangun<br />Pulo Gadung, Jakarta Timur 13220</div>
                 </div>
               </div>
+              {/* Rep Surakarta */}
               <div className="contact-info-card">
-                <div className="contact-info-icon" style={{ fontSize: '16px', fontWeight: '700' }}>♦</div>
-                <div>
-                  <div className="contact-info-label">Branch Office – Bekasi</div>
-                  <div className="contact-info-value">Pondok Tanah Mas<br />Jl. Dahlia V Blok C20 No. 4<br />Kel. Wanasari, Kec. Cibitung<br />Kab. Bekasi, Jawa Barat</div>
-                </div>
-              </div>
-              <div className="contact-info-card">
-                <div className="contact-info-icon" style={{ fontSize: '16px', fontWeight: '700' }}>○</div>
+                <div className="contact-info-icon"><MapPin size={18} strokeWidth={1.8} /></div>
                 <div>
                   <div className="contact-info-label">Representative Office – Surakarta</div>
                   <div className="contact-info-value">Jl. Kelud Selatan No. 21<br />Kel. Nusukan, Kec. Banjarsari<br />Kota Surakarta, Jawa Tengah</div>
-                </div>
-              </div>
-              <div className="contact-info-card">
-                <div className="contact-info-icon" style={{ fontSize: '16px', fontWeight: '700' }}>☎</div>
-                <div>
-                  <div className="contact-info-label">Kontak</div>
-                  <div className="contact-info-value">+62 819-9157-9265<br />info@smuindustrial.com</div>
                 </div>
               </div>
             </div>
@@ -393,13 +536,16 @@ export default function Home() {
                     <label className="form-label" htmlFor="need_type">Jenis Kebutuhan</label>
                     <select id="need_type" className="form-control">
                       <option value="">Pilih kebutuhan...</option>
-                      <option value="Industrial Safety & PPE">Industrial Safety & PPE</option>
-                      <option value="Tools & Equipment">Tools & Equipment</option>
-                      <option value="Chemical & Lubricant">Chemical & Lubricant</option>
+                      <option value="Industrial Safety &amp; PPE">Industrial Safety &amp; PPE</option>
+                      <option value="Tools &amp; Equipment">Tools &amp; Equipment</option>
+                      <option value="Chemical &amp; Lubricant">Chemical &amp; Lubricant</option>
                       <option value="Human Capital / HR">Human Capital / HR</option>
                       <option value="Lainnya">Lainnya</option>
                     </select>
                   </div>
+                </div>
+                <div className="form-row" style={{ display: 'none' }}>
+                  {/* Keep for layout spacing compatibility */}
                 </div>
                 <div className="form-group">
                   <label className="form-label" htmlFor="message">Detail Kebutuhan</label>

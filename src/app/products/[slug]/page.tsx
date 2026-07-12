@@ -48,13 +48,13 @@ export default async function ProductDetailPage({ params }: Props) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-sm">
         
         {/* Left Column: Image Box */}
-        <div className="lg:col-span-5 space-y-4">
-          <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-slate-50 border border-slate-100 shadow-sm flex items-center justify-center">
+        <div className="lg:col-span-6 space-y-4">
+          <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-white border border-slate-100 flex items-center justify-center p-6">
             {product.image ? (
               <img
                 src={`/${product.image}`}
                 alt={product.name}
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-102"
+                className="w-full h-full object-contain transition-transform duration-300"
               />
             ) : (
               <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100/50 p-8 text-slate-400 gap-3 select-none">
@@ -68,13 +68,13 @@ export default async function ProductDetailPage({ params }: Props) {
             )}
           </div>
           <div className="bg-slate-50 rounded-xl p-4 flex items-start gap-3 text-xs text-slate-500 border border-slate-100">
-            <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+            <ShieldCheck className="w-5 h-5 text-[#02376C] shrink-0 mt-0.5" />
             <p className="leading-relaxed">Jaminan 100% produk original berstandar keselamatan industri nasional dengan jaminan kualitas terbaik.</p>
           </div>
         </div>
-
+ 
         {/* Right Column: Information Details */}
-        <div className="lg:col-span-7 flex flex-col space-y-6">
+        <div className="lg:col-span-6 flex flex-col space-y-6">
           {/* Badge Category & Brand */}
           <div className="flex flex-wrap items-center gap-2 text-xs">
             <span className="px-3 py-1 bg-[#02376C]/10 text-[#02376C] rounded-full font-bold">
@@ -84,25 +84,25 @@ export default async function ProductDetailPage({ params }: Props) {
               {categoryName}
             </span>
             <span className="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full font-bold flex items-center gap-1">
-              <CheckCircle2 className="w-3.5 h-3.5" /> Stok Tersedia / Ready Order
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Stok Tersedia / Ready Order
             </span>
           </div>
-
+ 
           {/* Product Title */}
           <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
             {product.name}
           </h1>
-
+ 
           {/* Stars */}
           <div className="flex items-center gap-1.5 pb-4 border-b border-slate-100">
             <div className="flex items-center gap-0.5">
               {[...Array(product.rating || 5)].map((_, idx) => (
-                <Star key={idx} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                <Star key={idx} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
               ))}
             </div>
             <span className="text-xs text-slate-500 font-semibold">(5.0 Rating Mitra)</span>
           </div>
-
+ 
           {/* Description */}
           <div className="space-y-2">
             <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider">Deskripsi Produk</h3>
@@ -110,20 +110,28 @@ export default async function ProductDetailPage({ params }: Props) {
               {product.description}
             </p>
           </div>
-
+ 
           {/* Specifications */}
           <div className="space-y-3 pt-2">
             <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider">Spesifikasi Detail</h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {product.specs.map((spec, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-xs text-slate-600 leading-normal">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 mt-1.5" />
-                  <span>{spec}</span>
-                </li>
-              ))}
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+              {product.specs.map((spec, i) => {
+                const parts = spec.split(':');
+                const label = parts[0];
+                const value = parts.slice(1).join(':');
+                return (
+                  <li key={i} className="flex items-start gap-2 text-xs text-slate-600 leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 mt-1.5" />
+                    <span>
+                      <strong className="font-bold text-slate-800">{label}:</strong>
+                      {value}
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
-
+ 
           {/* CTA Box */}
           <div className="pt-6 border-t border-slate-100 space-y-4">
             <div className="bg-slate-50 p-4 rounded-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs border border-slate-100">
@@ -135,20 +143,21 @@ export default async function ProductDetailPage({ params }: Props) {
                 Pengadaan Cepat & Aman
               </span>
             </div>
-
+ 
             <a
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-6 rounded-xl text-sm font-bold transition-all shadow-md flex items-center justify-center gap-2 hover:scale-[1.01]"
+              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 px-6 rounded-xl text-sm font-bold transition-all shadow-md flex items-center justify-center gap-2 hover:scale-[1.01]"
             >
               <MessageSquare className="w-4 h-4 fill-current" />
               Tanya via WhatsApp (Fast Response)
             </a>
           </div>
-
+ 
         </div>
       </div>
+
 
     </div>
   );

@@ -7,6 +7,8 @@ export interface SelarasSettings {
   googleMapsUrl: string;
   primaryWhatsapp: string;
   phoneNumbers: string[];
+  officePhone?: string;
+  businessHours?: string;
   email: string;
 }
 
