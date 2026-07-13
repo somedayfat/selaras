@@ -118,6 +118,7 @@ export default async function LocalSeoPage({ params }: Props) {
               href={waLink}
               target="_blank" 
               rel="noopener noreferrer"
+              suppressHydrationWarning
               className="bg-white text-[#02376C] hover:bg-slate-55 px-8 py-3 rounded-full font-bold shadow-lg transition-all hover:-translate-y-0.5"
             >
               Ajukan RFQ via WhatsApp
@@ -196,6 +197,7 @@ export default async function LocalSeoPage({ params }: Props) {
             href={waLink} 
             target="_blank"
             rel="noopener noreferrer"
+            suppressHydrationWarning
             className="inline-block bg-[#D4870A] hover:bg-[#b06f08] text-white px-10 py-4 rounded-full font-bold shadow-lg transition-all hover:-translate-y-0.5"
           >
             Hubungi Sales & Support via WhatsApp

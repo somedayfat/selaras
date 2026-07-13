@@ -202,7 +202,7 @@ export default function Home() {
               <a href="#contact" className="btn-hero-primary" id="hero-request-btn">
                 Request Penawaran
               </a>
-              <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer" className="btn-hero-secondary" id="hero-wa-btn">
+              <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer" suppressHydrationWarning className="btn-hero-secondary" id="hero-wa-btn">
                 Chat WhatsApp
               </a>
             </div>
@@ -464,8 +464,8 @@ export default function Home() {
                 <div>
                   <div className="contact-info-label">Sales Hotline</div>
                   <div className="contact-info-value">
-                    <a href="https://wa.me/628121346665" target="_blank" rel="noopener noreferrer">+62 812-134-6665</a><br />
-                    <a href="https://wa.me/6282249489325" target="_blank" rel="noopener noreferrer">+62 822-4948-9325</a>
+                    <a href="https://wa.me/628121346665" target="_blank" rel="noopener noreferrer" suppressHydrationWarning>+62 812-134-6665</a><br />
+                    <a href="https://wa.me/6282249489325" target="_blank" rel="noopener noreferrer" suppressHydrationWarning>+62 822-4948-9325</a>
                   </div>
                 </div>
               </div>
@@ -475,7 +475,7 @@ export default function Home() {
                 <div>
                   <div className="contact-info-label">WhatsApp Business</div>
                   <div className="contact-info-value">
-                    <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer">+62 819-9157-9265 (Utama)</a>
+                    <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer" suppressHydrationWarning>+62 819-9157-9265 (Utama)</a>
                   </div>
                 </div>
               </div>

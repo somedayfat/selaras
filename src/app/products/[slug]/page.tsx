@@ -4,6 +4,7 @@ import { Star, ShieldCheck, CheckCircle2, ArrowLeft, MessageSquare } from "lucid
 import { PRODUCTS } from "@/data/products";
 import { CATEGORIES } from "@/data/categories";
 import settings from "@/data/settings.json";
+import AddToCartButton from "@/components/AddToCartButton";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -34,131 +35,136 @@ export default async function ProductDetailPage({ params }: Props) {
   const waLink = `https://wa.me/${settings.primaryWhatsapp}?text=${encodeURIComponent(waMessage)}`;
 
   return (
-    <div className="container" style={{ padding: '40px 24px 80px' }}>
-      
-      {/* Back to Catalog */}
-      <Link 
-        href="/products" 
-        className="inline-flex items-center gap-2 text-xs font-bold text-[#02376C] hover:text-amber-600 transition-colors mb-6 group animate-fade-in"
-      >
-        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-        Kembali ke Katalog
-      </Link>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-sm">
+    <div style={{ width: '100%', minHeight: '100vh', background: '#f9fafb', paddingTop: '36px', paddingBottom: '80px' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 32px' }}>
         
-        {/* Left Column: Image Box */}
-        <div className="lg:col-span-6 space-y-4">
-          <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-white border border-slate-100 flex items-center justify-center p-6">
-            {product.image ? (
-              <img
-                src={`/${product.image}`}
-                alt={product.name}
-                className="w-full h-full object-contain transition-transform duration-300"
-              />
-            ) : (
-              <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100/50 p-8 text-slate-400 gap-3 select-none">
-                <svg viewBox="0 0 24 24" className="w-16 h-16 stroke-current stroke-[1.2] fill-none opacity-60">
-                  <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
-                  <circle cx="8.5" cy="8.5" r="1.5"/>
-                  <polyline points="21 15 16 10 5 21"/>
-                </svg>
-                <span className="text-xs font-bold tracking-widest uppercase opacity-60">Catalog Image Placeholder</span>
-              </div>
-            )}
-          </div>
-          <div className="bg-slate-50 rounded-xl p-4 flex items-start gap-3 text-xs text-slate-500 border border-slate-100">
-            <ShieldCheck className="w-5 h-5 text-[#02376C] shrink-0 mt-0.5" />
-            <p className="leading-relaxed">Jaminan 100% produk original berstandar keselamatan industri nasional dengan jaminan kualitas terbaik.</p>
-          </div>
-        </div>
- 
-        {/* Right Column: Information Details */}
-        <div className="lg:col-span-6 flex flex-col space-y-6">
-          {/* Badge Category & Brand */}
-          <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="px-3 py-1 bg-[#02376C]/10 text-[#02376C] rounded-full font-bold">
-              {product.brand}
-            </span>
-            <span className="px-3 py-1 bg-slate-100 text-slate-600 rounded-full font-semibold">
-              {categoryName}
-            </span>
-            <span className="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full font-bold flex items-center gap-1">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Stok Tersedia / Ready Order
-            </span>
-          </div>
- 
-          {/* Product Title */}
-          <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight">
-            {product.name}
-          </h1>
- 
-          {/* Stars */}
-          <div className="flex items-center gap-1.5 pb-4 border-b border-slate-100">
-            <div className="flex items-center gap-0.5">
-              {[...Array(product.rating || 5)].map((_, idx) => (
-                <Star key={idx} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-              ))}
+        {/* Breadcrumb */}
+        <Link 
+          href="/products"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: 500, color: '#6b7280', marginBottom: '28px', textDecoration: 'none' }}
+        >
+          <ArrowLeft style={{ width: '16px', height: '16px' }} />
+          Kembali ke Katalog
+        </Link>
+
+        {/* Main Layout: Image + Details side by side */}
+        <div style={{ display: 'flex', gap: '56px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+          
+          {/* Left: Image */}
+          <div style={{ flex: '0 0 400px', maxWidth: '400px', width: '100%' }}>
+            <div style={{ width: '100%', aspectRatio: '1/1', background: '#f3f4f6', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '36px', marginBottom: '16px', overflow: 'hidden' }}>
+              {product.image ? (
+                <img
+                  src={`/${product.image}`}
+                  alt={product.name}
+                  style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }}
+                />
+              ) : (
+                <span style={{ color: '#9ca3af', fontSize: '14px' }}>No Image Available</span>
+              )}
             </div>
-            <span className="text-xs text-slate-500 font-semibold">(5.0 Rating Mitra)</span>
+            
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', padding: '12px 14px', background: '#f0fdf4', borderRadius: '10px', border: '1px solid #bbf7d0' }}>
+              <ShieldCheck style={{ width: '18px', height: '18px', color: '#16a34a', flexShrink: 0, marginTop: '1px' }} />
+              <p style={{ fontSize: '13px', color: '#15803d', lineHeight: '1.55' }}>
+                <strong>Jaminan 100% Produk Original.</strong> Didistribusikan resmi sesuai standar keselamatan industri nasional.
+              </p>
+            </div>
           </div>
- 
-          {/* Description */}
-          <div className="space-y-2">
-            <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider">Deskripsi Produk</h3>
-            <p className="text-sm text-slate-500 leading-relaxed">
-              {product.description}
-            </p>
-          </div>
- 
-          {/* Specifications */}
-          <div className="space-y-3 pt-2">
-            <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider">Spesifikasi Detail</h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-              {product.specs.map((spec, i) => {
-                const parts = spec.split(':');
-                const label = parts[0];
-                const value = parts.slice(1).join(':');
-                return (
-                  <li key={i} className="flex items-start gap-2 text-xs text-slate-600 leading-relaxed">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 mt-1.5" />
-                    <span>
-                      <strong className="font-bold text-slate-800">{label}:</strong>
-                      {value}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
- 
-          {/* CTA Box */}
-          <div className="pt-6 border-t border-slate-100 space-y-4">
-            <div className="bg-slate-50 p-4 rounded-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs border border-slate-100">
-              <div>
-                <span className="text-slate-400 block mb-0.5 font-bold uppercase tracking-wider text-[9px]">Harga Khusus Mitra B2B</span>
-                <strong className="text-slate-900 text-sm font-bold">Hubungi Sales Untuk Penawaran Harga Grosir</strong>
-              </div>
-              <span className="text-[9px] bg-sky-50 text-sky-700 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider border border-sky-100 shrink-0 w-fit">
-                Pengadaan Cepat & Aman
+
+          {/* Right: Product Details */}
+          <div style={{ flex: '1', minWidth: '300px' }}>
+            
+            {/* Badges */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '16px' }}>
+              <span style={{ padding: '4px 12px', background: '#f3f4f6', color: '#374151', borderRadius: '6px', fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                {product.brand}
+              </span>
+              <span style={{ padding: '4px 12px', background: '#f3f4f6', color: '#374151', borderRadius: '6px', fontSize: '12px', fontWeight: 600 }}>
+                {categoryName}
+              </span>
+              <span style={{ padding: '4px 12px', background: '#f0fdf4', color: '#16a34a', border: '1px solid #bbf7d0', borderRadius: '6px', fontSize: '12px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '5px' }}>
+                <CheckCircle2 style={{ width: '13px', height: '13px' }} /> Stok Tersedia
               </span>
             </div>
- 
-            <a
-              href={waLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 px-6 rounded-xl text-sm font-bold transition-all shadow-md flex items-center justify-center gap-2 hover:scale-[1.01]"
-            >
-              <MessageSquare className="w-4 h-4 fill-current" />
-              Tanya via WhatsApp (Fast Response)
-            </a>
+
+            {/* Title */}
+            <h1 style={{ fontSize: '32px', fontWeight: 800, color: '#111827', lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-0.5px' }}>
+              {product.name}
+            </h1>
+
+            {/* Rating */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '22px', paddingBottom: '22px', borderBottom: '1px solid #f3f4f6' }}>
+              <div style={{ display: 'flex', gap: '3px' }}>
+                {[...Array(product.rating || 5)].map((_, idx) => (
+                  <Star key={idx} style={{ width: '15px', height: '15px', color: '#facc15', fill: '#facc15' }} />
+                ))}
+              </div>
+              <span style={{ fontSize: '13px', color: '#6b7280' }}>(5.0 Rating Toko)</span>
+            </div>
+
+            {/* Description */}
+            <div style={{ marginBottom: '28px' }}>
+              <h3 style={{ fontSize: '11px', fontWeight: 700, color: '#111827', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>Deskripsi Produk</h3>
+              <p style={{ fontSize: '14px', color: '#4b5563', lineHeight: 1.7 }}>
+                {product.description}
+              </p>
+            </div>
+
+            {/* Specifications */}
+            <div style={{ marginBottom: '32px' }}>
+              <h3 style={{ fontSize: '11px', fontWeight: 700, color: '#111827', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '14px' }}>Spesifikasi</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0' }}>
+                {product.specs.map((spec, i) => {
+                  const parts = spec.split(':');
+                  const label = parts[0];
+                  const value = parts.slice(1).join(':');
+                  return (
+                    <div key={i} style={{ display: 'flex', gap: '8px', padding: '10px 0', borderBottom: '1px solid #f3f4f6' }}>
+                      <span style={{ fontSize: '13px', color: '#9ca3af', flexShrink: 0, minWidth: '100px' }}>{label}</span>
+                      <span style={{ fontSize: '13px', color: '#111827', fontWeight: 600 }}>{value || "—"}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* CTA Area */}
+            <div style={{ paddingTop: '24px', borderTop: '1px solid #f3f4f6' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '8px' }}>
+                <div>
+                  <span style={{ fontSize: '11px', color: '#9ca3af', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '4px' }}>Pengadaan B2B</span>
+                  <strong style={{ fontSize: '17px', color: '#111827', fontWeight: 700 }}>Hubungi Sales Untuk Penawaran</strong>
+                </div>
+                <span style={{ fontSize: '11px', color: '#ef4444', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                  Tanpa Minimum Order
+                </span>
+              </div>
+
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <AddToCartButton
+                  slug={product.slug}
+                  name={product.name}
+                  brand={product.brand}
+                  category={categoryName}
+                  image={product.image}
+                />
+                <a
+                  href={waLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  suppressHydrationWarning
+                  style={{ flex: 1, minWidth: '160px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: '#fff', color: '#16a34a', border: '1.5px solid #16a34a', padding: '14px 20px', borderRadius: '12px', fontSize: '14px', fontWeight: 700, textDecoration: 'none' }}
+                >
+                  <MessageSquare style={{ width: '17px', height: '17px' }} />
+                  Tanya via WhatsApp
+                </a>
+              </div>
+            </div>
+
           </div>
- 
         </div>
       </div>
-
-
     </div>
   );
 }

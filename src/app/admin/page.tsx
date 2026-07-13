@@ -606,7 +606,8 @@ export default function AdminDashboardPage() {
             </div>
             <Link 
               href="/" 
-              target="_blank" 
+              target="_blank"
+              suppressHydrationWarning
               style={{
                 padding: "8px",
                 backgroundColor: "#1e293b",

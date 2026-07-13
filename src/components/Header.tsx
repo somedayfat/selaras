@@ -5,10 +5,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { CATEGORIES } from "@/data/categories";
 import { useSettings } from "@/components/SettingsContext";
+import { useCart } from "@/components/CartContext";
+import { ShoppingBasket } from "lucide-react";
 
 export default function Header() {
   const router = useRouter();
   const { settings } = useSettings();
+  const { totalItems, openCart } = useCart();
   const [searchQuery, setSearchQuery] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -116,10 +119,35 @@ export default function Header() {
 
           {/* Actions */}
           <div className="nav-actions">
+            {/* Cart Button */}
+            <button
+              onClick={openCart}
+              style={{
+                position: "relative", display: "flex", alignItems: "center", gap: "7px",
+                background: "rgba(255,255,255,0.12)", color: "#fff",
+                border: "1px solid rgba(255,255,255,0.2)", padding: "7px 14px",
+                borderRadius: "9999px", fontSize: "13px", fontWeight: 700, cursor: "pointer"
+              }}
+            >
+              <ShoppingBasket style={{ width: "15px", height: "15px" }} />
+              <span>Keranjang</span>
+              {totalItems > 0 && (
+                <span style={{
+                  position: "absolute", top: "-6px", right: "-6px",
+                  background: "#D4870A", color: "#fff",
+                  width: "18px", height: "18px", borderRadius: "50%",
+                  fontSize: "10px", fontWeight: 800,
+                  display: "flex", alignItems: "center", justifyContent: "center"
+                }}>
+                  {totalItems}
+                </span>
+              )}
+            </button>
             <a
               href={`https://wa.me/${settings.primaryWhatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
+              suppressHydrationWarning
               className="btn-wa-header"
               id="header-wa-btn"
             >

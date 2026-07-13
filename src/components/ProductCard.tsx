@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { CATEGORIES } from "@/data/categories";
 import { Product } from "@/data/products";
-import { useSettings } from "@/components/SettingsContext";
+import { useCart } from "@/components/CartContext";
+import { ShoppingBasket } from "lucide-react";
 
 type ProductCardProps = {
   product: Product;
@@ -37,15 +38,21 @@ function getShortCategory(name: string) {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const { settings } = useSettings();
+  const { addItem } = useCart();
   const categoryObj = CATEGORIES.find(c => c.id === product.category);
   const categoryName = categoryObj ? categoryObj.name : "Industrial Supply";
   const shortCategory = getShortCategory(categoryName);
 
-  const waMessage = `Halo PT Selaras Mitra Utama,\n\nSaya tertarik dengan produk:\n*${product.name}*\n\nBoleh info ketersediaan dan harga terbaik?`;
-  const waLink = `https://wa.me/${settings.primaryWhatsapp}?text=${encodeURIComponent(waMessage)}`;
+  const handleAddToCart = () => {
+    addItem({
+      slug: product.slug,
+      name: product.name,
+      brand: product.brand,
+      category: shortCategory,
+      image: product.image,
+    });
+  };
 
-  // Show SNI badge for safety footwear, helmets or certified goods
   const isSni = product.name.toLowerCase().includes("safety shoes") ||
     product.name.toLowerCase().includes("helm") ||
     product.name.toLowerCase().includes("sepatu safety");
@@ -91,16 +98,14 @@ export default function ProductCard({ product }: ProductCardProps) {
             <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
             <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
           </div>
-          <a
-            href={waLink}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={handleAddToCart}
             className="btn-wa-card"
-            style={{ borderRadius: '10px', padding: '8px 10px', fontSize: '11px' }}
+            style={{ borderRadius: '10px', padding: '8px 10px', fontSize: '11px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', width: '100%', justifyContent: 'center' }}
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            <span>Tanya via WA</span>
-          </a>
+            <ShoppingBasket style={{ width: '13px', height: '13px' }} />
+            <span>+ Keranjang</span>
+          </button>
         </div>
       </div>
     </div>

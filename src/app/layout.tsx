@@ -90,8 +90,9 @@ export default function RootLayout({
     <html
       lang="id"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-slate-50">
+      <body className="min-h-full flex flex-col bg-slate-50" suppressHydrationWarning>
         <SettingsProvider>
           <LayoutWrapper>
             {children}

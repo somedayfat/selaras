@@ -50,7 +50,7 @@ export default function Footer() {
               <Link href="/#services">Layanan</Link>
               <Link href="/products">Katalog Produk</Link>
               <Link href="/#contact">Hubungi Kami</Link>
-              <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer">Request Penawaran</a>
+              <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer" suppressHydrationWarning>Request Penawaran</a>
             </div>
           </div>
           <div className="footer-col">
@@ -60,7 +60,7 @@ export default function Footer() {
                 const cleanedPhone = phone.replace(/[^0-9]/g, "");
                 const formattedPhone = cleanedPhone.startsWith("0") ? "62" + cleanedPhone.slice(1) : cleanedPhone;
                 return (
-              <a key={idx} href={`https://wa.me/${formattedPhone}`} target="_blank" rel="noopener noreferrer">
+              <a key={idx} href={`https://wa.me/${formattedPhone}`} target="_blank" rel="noopener noreferrer" suppressHydrationWarning>
                     {phone} {formattedPhone === settings.primaryWhatsapp && "(Utama)"}
                   </a>
                 );
@@ -86,7 +86,7 @@ export default function Footer() {
       </footer>
 
       {/* Floating WA Button */}
-      <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer" className="floating-wa" aria-label="Chat via WhatsApp" style={{ fontSize: "22px" }}>💬</a>
+      <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer" className="floating-wa" aria-label="Chat via WhatsApp" style={{ fontSize: "22px" }} suppressHydrationWarning>💬</a>
     </>
   );
 }
