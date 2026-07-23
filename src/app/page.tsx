@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { CATEGORIES } from '@/data/categories';
 import { PRODUCTS } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
+import CatalogCategories from '@/components/CatalogCategories';
+import SectorMarquee from '@/components/SectorMarquee';
 import { useSettings } from '@/components/SettingsContext';
 import { 
   ShieldCheck, 
@@ -351,28 +353,7 @@ export default function Home() {
       {/* ============================================================
           6. KATEGORI PRODUK
       ============================================================ */}
-      <section className="categories-section">
-        <div className="container">
-          <div className="section-header fade-up">
-            <span className="section-tag">Kategori Produk</span>
-            <h2 className="section-title">Jelajahi Katalog Kami</h2>
-            <p className="section-sub">Temukan kebutuhan K3, tools, dan equipment berdasarkan kategori untuk efisiensi pengadaan Anda.</p>
-          </div>
-          <div className="category-grid">
-            {CATEGORIES.map((c, i) => (
-              <Link href={`/categories/${c.slug}`} key={c.id} className={`category-card fade-up delay-${i % 4}`}>
-                <div className="category-icon-wrap">
-                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="1.5" fill="none">
-                    <circle cx="12" cy="12" r="10"/>
-                  </svg>
-                </div>
-                <h3 style={{ fontSize: '13px' }}>{c.name}</h3>
-                <p style={{ fontSize: '12px', color: 'var(--gray-400)', marginTop: '4px' }}>{PRODUCTS.filter(p => p.category === c.id).length} produk</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CatalogCategories products={PRODUCTS} />
 
       {/* ============================================================
           7. FEATURED PRODUCTS
@@ -410,23 +391,9 @@ export default function Home() {
       </section>
 
       {/* ============================================================
-          8. AREA LAYANAN / SECTORS
+          8. AREA LAYANAN / SECTORS (Marquee Slider)
       ============================================================ */}
-      <section className="sectors-section" style={{ background: 'var(--white)', borderTop: '1px solid var(--gray-200)' }}>
-        <div className="container">
-          <div className="section-header fade-up">
-            <span className="section-tag">Sektor yang Kami Layani</span>
-            <h2 className="section-title">Melayani Berbagai Sektor Industri</h2>
-          </div>
-          <div className="sector-grid fade-up delay-1">
-            {SECTORS.map((s, i) => (
-              <div key={i} className="sector-card">
-                <h4>{s}</h4>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SectorMarquee sectors={SECTORS} />
 
       {/* ============================================================
           9. CTA BESAR / CONTACT

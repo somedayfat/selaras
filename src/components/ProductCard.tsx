@@ -60,9 +60,6 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="product-card show">
       <Link href={`/products/${product.slug}`} className="product-card-img">
-        <span className="product-card-badge" style={{ fontSize: '8px', padding: '3px 8px' }}>
-          {shortCategory}
-        </span>
         {isSni && <span className="product-card-sni" style={{ fontSize: '8px', padding: '3px 7px' }}>SNI</span>}
         {product.image ? (
           <img
