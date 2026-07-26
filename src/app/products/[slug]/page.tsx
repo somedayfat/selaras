@@ -55,7 +55,7 @@ export default async function ProductDetailPage({ params }: Props) {
             <div style={{ width: '100%', aspectRatio: '1/1', background: '#f3f4f6', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '36px', marginBottom: '16px', overflow: 'hidden' }}>
               {product.image ? (
                 <img
-                  src={`/${product.image}`}
+                  src={product.image.startsWith("data:") || product.image.startsWith("http") || product.image.startsWith("/") ? product.image : `/${product.image}`}
                   alt={product.name}
                   style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }}
                 />

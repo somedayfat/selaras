@@ -77,7 +77,7 @@ export default function CartDrawer() {
                   {/* Image */}
                   <div style={{ width: "56px", height: "56px", background: "#f8fafc", borderRadius: "10px", flexShrink: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     {item.image ? (
-                      <img src={`/${item.image}`} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "contain", mixBlendMode: "multiply" }} />
+                      <img src={item.image.startsWith("data:") || item.image.startsWith("http") || item.image.startsWith("/") ? item.image : `/${item.image}`} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "contain", mixBlendMode: "multiply" }} />
                     ) : (
                       <div style={{ width: "24px", height: "24px", background: "#e2e8f0", borderRadius: "6px" }} />
                     )}

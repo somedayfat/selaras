@@ -63,7 +63,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         {isSni && <span className="product-card-sni" style={{ fontSize: '8px', padding: '3px 7px' }}>SNI</span>}
         {product.image ? (
           <img
-            src={`/${product.image}`}
+            src={product.image.startsWith("data:") || product.image.startsWith("http") || product.image.startsWith("/") ? product.image : `/${product.image}`}
             alt={product.name}
             className="transition-opacity duration-300 hover:opacity-95"
           />

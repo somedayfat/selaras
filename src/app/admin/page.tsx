@@ -945,7 +945,7 @@ export default function AdminDashboardPage() {
                             <td style={{ padding: "16px 24px", verticalAlign: "middle" }}>
                               <div style={{ width: "48px", height: "48px", borderRadius: "10px", backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                                 {p.image ? (
-                                  <img src={`/${p.image}`} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                                  <img src={p.image.startsWith("data:") || p.image.startsWith("http") || p.image.startsWith("/") ? p.image : `/${p.image}`} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                                 ) : (
                                   <FileText className="w-5 h-5 text-slate-300" />
                                 )}
@@ -1422,7 +1422,7 @@ export default function AdminDashboardPage() {
                 {uploadError && <p style={{ fontSize: "10px", color: "#ef4444", fontWeight: 700, margin: "4px 0 0 0", display: "flex", alignItems: "center", gap: "4px" }}><AlertCircle className="w-3.5 h-3.5" /> {uploadError}</p>}
                 {productForm.image && (
                   <div style={{ marginTop: "8px", width: "80px", height: "80px", borderRadius: "12px", border: "1px solid #cbd5e1", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#f8fafc" }}>
-                    <img src={`/${productForm.image}`} alt="Preview" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    <img src={productForm.image.startsWith("data:") || productForm.image.startsWith("http") || productForm.image.startsWith("/") ? productForm.image : `/${productForm.image}`} alt="Preview" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   </div>
                 )}
               </div>

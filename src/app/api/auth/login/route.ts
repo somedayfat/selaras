@@ -5,8 +5,15 @@ export async function POST(request: Request) {
   try {
     const { email, password } = await request.json();
     
-    const validEmail = process.env.ADMIN_EMAIL || "admin@smuindustrial.com";
-    const validPassword = process.env.ADMIN_PASSWORD || "SMUAdmin2026$#";
+    const validEmail = process.env.ADMIN_EMAIL;
+    const validPassword = process.env.ADMIN_PASSWORD;
+
+    if (!validEmail || !validPassword) {
+      return NextResponse.json(
+        { success: false, error: "Konfigurasi server tidak lengkap." },
+        { status: 500 }
+      );
+    }
 
     if (email === validEmail && password === validPassword) {
       const cookieStore = await cookies();
