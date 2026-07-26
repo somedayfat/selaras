@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { usePathname } from "next/navigation";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -27,7 +28,9 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   return (
     <CartProvider>
       <div className="flex flex-col min-h-screen">
-        <Header />
+        <Suspense fallback={<div style={{ height: "60px" }} />}>
+          <Header />
+        </Suspense>
         <main className="flex-grow">{children}</main>
         <Footer />
       </div>
