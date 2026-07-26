@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { CATEGORIES } from "@/data/categories";
 import { useSettings } from "@/components/SettingsContext";
 import { useCart } from "@/components/CartContext";
@@ -14,7 +14,17 @@ export default function Header() {
   const { totalItems, openCart } = useCart();
   const [searchQuery, setSearchQuery] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
+  // Keep header search input in sync with URL or clear it when navigating away
+  useEffect(() => {
+    if (pathname === "/products") {
+      setSearchQuery(searchParams.get("search") || "");
+    } else {
+      setSearchQuery("");
+    }
+  }, [pathname, searchParams]);
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
