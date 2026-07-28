@@ -192,9 +192,9 @@ export default function Home() {
       <section className="hero" id="hero">
         <div className="hero-inner">
           <div className={`fade-up ${isMounted ? 'visible' : ''}`}>
-            <div className="hero-badge">General Trading &amp; Industrial Supplier</div>
-            <h1>Solusi Pengadaan Material Industri &amp; Proyek Secara <span className="accent">Cepat, Tepat &amp; Kompetitif.</span></h1>
-            <p>Mendukung kebutuhan pabrik, kontraktor, dan proyek dengan jaringan supplier terpercaya.</p>
+            <div className="hero-badge">{settings.heroBadge || "General Trading & Industrial Supplier"}</div>
+            <h1>{settings.heroTitle || "Solusi Pengadaan Material Industri & Proyek Secara"} <span className="accent">{settings.heroTitleAccent || "Cepat, Tepat & Kompetitif."}</span></h1>
+            <p>{settings.heroSubtitle || "Mendukung kebutuhan pabrik, kontraktor, dan proyek dengan jaringan supplier terpercaya."}</p>
             <div className="hero-trust">
               <div className="hero-trust-item">✔ Didukung jaringan supplier terpercaya</div>
               <div className="hero-trust-item">✔ Siap support kebutuhan industri &amp; proyek</div>

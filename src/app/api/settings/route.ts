@@ -71,6 +71,10 @@ export async function PUT(request: Request) {
       primaryWhatsapp: body.primaryWhatsapp !== undefined ? body.primaryWhatsapp : currentSettings.primaryWhatsapp,
       phoneNumbers: Array.isArray(body.phoneNumbers) ? body.phoneNumbers : currentSettings.phoneNumbers,
       email: body.email !== undefined ? body.email : currentSettings.email,
+      heroBadge: body.heroBadge !== undefined ? body.heroBadge : currentSettings.heroBadge,
+      heroTitle: body.heroTitle !== undefined ? body.heroTitle : currentSettings.heroTitle,
+      heroTitleAccent: body.heroTitleAccent !== undefined ? body.heroTitleAccent : currentSettings.heroTitleAccent,
+      heroSubtitle: body.heroSubtitle !== undefined ? body.heroSubtitle : currentSettings.heroSubtitle,
     };
 
     const success = await writeSettingsToFile(updatedSettings);

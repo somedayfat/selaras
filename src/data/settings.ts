@@ -10,6 +10,10 @@ export interface SelarasSettings {
   officePhone?: string;
   businessHours?: string;
   email: string;
+  heroBadge?: string;
+  heroTitle?: string;
+  heroTitleAccent?: string;
+  heroSubtitle?: string;
 }
 
 export const selarasSettings: SelarasSettings = settingsData as SelarasSettings;

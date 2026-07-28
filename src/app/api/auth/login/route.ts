@@ -15,7 +15,7 @@ export async function POST(request: Request) {
       );
     }
 
-    if (email === validEmail && password === validPassword) {
+    if (email.trim() === validEmail.trim() && password === validPassword.trim()) {
       const cookieStore = await cookies();
       cookieStore.set("selaras_admin_session", "authenticated", {
         httpOnly: true,

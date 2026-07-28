@@ -21,7 +21,7 @@ body {
   background-color: #F5F7FA;
   color: #1F2937;
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 

@@ -23,7 +23,8 @@ import {
   MapPin,
   RefreshCw,
   Sliders,
-  Globe
+  Globe,
+  Menu
 } from "lucide-react";
 import { Product } from "@/data/products";
 import { CATEGORIES } from "@/data/categories";
@@ -38,6 +39,7 @@ export default function AdminDashboardPage() {
 
   // Navigation State
   const [activeTab, setActiveTab] = useState<"dashboard" | "products" | "settings">("dashboard");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Products CRUD State
   const [products, setProducts] = useState<Product[]>([]);
@@ -71,7 +73,11 @@ export default function AdminDashboardPage() {
     googleMapsUrl: "",
     primaryWhatsapp: "",
     phoneNumbers: [""] as string[],
-    email: ""
+    email: "",
+    heroBadge: "",
+    heroTitle: "",
+    heroTitleAccent: "",
+    heroSubtitle: ""
   });
 
   // Status Alerts
@@ -113,7 +119,11 @@ export default function AdminDashboardPage() {
           googleMapsUrl: settings.googleMapsUrl || "",
           primaryWhatsapp: settings.primaryWhatsapp || "",
           phoneNumbers: settings.phoneNumbers ? [...settings.phoneNumbers] : [""],
-          email: settings.email || ""
+          email: settings.email || "",
+          heroBadge: settings.heroBadge || "",
+          heroTitle: settings.heroTitle || "",
+          heroTitleAccent: settings.heroTitleAccent || "",
+          heroSubtitle: settings.heroSubtitle || ""
         });
       }
     }
@@ -561,6 +571,7 @@ export default function AdminDashboardPage() {
   }
 
   // LOGGED IN DASHBOARD
+  // LOGGED IN DASHBOARD
   return (
     <div 
       style={{
@@ -573,9 +584,62 @@ export default function AdminDashboardPage() {
         boxSizing: "border-box"
       }}
     >
+      <style>{`
+        @media (max-width: 768px) {
+          .admin-sidebar {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 50;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+          }
+          .admin-sidebar.open {
+            transform: translateX(0);
+          }
+          .admin-overlay {
+            display: none !important;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.5);
+            z-index: 40;
+            backdrop-filter: blur(2px);
+          }
+          .admin-overlay.open {
+            display: block !important;
+          }
+          .mobile-menu-btn {
+            display: flex !important;
+          }
+          .admin-header-title {
+            font-size: 16px !important;
+          }
+          .admin-main-wrapper {
+            padding: 16px !important;
+          }
+          .admin-main-header {
+            padding: 16px !important;
+          }
+        }
+        .admin-overlay {
+          display: none;
+        }
+        .mobile-menu-btn {
+          display: none;
+        }
+      `}</style>
+      
+      <div className={`admin-overlay ${isSidebarOpen ? 'open' : ''}`} onClick={() => setIsSidebarOpen(false)} />
+
       {/* Sidebar Navigation */}
       <aside 
+        className={`admin-sidebar ${isSidebarOpen ? 'open' : ''}`}
         style={{
+          position: "sticky",
+          top: 0,
+          height: "100vh",
+          overflowY: "auto",
           width: "260px",
           minWidth: "260px",
           backgroundColor: "#0f172a",
@@ -627,7 +691,7 @@ export default function AdminDashboardPage() {
           {/* Nav items */}
           <nav style={{ padding: "16px", display: "flex", flexDirection: "column", gap: "8px", boxSizing: "border-box" }}>
             <button
-              onClick={() => setActiveTab("dashboard")}
+              onClick={() => { setActiveTab("dashboard"); setIsSidebarOpen(false); }}
               style={{
                 width: "100%",
                 display: "flex",
@@ -650,7 +714,7 @@ export default function AdminDashboardPage() {
               <LayoutDashboard className="w-4 h-4" /> Dashboard
             </button>
             <button
-              onClick={() => setActiveTab("products")}
+              onClick={() => { setActiveTab("products"); setIsSidebarOpen(false); }}
               style={{
                 width: "100%",
                 display: "flex",
@@ -673,7 +737,7 @@ export default function AdminDashboardPage() {
               <ShoppingBag className="w-4 h-4" /> Katalog Produk
             </button>
             <button
-              onClick={() => setActiveTab("settings")}
+              onClick={() => { setActiveTab("settings"); setIsSidebarOpen(false); }}
               style={{
                 width: "100%",
                 display: "flex",
@@ -727,10 +791,14 @@ export default function AdminDashboardPage() {
       </aside>
 
       {/* Main Content Area */}
-      <main style={{ flex: 1, display: "flex", flexDirection: "column", minHeight: "100vh", boxSizing: "border-box", overflowY: "auto" }}>
+      <main style={{ flex: 1, display: "flex", flexDirection: "column", minHeight: "100vh", boxSizing: "border-box", minWidth: 0 }}>
         {/* Top Header */}
         <header 
+          className="admin-main-header"
           style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 30,
             backgroundColor: "#fff",
             borderBottom: "1px solid #e2e8f0",
             padding: "20px 32px",
@@ -741,40 +809,71 @@ export default function AdminDashboardPage() {
             boxShadow: "0 1px 3px rgba(0,0,0,0.02)"
           }}
         >
-          <div>
-            <h1 style={{ fontSize: "20px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.5px", margin: 0, color: "#1e293b" }}>
-              {activeTab === "dashboard" && "Dashboard Administrator"}
-              {activeTab === "products" && "Katalog Produk Supplier"}
-              {activeTab === "settings" && "Pengaturan Kontak & Toko"}
-            </h1>
-            <p style={{ fontSize: "11px", color: "#94a3b8", marginTop: "4px", margin: 0 }}>Sistem Pengelolaan Konten Pengadaan B2B</p>
-          </div>
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+            <button 
+              className="mobile-menu-btn"
+              style={{
+                padding: "8px",
+                backgroundColor: "#f1f5f9",
+                border: "none",
+                borderRadius: "8px",
+                cursor: "pointer",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#475569"
+              }}
+              onClick={() => setIsSidebarOpen(true)}
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+            <div>
+              <h1 className="admin-header-title" style={{ fontSize: "20px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.5px", margin: 0, color: "#1e293b" }}>
+                {activeTab === "dashboard" && "Dashboard Administrator"}
+                {activeTab === "products" && "Katalog Produk Supplier"}
+                {activeTab === "settings" && "Pengaturan Kontak & Toko"}
+              </h1>
+              <p style={{ fontSize: "11px", color: "#94a3b8", margin: 0, marginTop: "4px" }}>Sistem Pengelolaan Konten Pengadaan B2B</p>
+            </div>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             {isLoading && (
-              <span style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "#D4870A", fontWeight: 700 }}>
+              <span className="desktop-only" style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "#D4870A", fontWeight: 700 }}>
                 <RefreshCw className="w-3.5 h-3.5 animate-spin" /> Sinkronisasi data...
               </span>
             )}
-            <div style={{ backgroundColor: "#f1f5f9", borderRadius: "9999px", padding: "6px 16px", fontSize: "11px", fontWeight: 700, color: "#475569", border: "1px solid #e2e8f0" }}>
-              Admin: <span style={{ color: "#02376C", fontWeight: 900 }}>PT. SMU</span>
-            </div>
+            <span className="desktop-only" style={{ fontSize: "11px", fontWeight: 700, color: "#475569" }}>Admin</span>
+            <div style={{ width: "36px", height: "36px", backgroundColor: "#D4870A", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 900, fontSize: "14px" }}>A</div>
           </div>
         </header>
 
         {/* Dynamic Alerts Banner */}
         {statusMessage.text && (
-          <div className={`px-8 py-3.5 flex items-center gap-3 border-b text-xs font-semibold tracking-wide ${
-            statusMessage.type === "success" 
-              ? "bg-emerald-50 border-emerald-200 text-emerald-800" 
-              : "bg-red-50 border-red-200 text-red-800"
-          }`}>
+          <div style={{ 
+            padding: "14px 32px", 
+            display: "flex", 
+            alignItems: "center", 
+            gap: "12px", 
+            borderBottom: "1px solid",
+            fontSize: "12px",
+            fontWeight: 600,
+            letterSpacing: "0.5px",
+            ...(statusMessage.type === "success" ? {
+              backgroundColor: "#ecfdf5",
+              borderColor: "#a7f3d0",
+              color: "#065f46"
+            } : {
+              backgroundColor: "#fef2f2",
+              borderColor: "#fecaca",
+              color: "#991b1b"
+            })
+          }}>
             <CheckCircle className="w-4 h-4 shrink-0" />
             <span>{statusMessage.text}</span>
           </div>
         )}
 
-        {/* Tab Content Panels */}
-        <div style={{ flex: 1, padding: "32px", display: "flex", flexDirection: "column", gap: "32px", boxSizing: "border-box" }}>
+        {/* Content Wrapper */}
+        <div className="admin-main-wrapper" style={{ padding: "32px 40px", display: "flex", flexDirection: "column", gap: "24px", boxSizing: "border-box", width: "100%" }}>
           
           {/* TAB 1: DASHBOARD METRICS */}
           {activeTab === "dashboard" && (
@@ -1215,6 +1314,60 @@ export default function AdminDashboardPage() {
                       outline: "none"
                     }}
                   />
+                </div>
+
+                <div style={{ paddingTop: "16px", borderTop: "1px solid #f1f5f9", display: "flex", flexDirection: "column", gap: "24px" }}>
+                  {/* Hero Settings */}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <label style={{ fontSize: "14px", fontWeight: 800, color: "#1e293b", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "8px" }}>Pengaturan Teks Hero Banner</label>
+                    
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "20px" }}>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                        <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Teks Badge (Kecil di Atas)</label>
+                        <input
+                          type="text"
+                          value={settingsForm.heroBadge}
+                          onChange={(e) => setSettingsForm(prev => ({ ...prev, heroBadge: e.target.value }))}
+                          placeholder="General Trading & Industrial Supplier"
+                          style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", color: "#334155", outline: "none" }}
+                        />
+                      </div>
+                    </div>
+
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "20px", marginTop: "12px" }}>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                        <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Judul Utama (Awal)</label>
+                        <input
+                          type="text"
+                          value={settingsForm.heroTitle}
+                          onChange={(e) => setSettingsForm(prev => ({ ...prev, heroTitle: e.target.value }))}
+                          placeholder="Solusi Pengadaan Material Industri & Proyek Secara"
+                          style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", color: "#334155", outline: "none" }}
+                        />
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                        <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Judul Aksen (Warna Berbeda)</label>
+                        <input
+                          type="text"
+                          value={settingsForm.heroTitleAccent}
+                          onChange={(e) => setSettingsForm(prev => ({ ...prev, heroTitleAccent: e.target.value }))}
+                          placeholder="Cepat, Tepat & Kompetitif."
+                          style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", color: "#334155", outline: "none" }}
+                        />
+                      </div>
+                    </div>
+
+                    <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginTop: "12px" }}>
+                      <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Sub-judul (Deskripsi)</label>
+                      <textarea
+                        rows={2}
+                        value={settingsForm.heroSubtitle}
+                        onChange={(e) => setSettingsForm(prev => ({ ...prev, heroSubtitle: e.target.value }))}
+                        placeholder="Mendukung kebutuhan pabrik..."
+                        style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", color: "#334155", outline: "none", resize: "none", lineHeight: "1.6" }}
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 <div style={{ paddingTop: "16px", borderTop: "1px solid #f1f5f9" }}>
