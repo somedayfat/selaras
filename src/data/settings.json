@@ -1,7 +1,7 @@
 {
   "shopName": "Selaras Mitra Utama",
   "companyName": "PT. Selaras Mitra Utama",
-  "address": "Graha MIR Lt. 6, Rawamangun, Jakarta Timur",
+  "address": "Gedung Graha MIR Lantai 6 Zona A1 Jl. Pemuda No. 9, Desa/Kelurahan\nRawamangun, Kec. Pulogadung, Kota Adm. Jakarta Timur, Provinsi DKI\nJakarta,\nKode Pos: 13220",
   "googleMapsUrl": "#",
   "primaryWhatsapp": "6281991579265",
   "phoneNumbers": [
@@ -9,7 +9,5 @@
     "0812-134-6665",
     "0822-4948-9325"
   ],
-  "officePhone": "+62 21 2936 8919",
-  "businessHours": "Monday – Friday : 08.00 – 17.00 WIB",
   "email": "info@smuindustrial.com"
 }
