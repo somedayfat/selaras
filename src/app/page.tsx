@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import Link from 'next/link';
 import { CATEGORIES } from '@/data/categories';
 import { PRODUCTS } from '@/data/products';
@@ -22,98 +22,19 @@ import {
   Building
 } from 'lucide-react';
 
-const SERVICES = [
-  "General Trading",
-  "General Supplier",
-  "Procurement Service",
-  "Project Supply",
-  "General Contractor",
-  "Mechanical & Electrical Works",
-  "Interior Fit-Out",
-  "Engineering Support",
-  "Installation",
-  "Preventive & Corrective Maintenance",
-  "Fabrication",
-  "Import & Export Assistance",
-  "Custom Product Sourcing",
-  "Logistics & Delivery",
-  "Vendor Managed Inventory (VMI)"
-];
-
-const SECTORS = [
-  "Manufaktur",
-  "Otomotif",
-  "Semikonduktor",
-  "Elektronik",
-  "Logistik & Pergudangan",
-  "Konstruksi",
-  "Rumah Sakit",
-  "Perkantoran",
-  "Hotel",
-  "Pendidikan",
-  "Pertambangan",
-  "Migas",
-  "Energi",
-  "Instansi Pemerintah",
-  "BUMN",
-  "Swasta"
-];
-
-const ADVANTAGES = [
-  {
-    icon: ShieldCheck,
-    iconClass: "icon-navy",
-    title: "Mitra Bisnis yang Terpercaya",
-    desc: "Dibangun di atas fondasi kepercayaan dan integritas dalam setiap transaksi pengadaan bersama klien industri."
-  },
-  {
-    icon: Globe,
-    iconClass: "icon-gold",
-    title: "Jaringan Pemasok yang Luas",
-    desc: "Didukung jaringan supplier dan distributor terpercaya untuk memastikan ketersediaan produk sesuai kebutuhan."
-  },
-  {
-    icon: Zap,
-    iconClass: "icon-slate",
-    title: "Solusi Pengadaan yang Efisien",
-    desc: "Proses pengadaan yang cepat, tepat, dan kompetitif — dari permintaan penawaran hingga pengiriman produk."
-  },
-  {
-    icon: Clock,
-    iconClass: "icon-navy",
-    title: "Layanan Profesional & Responsif",
-    desc: "Tim kami siap merespons kebutuhan pengadaan dan memberikan konsultasi produk dengan cepat di setiap hari kerja."
-  },
-  {
-    icon: Award,
-    iconClass: "icon-gold",
-    title: "Komitmen Kualitas & Waktu",
-    desc: "Setiap pesanan diproses dengan standar kualitas tinggi dan komitmen pengiriman tepat waktu sesuai perjanjian."
-  },
-];
-
-const MISI = [
-  {
-    num: "01",
-    title: "Solusi & Layanan Prima",
-    desc: "Mengutamakan kepuasan pelanggan melalui penyediaan produk dan layanan berkualitas yang tepat waktu, andal, dan kompetitif."
-  },
-  {
-    num: "02",
-    title: "Solusi Sumber Daya Manusia",
-    desc: "Mengembangkan dan menyediakan solusi sumber daya manusia serta talenta yang kompeten, berintegritas, dan siap mendukung pertumbuhan bisnis pelanggan."
-  },
-  {
-    num: "03",
-    title: "Kemitraan Strategis",
-    desc: "Membangun kemitraan strategis dengan pelanggan, pemasok, dan mitra bisnis berdasarkan integritas, profesionalisme, serta kepercayaan."
-  },
-  {
-    num: "04",
-    title: "Kapasitas Internal & Keberlanjutan",
-    desc: "Meningkatkan kapabilitas organisasi melalui inovasi, pengembangan sumber daya manusia, dan penerapan tata kelola yang mendukung pertumbuhan yang berkelanjutan."
-  },
-];
+const IconMap: Record<string, any> = {
+  ShieldCheck,
+  Globe,
+  Zap,
+  Clock,
+  Award,
+  Phone,
+  Smartphone,
+  MessageSquare,
+  Mail,
+  MapPin,
+  Building
+};
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
@@ -196,9 +117,9 @@ export default function Home() {
             <h1>{settings.heroTitle || "Solusi Pengadaan Material Industri & Proyek Secara"} <span className="accent">{settings.heroTitleAccent || "Cepat, Tepat & Kompetitif."}</span></h1>
             <p>{settings.heroSubtitle || "Mendukung kebutuhan pabrik, kontraktor, dan proyek dengan jaringan supplier terpercaya."}</p>
             <div className="hero-trust">
-              <div className="hero-trust-item">✔ Didukung jaringan supplier terpercaya</div>
-              <div className="hero-trust-item">✔ Siap support kebutuhan industri &amp; proyek</div>
-              <div className="hero-trust-item">✔ Pengadaan cepat, tepat, dan kompetitif</div>
+              {(settings.heroTrust || []).map((item, i) => (
+                <div key={i} className="hero-trust-item">{item}</div>
+              ))}
             </div>
             <div className="hero-ctas">
               <a href="#contact" className="btn-hero-primary" id="hero-request-btn">
@@ -212,18 +133,17 @@ export default function Home() {
 
           <div className={`hero-card fade-up delay-2 ${isMounted ? 'visible' : ''}`}>
             <div className="hero-card-header">
-              <span className="hero-card-brand">PT. Selaras Mitra Utama</span>
+              <span className="hero-card-brand">{settings.heroCardBrand || "PT. Selaras Mitra Utama"}</span>
               <div className="hero-card-dot"></div>
             </div>
-            <img src="img/hero.jpg" alt="Suasana Kantor Selaras Mitra Utama" style={{ width: "100%", height: "160px", objectFit: "cover", borderRadius: "14px", marginBottom: "16px" }} />
-            <p style={{ fontSize: "12px", lineHeight: "1.6", color: "rgba(255,255,255,0.6)", marginBottom: "16px" }}>Head Office: Gedung Graha MIR Lt. 6, Jakarta Timur. Mitra B2B terpercaya untuk Industrial Supply &amp; HR Solutions.</p>
+            <img src={settings.heroCardImage || "img/hero.jpg"} alt="Suasana Kantor Selaras Mitra Utama" style={{ width: "100%", height: "160px", objectFit: "cover", borderRadius: "14px", marginBottom: "16px" }} />
+            <p style={{ fontSize: "12px", lineHeight: "1.6", color: "rgba(255,255,255,0.6)", marginBottom: "16px" }}>{settings.heroCardText}</p>
             <div className="hero-card-chips">
-              <span className="hero-chip">Safety K3</span>
-              <span className="hero-chip">Tools &amp; Equipment</span>
-              <span className="hero-chip">Chemical</span>
-              <span className="hero-chip">HR Solutions</span>
+              {(settings.heroCardChips || []).map((chip, i) => (
+                <span key={i} className="hero-chip">{chip}</span>
+              ))}
             </div>
-            <div className="hero-card-footer">Pengadaan Cepat &amp; Kompetitif</div>
+            <div className="hero-card-footer">{settings.heroCardFooter}</div>
           </div>
         </div>
       </section>
@@ -233,18 +153,12 @@ export default function Home() {
       ============================================================ */}
       <div className="stats-strip">
         <div className="container">
-          <div className="stat-item fade-up">
-            <div className="stat-number" data-target="500" data-suffix="+">0</div>
-            <div className="stat-label">Produk Tersedia</div>
-          </div>
-          <div className="stat-item fade-up delay-1">
-            <div className="stat-number" data-target="100" data-suffix="+">0</div>
-            <div className="stat-label">Klien Industri</div>
-          </div>
-          <div className="stat-item fade-up delay-2">
-            <div className="stat-number" data-target="5" data-suffix="+">0</div>
-            <div className="stat-label">Tahun Pengalaman</div>
-          </div>
+          {(settings.stats || []).map((stat, i) => (
+            <div key={i} className={`stat-item fade-up delay-${i}`}>
+              <div className="stat-number" data-target={stat.number} data-suffix={stat.suffix}>0</div>
+              <div className="stat-label">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -256,20 +170,21 @@ export default function Home() {
           {/* About Grid */}
           <div className="about-grid">
             <div className="about-img-wrap fade-up">
-              <img src="img/p0_img1.png" alt="Gedung Graha MIR Jakarta — Kantor PT Selaras Mitra Utama" />
+              <img src={settings.aboutImage || "img/p0_img1.png"} alt="Gedung Graha MIR Jakarta — Kantor PT Selaras Mitra Utama" />
               <div className="about-badge">
-                Melayani Seluruh Indonesia
+                {settings.aboutBadge || "Melayani Seluruh Indonesia"}
               </div>
             </div>
             <div className="about-content fade-up delay-1">
               <span className="section-tag">Tentang Kami</span>
-              <h2 className="section-title">Mitra Bisnis Terintegrasi untuk Industri Indonesia</h2>
-              <p>PT Selaras Mitra Utama adalah perusahaan penyedia solusi terintegrasi pengadaan kebutuhan industri dan pengelolaan sumber daya manusia yang hadir sebagai mitra strategis bagi dunia usaha. Berkomitmen mendukung budaya kerja yang aman, profesional, dan produktif.</p>
-              <p>Kami hadir memberikan solusi satu pintu (<em>one-stop solution</em>) untuk berbagai sektor industri strategis — manufaktur, konstruksi, EPC, energi, hingga logistik.</p>
+              <h2 className="section-title">{settings.aboutTitle || "Mitra Bisnis Terintegrasi untuk Industri Indonesia"}</h2>
+              {(settings.aboutText || []).map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
               <div className="about-keys">
-                <div className="about-key"><span className="about-key-dot"></span> Pengiriman Seluruh Indonesia</div>
-                <div className="about-key"><span className="about-key-dot"></span> Respons Cepat &amp; Profesional</div>
-                <div className="about-key"><span className="about-key-dot"></span> Jaringan Supplier Terpercaya</div>
+                {(settings.aboutKeys || []).map((keyItem, i) => (
+                  <div key={i} className="about-key"><span className="about-key-dot"></span> {keyItem}</div>
+                ))}
               </div>
             </div>
           </div>
@@ -280,7 +195,7 @@ export default function Home() {
             <div className="vm-card-visi">
               <div className="vm-title color-gold">Visi</div>
               <p className="visi-text">
-                Menjadi mitra bisnis nasional yang terpercaya dalam menyediakan solusi terintegrasi di bidang Industrial Supply, Procurement, Konstruksi, dan Manajemen Talenta secara profesional, inovatif, dan berkelanjutan.
+                {settings.visiText}
               </p>
             </div>
 
@@ -288,7 +203,7 @@ export default function Home() {
             <div className="vm-card-misi">
               <div className="vm-title color-navy">Misi</div>
               <div className="misi-list">
-                {MISI.map((m) => (
+                {(settings.misi || []).map((m) => (
                   <div key={m.num} className="misi-list-item">
                     <h5 className="misi-item-title">
                       <span className="misi-item-num">{m.num}.</span> {m.title}
@@ -315,7 +230,7 @@ export default function Home() {
           <div className="service-pillar fade-up delay-1" style={{ background: 'var(--gray-50)', border: '1px solid var(--gray-200)', borderRadius: '20px', padding: '36px' }}>
             <p style={{ fontWeight: 700, color: 'var(--navy)', marginBottom: '24px', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Layanan Terintegrasi (B2B)</p>
             <div className="service-pill-list" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-              {SERVICES.map((s, i) => (
+              {(settings.services || []).map((s, i) => (
                 <span key={i} className="service-pill" style={{ background: 'var(--white)', border: '1px solid var(--gray-250)' }}>✓ {s}</span>
               ))}
             </div>
@@ -334,8 +249,8 @@ export default function Home() {
             <p className="section-sub">Layanan pengadaan industri yang handal, cepat, dan terpercaya untuk berbagai sektor di seluruh Indonesia.</p>
           </div>
           <div className="advantages-grid advantages-5">
-            {ADVANTAGES.map((adv, i) => {
-              const IconComponent = adv.icon;
+            {(settings.advantages || []).map((adv, i) => {
+              const IconComponent = IconMap[adv.iconName] || ShieldCheck;
               return (
                 <div key={i} className={`advantage-card fade-up delay-${i % 4}`}>
                   <div className={`advantage-icon ${adv.iconClass}`}>
@@ -393,7 +308,7 @@ export default function Home() {
       {/* ============================================================
           8. AREA LAYANAN / SECTORS (Marquee Slider)
       ============================================================ */}
-      <SectorMarquee sectors={SECTORS} />
+      <SectorMarquee sectors={settings.sectors || []} />
 
       {/* ============================================================
           9. CTA BESAR / CONTACT
@@ -421,7 +336,7 @@ export default function Home() {
                 <div>
                   <div className="contact-info-label">Office</div>
                   <div className="contact-info-value">
-                    <a href="tel:+622129368919">+62 21 2936 8919</a>
+                    <a href={`tel:${(settings.officePhone || "+62 21 2936 8919").replace(/[^0-9+]/g, "")}`}>{settings.officePhone || "+62 21 2936 8919"}</a>
                   </div>
                 </div>
               </div>
@@ -431,8 +346,11 @@ export default function Home() {
                 <div>
                   <div className="contact-info-label">Sales Hotline</div>
                   <div className="contact-info-value">
-                    <a href="https://wa.me/628121346665" target="_blank" rel="noopener noreferrer" suppressHydrationWarning>+62 812-134-6665</a><br />
-                    <a href="https://wa.me/6282249489325" target="_blank" rel="noopener noreferrer" suppressHydrationWarning>+62 822-4948-9325</a>
+                    {(settings.salesHotlines || []).map((hotline, i) => (
+                      <Fragment key={i}>
+                        <a href={`https://wa.me/${hotline.replace(/[^0-9]/g, "").startsWith("0") ? "62" + hotline.replace(/[^0-9]/g, "").slice(1) : hotline.replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener noreferrer" suppressHydrationWarning>{hotline}</a>{i < (settings.salesHotlines?.length || 0) - 1 && <br />}
+                      </Fragment>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -442,7 +360,7 @@ export default function Home() {
                 <div>
                   <div className="contact-info-label">WhatsApp Business</div>
                   <div className="contact-info-value">
-                    <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer" suppressHydrationWarning>+62 819-9157-9265 (Utama)</a>
+                    <a href={`https://wa.me/${settings.primaryWhatsapp}`} target="_blank" rel="noopener noreferrer" suppressHydrationWarning>{settings.primaryWhatsapp} (Utama)</a>
                   </div>
                 </div>
               </div>
@@ -461,7 +379,7 @@ export default function Home() {
                 <div className="contact-info-icon"><Clock size={18} strokeWidth={1.8} /></div>
                 <div>
                   <div className="contact-info-label">Business Hours</div>
-                  <div className="contact-info-value">Monday – Friday<br />08.00 – 17.00 WIB</div>
+                  <div className="contact-info-value" style={{ whiteSpace: "pre-line" }}>{settings.businessHours}</div>
                 </div>
               </div>
               {/* Head Office */}
@@ -469,7 +387,7 @@ export default function Home() {
                 <div className="contact-info-icon"><Building size={18} strokeWidth={1.8} /></div>
                 <div>
                   <div className="contact-info-label">Head Office – Jakarta</div>
-                  <div className="contact-info-value">Gedung Graha MIRI Lt. 6 Zona A1<br />Jl. Pemuda No. 9, Rawamangun<br />Pulo Gadung, Jakarta Timur 13220</div>
+                  <div className="contact-info-value" style={{ whiteSpace: "pre-line" }}>{settings.headOffice}</div>
                 </div>
               </div>
               {/* Rep Surakarta */}
@@ -477,7 +395,7 @@ export default function Home() {
                 <div className="contact-info-icon"><MapPin size={18} strokeWidth={1.8} /></div>
                 <div>
                   <div className="contact-info-label">Representative Office – Surakarta</div>
-                  <div className="contact-info-value">Jl. Kelud Selatan No. 21<br />Kel. Nusukan, Kec. Banjarsari<br />Kota Surakarta, Jawa Tengah</div>
+                  <div className="contact-info-value" style={{ whiteSpace: "pre-line" }}>{settings.repOffice}</div>
                 </div>
               </div>
             </div>
@@ -525,6 +443,26 @@ export default function Home() {
               </form>
             </div>
           </div>
+
+          {/* Google Maps Embed */}
+          {settings.googleMapsUrl && settings.googleMapsUrl !== "#" && (
+            <div className="maps-embed fade-up delay-2" style={{ marginTop: '40px', width: '100%', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+              {settings.googleMapsUrl.includes('<iframe') ? (
+                <div dangerouslySetInnerHTML={{ __html: settings.googleMapsUrl }} style={{ width: '100%', height: '400px', display: 'block' }} />
+              ) : (
+                <iframe 
+                  src={settings.googleMapsUrl}
+                  width="100%" 
+                  height="400" 
+                  style={{ border: 0 }} 
+                  allowFullScreen={true} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              )}
+            </div>
+          )}
+
         </div>
       </section>
     </>

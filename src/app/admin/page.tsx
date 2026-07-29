@@ -29,6 +29,7 @@ import {
 import { Product } from "@/data/products";
 import { CATEGORIES } from "@/data/categories";
 import { useSettings } from "@/components/SettingsContext";
+import LandingPageSettings from "@/components/admin/LandingPageSettings";
 
 export default function AdminDashboardPage() {
   // Authentication State
@@ -77,7 +78,35 @@ export default function AdminDashboardPage() {
     heroBadge: "",
     heroTitle: "",
     heroTitleAccent: "",
-    heroSubtitle: ""
+    heroSubtitle: "",
+    // Landing Page
+    stats: [] as { number: string; suffix: string; label: string }[],
+    aboutTitle: "",
+    aboutText: [] as string[],
+    aboutKeys: [] as string[],
+    visiText: "",
+    misi: [] as { num: string; title: string; desc: string }[],
+    services: [] as string[],
+    advantages: [] as { iconClass: string; title: string; desc: string; iconName: string }[],
+    heroTrust: [] as string[],
+    heroCardBrand: "",
+    heroCardImage: "",
+    heroCardText: "",
+    heroCardChips: [] as string[],
+    heroCardFooter: "",
+    aboutImage: "",
+    aboutBadge: "",
+    sectors: [] as string[],
+    salesHotlines: [] as string[],
+    headOffice: "",
+    repOffice: "",
+    footerDesc: "",
+    footerBadge: "",
+    footerBrands: [] as string[],
+    businessHours: "",
+    officePhone: "",
+    primaryColor: "",
+    accentColor: ""
   });
 
   // Status Alerts
@@ -123,7 +152,34 @@ export default function AdminDashboardPage() {
           heroBadge: settings.heroBadge || "",
           heroTitle: settings.heroTitle || "",
           heroTitleAccent: settings.heroTitleAccent || "",
-          heroSubtitle: settings.heroSubtitle || ""
+          heroSubtitle: settings.heroSubtitle || "",
+          stats: settings.stats ? [...settings.stats] : [],
+          aboutTitle: settings.aboutTitle || "",
+          aboutText: settings.aboutText ? [...settings.aboutText] : [],
+          aboutKeys: settings.aboutKeys ? [...settings.aboutKeys] : [],
+          visiText: settings.visiText || "",
+          misi: settings.misi ? [...settings.misi] : [],
+          services: settings.services ? [...settings.services] : [],
+          advantages: settings.advantages ? [...settings.advantages] : [],
+          heroTrust: settings.heroTrust ? [...settings.heroTrust] : [],
+          heroCardBrand: settings.heroCardBrand || "",
+          heroCardImage: settings.heroCardImage || "",
+          heroCardText: settings.heroCardText || "",
+          heroCardChips: settings.heroCardChips ? [...settings.heroCardChips] : [],
+          heroCardFooter: settings.heroCardFooter || "",
+          aboutImage: settings.aboutImage || "",
+          aboutBadge: settings.aboutBadge || "",
+          sectors: settings.sectors ? [...settings.sectors] : [],
+          salesHotlines: settings.salesHotlines ? [...settings.salesHotlines] : [],
+          headOffice: settings.headOffice || "",
+          repOffice: settings.repOffice || "",
+          footerDesc: settings.footerDesc || "",
+          footerBadge: settings.footerBadge || "",
+          footerBrands: settings.footerBrands ? [...settings.footerBrands] : [],
+          businessHours: settings.businessHours || "",
+          officePhone: settings.officePhone || "",
+          primaryColor: settings.primaryColor || "#02376C",
+          accentColor: settings.accentColor || "#D4870A"
         });
       }
     }
@@ -1165,6 +1221,43 @@ export default function AdminDashboardPage() {
 
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "20px" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Warna Utama (Primary Color)</label>
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <input
+                        type="color"
+                        value={settingsForm.primaryColor || "#02376C"}
+                        onChange={(e) => setSettingsForm(prev => ({ ...prev, primaryColor: e.target.value }))}
+                        style={{ width: "50px", height: "42px", padding: "0", border: "1px solid #cbd5e1", borderRadius: "8px", cursor: "pointer" }}
+                      />
+                      <input
+                        type="text"
+                        value={settingsForm.primaryColor || "#02376C"}
+                        onChange={(e) => setSettingsForm(prev => ({ ...prev, primaryColor: e.target.value }))}
+                        style={{ flexGrow: 1, backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", outline: "none" }}
+                      />
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Warna Aksen (Accent Color)</label>
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <input
+                        type="color"
+                        value={settingsForm.accentColor || "#D4870A"}
+                        onChange={(e) => setSettingsForm(prev => ({ ...prev, accentColor: e.target.value }))}
+                        style={{ width: "50px", height: "42px", padding: "0", border: "1px solid #cbd5e1", borderRadius: "8px", cursor: "pointer" }}
+                      />
+                      <input
+                        type="text"
+                        value={settingsForm.accentColor || "#D4870A"}
+                        onChange={(e) => setSettingsForm(prev => ({ ...prev, accentColor: e.target.value }))}
+                        style={{ flexGrow: 1, backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", outline: "none" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "20px" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                     <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Email Kontak</label>
                     <input
                       type="email"
@@ -1295,6 +1388,56 @@ export default function AdminDashboardPage() {
                   />
                 </div>
 
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "20px" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Head Office</label>
+                    <textarea
+                      rows={3}
+                      value={settingsForm.headOffice}
+                      onChange={(e) => setSettingsForm(prev => ({ ...prev, headOffice: e.target.value }))}
+                      style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", outline: "none", resize: "vertical" }}
+                    />
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Representative Office</label>
+                    <textarea
+                      rows={3}
+                      value={settingsForm.repOffice}
+                      onChange={(e) => setSettingsForm(prev => ({ ...prev, repOffice: e.target.value }))}
+                      style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", outline: "none", resize: "vertical" }}
+                    />
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Nomor Telepon Kantor (Office)</label>
+                    <input
+                      type="text"
+                      value={settingsForm.officePhone}
+                      onChange={(e) => setSettingsForm(prev => ({ ...prev, officePhone: e.target.value }))}
+                      style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", outline: "none" }}
+                    />
+                  </div>
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                  <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Jam Operasional (Business Hours)</label>
+                  <textarea
+                    rows={2}
+                    value={settingsForm.businessHours}
+                    onChange={(e) => setSettingsForm(prev => ({ ...prev, businessHours: e.target.value }))}
+                    style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", outline: "none", resize: "vertical" }}
+                  />
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                  <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Sales Hotlines (Pisahkan dengan Enter)</label>
+                  <textarea
+                    rows={2}
+                    value={(settingsForm.salesHotlines || []).join('\n')}
+                    onChange={(e) => setSettingsForm(prev => ({ ...prev, salesHotlines: e.target.value.split('\n').filter(Boolean) }))}
+                    style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", outline: "none", resize: "vertical" }}
+                  />
+                </div>
+
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                   <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Google Maps Embed/Share URL (Opsional)</label>
                   <input
@@ -1368,6 +1511,12 @@ export default function AdminDashboardPage() {
                       />
                     </div>
                   </div>
+                </div>
+
+                {/* LANDING PAGE SETTINGS COMPONENT */}
+                <div style={{ paddingTop: "24px", marginTop: "12px", borderTop: "2px dashed #e2e8f0" }}>
+                  <h2 style={{ fontSize: "16px", fontWeight: 800, color: "#0f172a", marginBottom: "24px" }}>Pengaturan Landing Page (Beranda)</h2>
+                  <LandingPageSettings settingsForm={settingsForm} setSettingsForm={setSettingsForm} />
                 </div>
 
                 <div style={{ paddingTop: "16px", borderTop: "1px solid #f1f5f9" }}>

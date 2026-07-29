@@ -26,10 +26,10 @@ export default function Footer() {
                 <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.35)", letterSpacing: "1.5px", textTransform: "uppercase" }}>Trusted Industrial Partner</div>
               </div>
             </div>
-            <p>Mitra strategis untuk kebutuhan K3, PPE, alat teknik industri, dan solusi SDM profesional di seluruh Indonesia.</p>
+            <p>{settings.footerDesc || "Mitra strategis untuk kebutuhan K3, PPE, alat teknik industri, dan solusi SDM profesional di seluruh Indonesia."}</p>
             <div className="footer-badge">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" /></svg>
-              Spesialis Industrial Supply & K3
+              {settings.footerBadge || "Spesialis Industrial Supply & K3"}
             </div>
           </div>
           <div className="footer-col">
@@ -74,7 +74,9 @@ export default function Footer() {
           <div className="footer-brands-inner">
             <span className="footer-brands-label">Brand & Supplier:</span>
             <div className="footer-brands-list">
-              <span>GOSAVE</span>•<span>SIMON</span>•<span>MSA</span>•<span>HARMIT</span>•<span>REXCO</span>•<span>BOSCH</span>•<span>3M</span>•<span>DEWALT</span>•<span>MAKITA</span>•<span>HOFFMANN</span>
+              {(settings.footerBrands || ["GOSAVE", "SIMON", "MSA", "HARMIT", "REXCO", "BOSCH", "3M", "DEWALT", "MAKITA", "HOFFMANN"]).map((brand, i, arr) => (
+                <span key={i}>{brand}{i < arr.length - 1 ? <span style={{ margin: "0 8px" }}>•</span> : ""}</span>
+              ))}
             </div>
           </div>
         </div>

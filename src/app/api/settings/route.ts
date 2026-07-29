@@ -75,6 +75,16 @@ export async function PUT(request: Request) {
       heroTitle: body.heroTitle !== undefined ? body.heroTitle : currentSettings.heroTitle,
       heroTitleAccent: body.heroTitleAccent !== undefined ? body.heroTitleAccent : currentSettings.heroTitleAccent,
       heroSubtitle: body.heroSubtitle !== undefined ? body.heroSubtitle : currentSettings.heroSubtitle,
+      
+      // Landing Page
+      stats: Array.isArray(body.stats) ? body.stats : currentSettings.stats,
+      aboutTitle: body.aboutTitle !== undefined ? body.aboutTitle : currentSettings.aboutTitle,
+      aboutText: Array.isArray(body.aboutText) ? body.aboutText : currentSettings.aboutText,
+      aboutKeys: Array.isArray(body.aboutKeys) ? body.aboutKeys : currentSettings.aboutKeys,
+      visiText: body.visiText !== undefined ? body.visiText : currentSettings.visiText,
+      misi: Array.isArray(body.misi) ? body.misi : currentSettings.misi,
+      services: Array.isArray(body.services) ? body.services : currentSettings.services,
+      advantages: Array.isArray(body.advantages) ? body.advantages : currentSettings.advantages,
     };
 
     const success = await writeSettingsToFile(updatedSettings);
