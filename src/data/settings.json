@@ -10,33 +10,31 @@
     "0822-4948-9325"
   ],
   "email": "info@smuindustrial.com",
-  "primaryColor": "#02376C",
-  "accentColor": "#D4870A",
-  "officePhone": "+62 21 2936 8919",
-  "businessHours": "Monday – Friday : 08.00 – 17.00 WIB",
   "heroBadge": "General Trading & Industrial Supplier",
   "heroTitle": "Solusi Pengadaan Material Industri & Proyek Secara",
   "heroTitleAccent": "Cepat, Tepat & Kompetitif.",
   "heroSubtitle": "Mendukung kebutuhan pabrik, kontraktor, dan proyek dengan jaringan supplier terpercaya.",
-  "heroTrust": [
-    "✔ Didukung jaringan supplier terpercaya",
-    "✔ Siap support kebutuhan industri & proyek",
-    "✔ Pengadaan cepat, tepat, dan kompetitif"
-  ],
-  "heroCardBrand": "PT. Selaras Mitra Utama",
-  "heroCardImage": "img/hero.jpg",
-  "heroCardText": "Head Office: Gedung Graha MIR Lt. 6, Jakarta Timur. Mitra B2B terpercaya untuk Industrial Supply & HR Solutions.",
-  "heroCardChips": [
-    "Safety K3",
-    "Tools & Equipment",
-    "Chemical",
-    "HR Solutions"
-  ],
-  "heroCardFooter": "Pengadaan Cepat & Kompetitif",
   "stats": [
-    { "number": "500", "suffix": "+", "label": "Produk Tersedia" },
-    { "number": "100", "suffix": "+", "label": "Klien Industri" },
-    { "number": "5", "suffix": "+", "label": "Tahun Pengalaman" }
+    {
+      "number": "500",
+      "suffix": "+",
+      "label": "Produk Tersedia"
+    },
+    {
+      "number": "100",
+      "suffix": "+",
+      "label": "Klien Industri"
+    },
+    {
+      "number": "5",
+      "suffix": "+",
+      "label": "Tahun Pengalaman"
+    },
+    {
+      "number": "KBLI",
+      "suffix": "+",
+      "label": "70209 78101 46901 46902 46799 46599 46411 46511 46620 46633 46791  46591  46739  46736  46734 "
+    }
   ],
   "aboutTitle": "Mitra Bisnis Terintegrasi untuk Industri Indonesia",
   "aboutText": [
@@ -48,14 +46,28 @@
     "Respons Cepat & Profesional",
     "Jaringan Supplier Terpercaya"
   ],
-  "aboutImage": "img/p0_img1.png",
-  "aboutBadge": "Melayani Seluruh Indonesia",
   "visiText": "Menjadi mitra bisnis nasional yang terpercaya dalam menyediakan solusi terintegrasi di bidang Industrial Supply, Procurement, Konstruksi, dan Manajemen Talenta secara profesional, inovatif, dan berkelanjutan.",
   "misi": [
-    { "num": "01", "title": "Solusi & Layanan Prima", "desc": "Mengutamakan kepuasan pelanggan melalui penyediaan produk dan layanan berkualitas yang tepat waktu, andal, dan kompetitif." },
-    { "num": "02", "title": "Solusi Sumber Daya Manusia", "desc": "Mengembangkan dan menyediakan solusi sumber daya manusia serta talenta yang kompeten, berintegritas, dan siap mendukung pertumbuhan bisnis pelanggan." },
-    { "num": "03", "title": "Kemitraan Strategis", "desc": "Membangun kemitraan strategis dengan pelanggan, pemasok, dan mitra bisnis berdasarkan integritas, profesionalisme, serta kepercayaan." },
-    { "num": "04", "title": "Kapasitas Internal & Keberlanjutan", "desc": "Meningkatkan kapabilitas organisasi melalui inovasi, pengembangan sumber daya manusia, dan penerapan tata kelola yang mendukung pertumbuhan yang berkelanjutan." }
+    {
+      "num": "01",
+      "title": "Solusi & Layanan Prima",
+      "desc": "Mengutamakan kepuasan pelanggan melalui penyediaan produk dan layanan berkualitas yang tepat waktu, andal, dan kompetitif."
+    },
+    {
+      "num": "02",
+      "title": "Solusi Sumber Daya Manusia",
+      "desc": "Mengembangkan dan menyediakan solusi sumber daya manusia serta talenta yang kompeten, berintegritas, dan siap mendukung pertumbuhan bisnis pelanggan."
+    },
+    {
+      "num": "03",
+      "title": "Kemitraan Strategis",
+      "desc": "Membangun kemitraan strategis dengan pelanggan, pemasok, dan mitra bisnis berdasarkan integritas, profesionalisme, serta kepercayaan."
+    },
+    {
+      "num": "04",
+      "title": "Kapasitas Internal & Keberlanjutan",
+      "desc": "Meningkatkan kapabilitas organisasi melalui inovasi, pengembangan sumber daya manusia, dan penerapan tata kelola yang mendukung pertumbuhan yang berkelanjutan."
+    }
   ],
   "services": [
     "General Trading",
@@ -75,25 +87,35 @@
     "Vendor Managed Inventory (VMI)"
   ],
   "advantages": [
-    { "iconName": "ShieldCheck", "iconClass": "icon-navy", "title": "Mitra Bisnis yang Terpercaya", "desc": "Dibangun di atas fondasi kepercayaan dan integritas dalam setiap transaksi pengadaan bersama klien industri." },
-    { "iconName": "Globe", "iconClass": "icon-gold", "title": "Jaringan Pemasok yang Luas", "desc": "Didukung jaringan supplier dan distributor terpercaya untuk memastikan ketersediaan produk sesuai kebutuhan." },
-    { "iconName": "Zap", "iconClass": "icon-slate", "title": "Solusi Pengadaan yang Efisien", "desc": "Proses pengadaan yang cepat, tepat, dan kompetitif — dari permintaan penawaran hingga pengiriman produk." },
-    { "iconName": "Clock", "iconClass": "icon-navy", "title": "Layanan Profesional & Responsif", "desc": "Tim kami siap merespons kebutuhan pengadaan dan memberikan konsultasi produk dengan cepat di setiap hari kerja." },
-    { "iconName": "Award", "iconClass": "icon-gold", "title": "Komitmen Kualitas & Waktu", "desc": "Setiap pesanan diproses dengan standar kualitas tinggi dan komitmen pengiriman tepat waktu sesuai perjanjian." }
-  ],
-  "sectors": [
-    "Manufaktur", "Otomotif", "Semikonduktor", "Elektronik", "Logistik & Pergudangan", 
-    "Konstruksi", "Rumah Sakit", "Perkantoran", "Hotel", "Pendidikan", 
-    "Pertambangan", "Migas", "Energi", "Instansi Pemerintah", "BUMN", "Swasta"
-  ],
-  "officePhone": "+62 21 2936 8919",
-  "salesHotlines": ["+62 812-134-6665", "+62 822-4948-9325"],
-  "businessHours": "Monday – Friday\n08.00 – 17.00 WIB",
-  "headOffice": "Gedung Graha MIRI Lt. 6 Zona A1\nJl. Pemuda No. 9, Rawamangun\nPulo Gadung, Jakarta Timur 13220",
-  "repOffice": "Jl. Kelud Selatan No. 21\nKel. Nusukan, Kec. Banjarsari\nKota Surakarta, Jawa Tengah",
-  "footerDesc": "Mitra strategis untuk kebutuhan K3, PPE, alat teknik industri, dan solusi SDM profesional di seluruh Indonesia.",
-  "footerBadge": "Spesialis Industrial Supply & K3",
-  "footerBrands": [
-    "GOSAVE", "SIMON", "MSA", "HARMIT", "REXCO", "BOSCH", "3M", "DEWALT", "MAKITA", "HOFFMANN"
+    {
+      "iconName": "ShieldCheck",
+      "iconClass": "icon-navy",
+      "title": "Mitra Bisnis yang Terpercaya",
+      "desc": "Dibangun di atas fondasi kepercayaan dan integritas dalam setiap transaksi pengadaan bersama klien industri."
+    },
+    {
+      "iconName": "Globe",
+      "iconClass": "icon-gold",
+      "title": "Jaringan Pemasok yang Luas",
+      "desc": "Didukung jaringan supplier dan distributor terpercaya untuk memastikan ketersediaan produk sesuai kebutuhan."
+    },
+    {
+      "iconName": "Zap",
+      "iconClass": "icon-slate",
+      "title": "Solusi Pengadaan yang Efisien",
+      "desc": "Proses pengadaan yang cepat, tepat, dan kompetitif — dari permintaan penawaran hingga pengiriman produk."
+    },
+    {
+      "iconName": "Clock",
+      "iconClass": "icon-navy",
+      "title": "Layanan Profesional & Responsif",
+      "desc": "Tim kami siap merespons kebutuhan pengadaan dan memberikan konsultasi produk dengan cepat di setiap hari kerja."
+    },
+    {
+      "iconName": "Award",
+      "iconClass": "icon-gold",
+      "title": "Komitmen Kualitas & Waktu",
+      "desc": "Setiap pesanan diproses dengan standar kualitas tinggi dan komitmen pengiriman tepat waktu sesuai perjanjian."
+    }
   ]
 }
