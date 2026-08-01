@@ -75,6 +75,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
               <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Judul Tentang Kami</label>
               <input
                 type="text"
+                placeholder="Contoh: Tentang PT Selaras Mitra Utama"
                 value={settingsForm.aboutTitle || ""}
                 onChange={(e) => setSettingsForm((prev: any) => ({ ...prev, aboutTitle: e.target.value }))}
                 style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none' }}
@@ -84,6 +85,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
               <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Badge / Label Atas</label>
               <input
                 type="text"
+                placeholder="Contoh: SIAPA KAMI"
                 value={settingsForm.aboutBadge || ""}
                 onChange={(e) => setSettingsForm((prev: any) => ({ ...prev, aboutBadge: e.target.value }))}
                 style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none' }}
@@ -109,6 +111,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
             <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Paragraf Deskripsi (Pisahkan dengan Enter)</label>
             <textarea
               rows={4}
+              placeholder="Masukkan paragraf deskripsi perusahaan di sini..."
               value={(settingsForm.aboutText || []).join('\n')}
               onChange={(e) => handleTextArrayChange('aboutText', e.target.value)}
               style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none', resize: 'vertical' }}
@@ -119,6 +122,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
             <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Poin Keunggulan (Pisahkan dengan Enter)</label>
             <textarea
               rows={3}
+              placeholder="Contoh: Kualitas Terjamin&#10;Harga Kompetitif&#10;Pengiriman Cepat"
               value={(settingsForm.aboutKeys || []).join('\n')}
               onChange={(e) => handleTextArrayChange('aboutKeys', e.target.value)}
               style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none', resize: 'vertical' }}
@@ -136,6 +140,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
             <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Teks Visi</label>
             <textarea
               rows={3}
+              placeholder="Masukkan teks visi perusahaan di sini..."
               value={settingsForm.visiText}
               onChange={(e) => setSettingsForm((prev: any) => ({ ...prev, visiText: e.target.value }))}
               style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none', resize: 'vertical' }}
@@ -197,6 +202,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
           <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Daftar Layanan (Pisahkan dengan Enter)</label>
           <textarea
             rows={6}
+            placeholder="Contoh: Penyediaan Material Alat Berat&#10;Distribusi Komponen Hidrolik&#10;Layanan Purna Jual"
             value={(settingsForm.services || []).join('\n')}
             onChange={(e) => handleTextArrayChange('services', e.target.value)}
             style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none', resize: 'vertical' }}
@@ -260,6 +266,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
             <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Poin Kepercayaan (Pisahkan dengan Enter)</label>
             <textarea
               rows={3}
+              placeholder="Contoh: 100% Produk Original&#10;Garansi Resmi&#10;Pengiriman Cepat"
               value={(settingsForm.heroTrust || []).join('\n')}
               onChange={(e) => handleTextArrayChange('heroTrust', e.target.value)}
               style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none', resize: 'vertical' }}
@@ -270,6 +277,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
               <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Nama Brand di Kartu Hero</label>
               <input
                 type="text"
+                placeholder="Contoh: PT. SELARAS"
                 value={settingsForm.heroCardBrand}
                 onChange={(e) => setSettingsForm((prev: any) => ({ ...prev, heroCardBrand: e.target.value }))}
                 style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none' }}
@@ -293,6 +301,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
             <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Teks Kartu Hero</label>
             <textarea
               rows={2}
+              placeholder="Teks deskripsi singkat di kartu hero"
               value={settingsForm.heroCardText}
               onChange={(e) => setSettingsForm((prev: any) => ({ ...prev, heroCardText: e.target.value }))}
               style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none', resize: 'vertical' }}
@@ -302,6 +311,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
             <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Chips Kartu Hero (Pisahkan dengan Enter)</label>
             <textarea
               rows={3}
+              placeholder="Contoh: Industrial Supply&#10;Machinery&#10;Spare Parts"
               value={(settingsForm.heroCardChips || []).join('\n')}
               onChange={(e) => handleTextArrayChange('heroCardChips', e.target.value)}
               style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none', resize: 'vertical' }}
@@ -311,6 +321,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
             <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Teks Footer Kartu Hero</label>
             <input
               type="text"
+              placeholder="Contoh: Hubungi kami untuk penawaran terbaik"
               value={settingsForm.heroCardFooter}
               onChange={(e) => setSettingsForm((prev: any) => ({ ...prev, heroCardFooter: e.target.value }))}
               style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none' }}
@@ -327,6 +338,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
           <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Daftar Sektor (Pisahkan dengan Enter)</label>
           <textarea
             rows={5}
+            placeholder="Contoh: Pertambangan&#10;Manufaktur&#10;Otomotif"
             value={(settingsForm.sectors || []).join('\n')}
             onChange={(e) => handleTextArrayChange('sectors', e.target.value)}
             style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none', resize: 'vertical' }}
@@ -343,6 +355,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
             <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Deskripsi Footer</label>
             <textarea
               rows={2}
+              placeholder="Masukkan deskripsi singkat untuk footer"
               value={settingsForm.footerDesc}
               onChange={(e) => setSettingsForm((prev: any) => ({ ...prev, footerDesc: e.target.value }))}
               style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none', resize: 'vertical' }}
@@ -352,6 +365,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
             <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Teks Badge Footer</label>
             <input
               type="text"
+              placeholder="Contoh: Mitra Terpercaya Sejak 2010"
               value={settingsForm.footerBadge}
               onChange={(e) => setSettingsForm((prev: any) => ({ ...prev, footerBadge: e.target.value }))}
               style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none' }}
@@ -361,6 +375,7 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
             <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Brand & Supplier (Pisahkan dengan Enter)</label>
             <textarea
               rows={3}
+              placeholder="Contoh: Brand A&#10;Brand B&#10;Brand C"
               value={(settingsForm.footerBrands || []).join('\n')}
               onChange={(e) => handleTextArrayChange('footerBrands', e.target.value)}
               style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none', resize: 'vertical' }}
