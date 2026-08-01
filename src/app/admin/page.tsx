@@ -1393,6 +1393,7 @@ export default function AdminDashboardPage() {
                     <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Head Office</label>
                     <textarea
                       rows={3}
+                      placeholder="Masukkan alamat Head Office..."
                       value={settingsForm.headOffice}
                       onChange={(e) => setSettingsForm(prev => ({ ...prev, headOffice: e.target.value }))}
                       style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", outline: "none", resize: "vertical" }}
@@ -1402,6 +1403,7 @@ export default function AdminDashboardPage() {
                     <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Representative Office</label>
                     <textarea
                       rows={3}
+                      placeholder="Masukkan alamat Representative Office (jika ada)..."
                       value={settingsForm.repOffice}
                       onChange={(e) => setSettingsForm(prev => ({ ...prev, repOffice: e.target.value }))}
                       style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", outline: "none", resize: "vertical" }}
@@ -1411,6 +1413,7 @@ export default function AdminDashboardPage() {
                     <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Nomor Telepon Kantor (Office)</label>
                     <input
                       type="text"
+                      placeholder="Contoh: (021) 1234567"
                       value={settingsForm.officePhone}
                       onChange={(e) => setSettingsForm(prev => ({ ...prev, officePhone: e.target.value }))}
                       style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", outline: "none" }}
@@ -1422,6 +1425,7 @@ export default function AdminDashboardPage() {
                   <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Jam Operasional (Business Hours)</label>
                   <textarea
                     rows={2}
+                    placeholder="Contoh: Senin - Jumat (08:00 - 17:00)"
                     value={settingsForm.businessHours}
                     onChange={(e) => setSettingsForm(prev => ({ ...prev, businessHours: e.target.value }))}
                     style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", outline: "none", resize: "vertical" }}
@@ -1432,6 +1436,7 @@ export default function AdminDashboardPage() {
                   <label style={{ fontSize: "10px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Sales Hotlines (Pisahkan dengan Enter)</label>
                   <textarea
                     rows={2}
+                    placeholder="Contoh: 08123456789 (Sales 1)&#10;08987654321 (Sales 2)"
                     value={(settingsForm.salesHotlines || []).join('\n')}
                     onChange={(e) => setSettingsForm(prev => ({ ...prev, salesHotlines: e.target.value.split('\n').filter(Boolean) }))}
                     style={{ width: "100%", boxSizing: "border-box", backgroundColor: "#f8fafc", border: "1px solid #cbd5e1", borderRadius: "12px", padding: "12px 16px", fontSize: "13px", outline: "none", resize: "vertical" }}
