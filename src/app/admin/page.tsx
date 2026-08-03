@@ -103,6 +103,8 @@ export default function AdminDashboardPage() {
     footerDesc: "",
     footerBadge: "",
     footerBrands: [] as string[],
+    announcementBanner: "",
+    subTagline: "",
     businessHours: "",
     officePhone: "",
     primaryColor: "",
@@ -176,6 +178,8 @@ export default function AdminDashboardPage() {
           footerDesc: settings.footerDesc || "",
           footerBadge: settings.footerBadge || "",
           footerBrands: settings.footerBrands ? [...settings.footerBrands] : [],
+          announcementBanner: settings.announcementBanner || "",
+          subTagline: settings.subTagline || "",
           businessHours: settings.businessHours || "",
           officePhone: settings.officePhone || "",
           primaryColor: settings.primaryColor || "#02376C",
@@ -374,7 +378,11 @@ export default function AdminDashboardPage() {
       const data = await res.json();
 
       if (res.ok && data.success) {
-        triggerAlert("success", editingProduct ? "Produk berhasil diperbarui!" : "Produk baru berhasil ditambahkan!");
+        if (data.githubPushed === false) {
+          triggerAlert("error", `Disimpan sementara di memori, tapi GAGAL push ke GitHub: ${data.githubError || "GITHUB_TOKEN belum diset di server."}`);
+        } else {
+          triggerAlert("success", editingProduct ? "Produk berhasil diperbarui & disimpan ke GitHub!" : "Produk baru berhasil ditambahkan & disimpan ke GitHub!");
+        }
         setIsProductModalOpen(false);
         fetchProducts();
       } else {
@@ -399,11 +407,16 @@ export default function AdminDashboardPage() {
       const data = await res.json();
 
       if (res.ok && data.success) {
-        triggerAlert("success", "Produk berhasil dihapus!");
+        if (data.githubPushed === false) {
+          triggerAlert("error", `Dihapus sementara, tapi GAGAL push perubahan ke GitHub: ${data.githubError || "GITHUB_TOKEN belum diset."}`);
+        } else {
+          triggerAlert("success", "Produk berhasil dihapus!");
+        }
         fetchProducts();
       } else {
         triggerAlert("error", data.error || "Gagal menghapus produk.");
       }
+
     } catch (err) {
       triggerAlert("error", "Terjadi kesalahan koneksi.");
     } finally {

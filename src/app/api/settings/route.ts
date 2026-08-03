@@ -64,27 +64,8 @@ export async function PUT(request: Request) {
     const currentSettings = readSettingsFromFile();
 
     const updatedSettings: SelarasSettings = {
-      shopName: body.shopName !== undefined ? body.shopName : currentSettings.shopName,
-      companyName: body.companyName !== undefined ? body.companyName : currentSettings.companyName,
-      address: body.address !== undefined ? body.address : currentSettings.address,
-      googleMapsUrl: body.googleMapsUrl !== undefined ? body.googleMapsUrl : currentSettings.googleMapsUrl,
-      primaryWhatsapp: body.primaryWhatsapp !== undefined ? body.primaryWhatsapp : currentSettings.primaryWhatsapp,
-      phoneNumbers: Array.isArray(body.phoneNumbers) ? body.phoneNumbers : currentSettings.phoneNumbers,
-      email: body.email !== undefined ? body.email : currentSettings.email,
-      heroBadge: body.heroBadge !== undefined ? body.heroBadge : currentSettings.heroBadge,
-      heroTitle: body.heroTitle !== undefined ? body.heroTitle : currentSettings.heroTitle,
-      heroTitleAccent: body.heroTitleAccent !== undefined ? body.heroTitleAccent : currentSettings.heroTitleAccent,
-      heroSubtitle: body.heroSubtitle !== undefined ? body.heroSubtitle : currentSettings.heroSubtitle,
-      
-      // Landing Page
-      stats: Array.isArray(body.stats) ? body.stats : currentSettings.stats,
-      aboutTitle: body.aboutTitle !== undefined ? body.aboutTitle : currentSettings.aboutTitle,
-      aboutText: Array.isArray(body.aboutText) ? body.aboutText : currentSettings.aboutText,
-      aboutKeys: Array.isArray(body.aboutKeys) ? body.aboutKeys : currentSettings.aboutKeys,
-      visiText: body.visiText !== undefined ? body.visiText : currentSettings.visiText,
-      misi: Array.isArray(body.misi) ? body.misi : currentSettings.misi,
-      services: Array.isArray(body.services) ? body.services : currentSettings.services,
-      advantages: Array.isArray(body.advantages) ? body.advantages : currentSettings.advantages,
+      ...currentSettings,
+      ...body
     };
 
     const success = await writeSettingsToFile(updatedSettings);

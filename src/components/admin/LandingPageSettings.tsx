@@ -352,11 +352,31 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Sub-Tagline Logo Footer</label>
+            <input
+              type="text"
+              placeholder="Contoh: Trusted Industrial Partner"
+              value={settingsForm.subTagline || ""}
+              onChange={(e) => setSettingsForm((prev: any) => ({ ...prev, subTagline: e.target.value }))}
+              style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none' }}
+            />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Teks Announcement Banner (Header Atas)</label>
+            <input
+              type="text"
+              placeholder="Contoh: Pengiriman ke seluruh Indonesia · SNI Certified Products · Respons cepat hari kerja"
+              value={settingsForm.announcementBanner || ""}
+              onChange={(e) => setSettingsForm((prev: any) => ({ ...prev, announcementBanner: e.target.value }))}
+              style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none' }}
+            />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Deskripsi Footer</label>
             <textarea
               rows={2}
-              placeholder="Masukkan deskripsi singkat untuk footer"
-              value={settingsForm.footerDesc}
+              placeholder="Contoh: Mitra strategis untuk kebutuhan K3, PPE, alat teknik industri, dan solusi SDM profesional di seluruh Indonesia."
+              value={settingsForm.footerDesc || ""}
               onChange={(e) => setSettingsForm((prev: any) => ({ ...prev, footerDesc: e.target.value }))}
               style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none', resize: 'vertical' }}
             />
@@ -365,17 +385,17 @@ export default function LandingPageSettings({ settingsForm, setSettingsForm }: a
             <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Teks Badge Footer</label>
             <input
               type="text"
-              placeholder="Contoh: Mitra Terpercaya Sejak 2010"
-              value={settingsForm.footerBadge}
+              placeholder="Contoh: Spesialis Industrial Supply & K3"
+              value={settingsForm.footerBadge || ""}
               onChange={(e) => setSettingsForm((prev: any) => ({ ...prev, footerBadge: e.target.value }))}
               style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none' }}
             />
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Brand & Supplier (Pisahkan dengan Enter)</label>
+            <label style={{ fontSize: '10px', fontWeight: 800, color: '#64748b', textTransform: 'uppercase' }}>Daftar Brand & Supplier (Pisahkan dengan Enter)</label>
             <textarea
-              rows={3}
-              placeholder="Contoh: Brand A&#10;Brand B&#10;Brand C"
+              rows={5}
+              placeholder={'GOSAVE\nSIMON\nMSA\nHARMIT\nREXCO\nBOSCH\n3M\nDEWALT\nMAKITA\nHOFFMANN'}
               value={(settingsForm.footerBrands || []).join('\n')}
               onChange={(e) => handleTextArrayChange('footerBrands', e.target.value)}
               style={{ width: '100%', boxSizing: 'border-box', backgroundColor: '#fff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px 16px', fontSize: '13px', outline: 'none', resize: 'vertical' }}

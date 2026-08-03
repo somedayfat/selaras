@@ -23,7 +23,7 @@ export default function Footer() {
               </div>
               <div>
                 <strong style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: "800", fontSize: "15px", textTransform: "uppercase", color: "white", letterSpacing: "-0.3px" }}>{settings.shopName}</strong>
-                <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.35)", letterSpacing: "1.5px", textTransform: "uppercase" }}>Trusted Industrial Partner</div>
+                <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.35)", letterSpacing: "1.5px", textTransform: "uppercase" }}>{settings.subTagline || "Trusted Industrial Partner"}</div>
               </div>
             </div>
             <p>{settings.footerDesc || "Mitra strategis untuk kebutuhan K3, PPE, alat teknik industri, dan solusi SDM profesional di seluruh Indonesia."}</p>

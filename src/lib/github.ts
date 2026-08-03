@@ -1,9 +1,9 @@
-export async function saveToGithub(filePath: string, content: string, commitMessage: string) {
+export async function saveToGithub(filePath: string, content: string, commitMessage: string): Promise<{ success: boolean; error?: string }> {
   const token = process.env.GITHUB_TOKEN;
   
   if (!token) {
     console.warn("GITHUB_TOKEN is missing. Skipping auto-push to GitHub.");
-    return false;
+    return { success: false, error: "GITHUB_TOKEN tidak ditemukan di Environment Variables server." };
   }
 
   const owner = "somedayfat";
@@ -25,8 +25,9 @@ export async function saveToGithub(filePath: string, content: string, commitMess
       const data = await getRes.json();
       sha = data.sha;
     } else if (getRes.status !== 404) {
-      console.error("Failed to fetch file SHA from GitHub:", await getRes.text());
-      return false;
+      const errText = await getRes.text();
+      console.error("Failed to fetch file SHA from GitHub:", errText);
+      return { success: false, error: `Gagal mengambil file SHA dari GitHub (Status: ${getRes.status})` };
     }
 
     // 2. Base64 encode the new content
@@ -51,13 +52,15 @@ export async function saveToGithub(filePath: string, content: string, commitMess
 
     if (putRes.ok) {
       console.log(`Successfully pushed ${filePath} to GitHub.`);
-      return true;
+      return { success: true };
     } else {
-      console.error("Failed to push to GitHub:", await putRes.text());
-      return false;
+      const errText = await putRes.text();
+      console.error("Failed to push to GitHub:", errText);
+      return { success: false, error: `Gagal push ke GitHub API (Status: ${putRes.status}): ${errText}` };
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error during GitHub auto-push:", error);
-    return false;
+    return { success: false, error: error.message || "Kesalahan jaringan saat push ke GitHub" };
   }
 }
+

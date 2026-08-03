@@ -23,23 +23,31 @@ function readProductsFromFile(): Product[] {
   }
 }
 
-async function writeProductsToFile(products: Product[]): Promise<boolean> {
+async function writeProductsToFile(products: Product[]): Promise<{ success: boolean; githubPushed: boolean; githubError?: string }> {
   productsCache = products;
   const content = JSON.stringify(products, null, 2);
   
+  let githubPushed = false;
+  let githubError: string | undefined;
+
   try {
-    await saveToGithub("src/data/products.json", content, "cms: update products catalog");
-  } catch (err) {
+    const ghRes = await saveToGithub("src/data/products.json", content, "cms: update products catalog");
+    githubPushed = ghRes.success;
+    if (!ghRes.success) {
+      githubError = ghRes.error;
+    }
+  } catch (err: any) {
     console.error("GitHub push failed:", err);
+    githubError = err.message || "Gagal push ke GitHub";
   }
 
   try {
     fs.writeFileSync(dataFilePath, content, "utf8");
-    return true;
   } catch (error) {
     console.error("Error writing products file:", error);
-    return true; // Fallback to cache in read-only environment
   }
+
+  return { success: true, githubPushed, githubError };
 }
 
 async function isAuthenticated() {
@@ -82,10 +90,15 @@ export async function POST(request: Request) {
     };
 
     products.push(newProduct);
-    const success = await writeProductsToFile(products);
+    const saveResult = await writeProductsToFile(products);
 
-    if (success) {
-      return NextResponse.json({ success: true, product: newProduct });
+    if (saveResult.success) {
+      return NextResponse.json({
+        success: true,
+        product: newProduct,
+        githubPushed: saveResult.githubPushed,
+        githubError: saveResult.githubError
+      });
     } else {
       return NextResponse.json({ error: "Failed to write to file-system" }, { status: 500 });
     }
@@ -128,10 +141,15 @@ export async function PUT(request: Request) {
     };
 
     products[index] = updatedProduct;
-    const success = await writeProductsToFile(products);
+    const saveResult = await writeProductsToFile(products);
 
-    if (success) {
-      return NextResponse.json({ success: true, product: updatedProduct });
+    if (saveResult.success) {
+      return NextResponse.json({
+        success: true,
+        product: updatedProduct,
+        githubPushed: saveResult.githubPushed,
+        githubError: saveResult.githubError
+      });
     } else {
       return NextResponse.json({ error: "Failed to write to file-system" }, { status: 500 });
     }
@@ -160,10 +178,14 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
 
-    const success = await writeProductsToFile(filteredProducts);
+    const saveResult = await writeProductsToFile(filteredProducts);
 
-    if (success) {
-      return NextResponse.json({ success: true });
+    if (saveResult.success) {
+      return NextResponse.json({
+        success: true,
+        githubPushed: saveResult.githubPushed,
+        githubError: saveResult.githubError
+      });
     } else {
       return NextResponse.json({ error: "Failed to write to file-system" }, { status: 500 });
     }

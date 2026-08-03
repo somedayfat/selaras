@@ -94,7 +94,7 @@ export default function Header() {
 
       {/* Announcement Banner */}
       <div className="announcement-banner">
-        Pengiriman ke seluruh Indonesia &nbsp;·&nbsp; <span>SNI Certified Products</span> &nbsp;·&nbsp; Respons cepat hari kerja
+        {settings.announcementBanner || "Pengiriman ke seluruh Indonesia · SNI Certified Products · Respons cepat hari kerja"}
       </div>
 
       {/* Main Sticky Header */}

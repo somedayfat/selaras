@@ -43,6 +43,8 @@ export interface SelarasSettings {
   footerDesc?: string;
   footerBadge?: string;
   footerBrands?: string[];
+  announcementBanner?: string;
+  subTagline?: string;
 }
 
 export const selarasSettings: SelarasSettings = settingsData as SelarasSettings;
