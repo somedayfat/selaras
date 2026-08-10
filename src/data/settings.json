@@ -125,6 +125,9 @@
   "subTagline": "Trusted Industrial Partner",
   "announcementBanner": "Pengiriman ke seluruh Indonesia · SNI Certified Products · Respons cepat hari kerja",
   "footerBrands": [
+    "KINGS",
+    "JOGGER",
+    "KRISBOW",
     "GOSAVE",
     "SIMON",
     "MSA",
@@ -135,5 +138,19 @@
     "DEWALT",
     "MAKITA",
     "HOFFMANN"
-  ]
+  ],
+  "heroTrust": [],
+  "heroCardBrand": "",
+  "heroCardImage": "",
+  "heroCardText": "",
+  "heroCardChips": [],
+  "heroCardFooter": "",
+  "aboutImage": "",
+  "aboutBadge": "",
+  "sectors": [],
+  "salesHotlines": [],
+  "headOffice": "",
+  "repOffice": "",
+  "primaryColor": "#02376C",
+  "accentColor": "#D4870A"
 }
