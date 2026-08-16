@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="footer-brand">
             <div className="footer-logo" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <div style={{ width: "36px", height: "36px", background: "rgba(212,135,10,0.2)", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Montserrat',sans-serif", fontWeight: "900", fontSize: "13px", color: "#FCD34D", letterSpacing: "-1px" }}>
-                SM
+                SU
               </div>
               <div>
                 <strong style={{ fontFamily: "'Montserrat',sans-serif", fontWeight: "800", fontSize: "15px", textTransform: "uppercase", color: "white", letterSpacing: "-0.3px" }}>{settings.shopName}</strong>
