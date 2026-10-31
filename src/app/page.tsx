@@ -384,7 +384,7 @@ export default function Home() {
                   <div className="contact-info-value" style={{ whiteSpace: "pre-line" }}>{settings.businessHours}</div>
                 </div>
               </div>
-              {/* Head Office */}
+              {/* Head Office - Jakarta */}
               <div className="contact-info-card">
                 <div className="contact-info-icon"><Building size={18} strokeWidth={1.8} /></div>
                 <div>
@@ -392,6 +392,18 @@ export default function Home() {
                   <div className="contact-info-value" style={{ whiteSpace: "pre-line" }}>
                     <a href={settings.googleMapsUrl !== "#" ? settings.googleMapsUrl : undefined} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", cursor: "pointer" }}>
                       {settings.headOffice}
+                    </a>
+                  </div>
+                </div>
+              </div>
+                            {/* Head Office - Cibitung Bekasi */}
+              <div className="contact-info-card">
+                <div className="contact-info-icon"><Building size={18} strokeWidth={1.8} /></div>
+                <div>
+                  <div className="contact-info-label">Head Office – Cibitung Bekasi</div>
+                  <div className="contact-info-value" style={{ whiteSpace: "pre-line" }}>
+                    <a href="https://www.google.com/maps/place/6%C2%B015'11.8%22S+107%C2%B006'07.5%22E/@-6.253269,107.0995082,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-6.253269!4d107.1020831?hl=en&entry=ttu&g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}>
+                      {settings.repOffice}
                     </a>
                   </div>
                 </div>
@@ -455,23 +467,39 @@ export default function Home() {
           </div>
 
           {/* Google Maps Embed */}
-          {settings.googleMapsUrl && settings.googleMapsUrl !== "#" && (
-            <div className="maps-embed fade-up delay-2" style={{ marginTop: '40px', width: '100%', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-              {settings.googleMapsUrl.includes('<iframe') ? (
-                <div dangerouslySetInnerHTML={{ __html: settings.googleMapsUrl }} style={{ width: '100%', height: '400px', display: 'block' }} />
-              ) : (
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3888362635!2d106.878012376288!3d-6.19256079379435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4ecf7bcb995%3A0xb04ae6fd1223811a!2sGraha%20MIR!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
-                  width="100%" 
-                  height="400" 
-                  style={{ border: 0 }} 
-                  allowFullScreen={true} 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-              )}
+          <div className="maps-embed fade-up delay-2" style={{ marginTop: '40px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+            <div style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.06)', background: '#fff', border: '1px solid #e2e8f0' }}>
+              <div style={{ padding: '12px 18px', background: '#f8fafc', borderBottom: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Building size={16} color="#02376C" />
+                <span style={{ fontSize: '13px', fontWeight: 700, color: '#0f172a' }}>Peta Lokasi: Head Office – Jakarta (Graha MIR)</span>
+              </div>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3888362635!2d106.878012376288!3d-6.19256079379435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4ecf7bcb995%3A0xb04ae6fd1223811a!2sGraha%20MIR!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+                width="100%" 
+                height="340" 
+                style={{ border: 0, display: 'block' }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
-          )}
+
+            <div style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.06)', background: '#fff', border: '1px solid #e2e8f0' }}>
+              <div style={{ padding: '12px 18px', background: '#f8fafc', borderBottom: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <MapPin size={16} color="#02376C" />
+                <span style={{ fontSize: '13px', fontWeight: 700, color: '#0f172a' }}>Peta Lokasi: Head Office &amp; Rep. Office – Cibitung Bekasi</span>
+              </div>
+              <iframe 
+                src="https://maps.google.com/maps?q=-6.253269,107.1020831&hl=id&z=16&output=embed"
+                width="100%" 
+                height="340" 
+                style={{ border: 0, display: 'block' }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
 
         </div>
       </section>

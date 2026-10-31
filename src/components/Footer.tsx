@@ -67,6 +67,7 @@ export default function Footer() {
               })}
               <a href={`mailto:${settings.email}`}>{settings.email}</a>
               <a href={settings.googleMapsUrl !== "#" ? settings.googleMapsUrl : undefined}>{settings.address}</a>
+              <a href="https://www.google.com/maps/place/6%C2%B015'11.8%22S+107%C2%B006'07.5%22E/@-6.253269,107.0995082,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-6.253269!4d107.1020831?hl=en&entry=ttu&g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Griya Wanajaya Asri Blok G No. 2 RT 01 / RW 021, Cibitung Kabupaten Bekasi, Jawa Barat 17520 Indonesia</a>
             </div>
           </div>
         </div>
